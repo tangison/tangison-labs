@@ -33,6 +33,9 @@
   --color-rust-signal: #C56A4A;
   --color-rust-light: #D4896F;
   --color-rust-muted: rgba(197, 106, 74, 0.15);
+  --color-signal-teal: #2CB5B4;
+  --color-signal-teal-light: #3DCCC8;
+  --color-signal-teal-muted: rgba(44, 181, 180, 0.12);
 
   /* Functional */
   --color-success: #3D7A5F;
