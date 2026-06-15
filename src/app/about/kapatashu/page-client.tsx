@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
@@ -29,8 +30,8 @@ const staggerItem = {
    ────────────────────────────────────────────── */
 
 const professionalFocus = [
-  "Director at Tangison Studio — creative and technology delivery",
-  "Owner of SMEfrog Academy — practical business education for African SMEs",
+  "Director at Tangison Studio - creative and technology delivery",
+  "Owner of SMEfrog Academy - practical business education for African SMEs",
   "Focus on offline-first AI systems designed for connectivity constraints",
   "Applied AI strategy for organizations beginning their AI adoption journey",
 ];
@@ -42,7 +43,7 @@ const professionalFocus = [
 export function KapatashuPage() {
   return (
     <SiteShell>
-      {/* ── Section 1: Header (LIGHT) ── */}
+      {/* ── Section 1: Header with Profile Image (LIGHT) ── */}
       <section
         className="pt-36 md:pt-44 pb-20 md:pb-28 px-6 md:px-12 lg:px-20"
         aria-label="Profile header"
@@ -57,21 +58,67 @@ export function KapatashuPage() {
               <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
               About
             </Link>
+          </motion.div>
 
-            {/* Category label */}
-            <span className="font-jetbrains text-[10px] uppercase tracking-[0.3em] text-rust-signal block mb-6">
-              Principal Consultant
-            </span>
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+            {/* Text column */}
+            <motion.div {...fadeUp} className="flex-1">
+              {/* Category label */}
+              <span className="font-jetbrains text-[10px] uppercase tracking-[0.3em] text-rust-signal block mb-6">
+                Principal Consultant
+              </span>
 
-            {/* H1 */}
-            <h1 className="font-cabinet text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-4">
-              Tate-Ati Tangi Iigonda
-            </h1>
+              {/* H1 */}
+              <h1 className="font-cabinet text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-4">
+                Tate-Ati Tangi Iigonda
+              </h1>
 
-            {/* Subtitle */}
-            <p className="font-satoshi text-lg md:text-xl text-ink-muted leading-relaxed">
-              Principal Consultant &amp; AI Strategist
-            </p>
+              {/* Subtitle */}
+              <p className="font-satoshi text-lg md:text-xl text-ink-muted leading-relaxed">
+                Principal Consultant &amp; AI Strategist
+              </p>
+            </motion.div>
+
+            {/* Profile image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full md:w-64 lg:w-72 shrink-0"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/tangi-profile.png"
+                  alt="Tate-Ati Tangi Iigonda - Principal Consultant and AI Strategist at TANGISON"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 288px"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Full-width Landscape Image ── */}
+      <section className="px-6 md:px-12 lg:px-20 pb-20 md:pb-28" aria-label="Landscape photograph">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[21/9] overflow-hidden"
+          >
+            <Image
+              src="/images/kapatashu-landscape.png"
+              alt="Namibian landscape - the environment where TANGISON builds and deploys AI systems"
+              fill
+              className="object-cover cinematic-image"
+              sizes="100vw"
+            />
           </motion.div>
         </div>
       </section>
@@ -98,7 +145,7 @@ export function KapatashuPage() {
               AI systems built for European or American bandwidth and hardware
               assumptions do not function here. The gap between what AI can do
               and what local businesses can actually use is not a technology
-              problem — it is a literacy problem.
+              problem - it is a literacy problem.
             </p>
             <p className="font-satoshi text-ink text-base md:text-lg leading-relaxed">
               Localized AI infrastructure must account for intermittent
@@ -114,7 +161,7 @@ export function KapatashuPage() {
             <p className="font-satoshi text-ink text-base md:text-lg leading-relaxed">
               Economic resilience in Namibia depends on whether MSMEs can meet
               compliance standards and participate in digital markets. This is
-              not aspirational — it is operational. The organizations that
+              not aspirational - it is operational. The organizations that
               develop digital competence now will be the ones that survive
               regulatory tightening and market consolidation. The mandate is
               clear: build local capacity, deliver practical education, and
@@ -181,7 +228,7 @@ export function KapatashuPage() {
                 aria-hidden="true"
               />
               <span className="font-satoshi text-ink text-base md:text-lg leading-relaxed">
-                High School graduation — November 2021
+                High School graduation - November 2021
               </span>
             </div>
             <div className="flex items-start gap-4">

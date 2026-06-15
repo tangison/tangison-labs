@@ -12,7 +12,7 @@ import { ArrowUpRight } from "lucide-react";
 /**
  * Determines whether the nav should use light-on-dark or dark-on-light
  * styling when the page is at the top (not scrolled).
- * Only pages with a dark hero section need "dark" — everything else
+ * Only pages with a dark hero section need "dark" - everything else
  * defaults to "light" so the logo and links are visible against the
  * white/warm-white page background.
  */
@@ -240,7 +240,7 @@ function MobileAccordionItem({
           }`}
           onClick={() => setIsExpanded(!isExpanded)}
           aria-expanded={isExpanded}
-          aria-label={`${item.label} — ${isExpanded ? "collapse" : "expand"} submenu`}
+          aria-label={`${item.label} - ${isExpanded ? "collapse" : "expand"} submenu`}
         >
           {item.label}
           <motion.span
@@ -369,7 +369,7 @@ export function Navigation() {
         role="navigation"
         aria-label="Main navigation"
       >
-        {/* TANGISON Logo — dedicated dark/white variants, cross-fade on theme change */}
+        {/* TANGISON Logo - dedicated dark/white variants, cross-fade on theme change */}
         <Link
           href="/"
           className="relative h-10 md:h-14 flex items-center transition-opacity duration-300 hover:opacity-80"
@@ -428,7 +428,7 @@ export function Navigation() {
               </Link>
             )
           )}
-          {/* Studio cross-link — muted, quiet */}
+          {/* Studio cross-link - muted, quiet */}
           <a
             href="https://studio.tangison.com"
             target="_blank"
@@ -492,7 +492,7 @@ export function Navigation() {
                     />
                   </motion.div>
                 ))}
-                {/* Studio cross-link — muted, bottom of mobile menu */}
+                {/* Studio cross-link - muted, bottom of mobile menu */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

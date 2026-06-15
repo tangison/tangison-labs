@@ -97,7 +97,7 @@ Words to avoid: Intelligence (as discipline), sovereign/sovereignty, intercept, 
 ## Motion Principles
 - Entrance: Subtle vertical translation (y: 24 → 0) with fade
 - Duration: 0.8s standard, 1s for hero elements
-- Easing: cubic-bezier(0.16, 1, 0.3, 1) — fast start, gentle settle
+- Easing: cubic-bezier(0.16, 1, 0.3, 1) - fast start, gentle settle
 - Stagger: 0.08s between grid items, 0.1s between process steps
 - Reduced motion: All animations respect prefers-reduced-motion
 - Personality: Deliberate, not flashy. Architectural, not theatrical.
@@ -264,7 +264,7 @@ export default function BrandPage() {
               Logo System
             </p>
 
-            {/* Logo display — large, centered */}
+            {/* Logo display - large, centered */}
             <div className="flex justify-center mb-16">
               <div className="border border-black/[0.06] bg-warm-gray p-12 md:p-20">
                 <Image
@@ -401,7 +401,7 @@ export default function BrandPage() {
                   color: "Atlantic Black",
                   hex: "#111315",
                   meaning: "Authority, depth, deliberate seriousness",
-                  context: "Dark sections, hero backgrounds, primary text. The foundation of the editorial aesthetic. Not pure black — softer and more architectural.",
+                  context: "Dark sections, hero backgrounds, primary text. The foundation of the editorial aesthetic. Not pure black - softer and more architectural.",
                   css: "bg-atlantic-black",
                 },
                 {
@@ -655,7 +655,7 @@ export default function BrandPage() {
                 {
                   label: "Easing",
                   spec: "cubic-bezier(0.16, 1, 0.3, 1)",
-                  desc: "The custom easing curve creates a fast start with a gentle settle. This gives motion a confident, decisive quality — the element arrives quickly and then comes to rest precisely. No bounce, no overshoot.",
+                  desc: "The custom easing curve creates a fast start with a gentle settle. This gives motion a confident, decisive quality - the element arrives quickly and then comes to rest precisely. No bounce, no overshoot.",
                 },
                 {
                   label: "Stagger",
@@ -704,7 +704,7 @@ export default function BrandPage() {
                   },
                   {
                     title: "Confident without arrogance",
-                    desc: "\"We build AI that works\" not \"We are the future.\" Claims need proof. Superlatives without evidence erode trust. We earn confidence through specificity — describing what we do in enough detail that the reader can verify it.",
+                    desc: "\"We build AI that works\" not \"We are the future.\" Claims need proof. Superlatives without evidence erode trust. We earn confidence through specificity - describing what we do in enough detail that the reader can verify it.",
                   },
                   {
                     title: "Warm without being casual",
@@ -787,7 +787,7 @@ export default function BrandPage() {
                 {
                   agency: "Wolff Olins",
                   test: "Does this brand behave differently, or just look different?",
-                  principle: "Brand is behavior. The Tangison experience — how the site loads, how content is structured, how CTAs are written — must embody the brand values, not just display them.",
+                  principle: "Brand is behavior. The Tangison experience - how the site loads, how content is structured, how CTAs are written - must embody the brand values, not just display them.",
                 },
                 {
                   agency: "Landor",
@@ -802,7 +802,7 @@ export default function BrandPage() {
                 {
                   agency: "Siegel+Gale",
                   test: "Have we removed everything that does not add meaning?",
-                  principle: "Simplicity is the ultimate sophistication. The site is deliberately restrained — no decorative elements, no filler content, no ambiguous language. Every element earns its place.",
+                  principle: "Simplicity is the ultimate sophistication. The site is deliberately restrained - no decorative elements, no filler content, no ambiguous language. Every element earns its place.",
                 },
                 {
                   agency: "DesignStudio",

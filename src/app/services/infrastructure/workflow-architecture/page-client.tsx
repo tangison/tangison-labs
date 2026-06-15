@@ -23,13 +23,13 @@ const capabilities = [
   {
     title: "Event-Driven Architecture",
     description:
-      "Workflows that react to events instead of waiting on schedules. A document arrives, a threshold is crossed, an approval comes through — the next step starts immediately. No gaps, no delays.",
+      "Workflows that react to events instead of waiting on schedules. A document arrives, a threshold is crossed, an approval comes through - the next step starts immediately. No gaps, no delays.",
     icon: Radio,
   },
   {
     title: "Resilient Pipelines",
     description:
-      "Pipelines that recover from failures without losing data. Checkpointing, idempotent operations, and dead-letter queues. If a step fails, you retry from that step — not from the beginning.",
+      "Pipelines that recover from failures without losing data. Checkpointing, idempotent operations, and dead-letter queues. If a step fails, you retry from that step - not from the beginning.",
     icon: Shield,
   },
 ];
@@ -74,7 +74,7 @@ export function WorkflowArchitecturePage() {
       <PageHeader
         label="WORKFLOW ARCHITECTURE"
         title="Design Workflows That Adapt"
-        subtitle="AI doesn't operate in isolation. It fits into processes that involve people, other systems, and changing requirements. We design workflow architectures that keep everything connected — and keep working when conditions change."
+        subtitle="AI doesn't operate in isolation. It fits into processes that involve people, other systems, and changing requirements. We design workflow architectures that keep everything connected - and keep working when conditions change."
         backHref="/services/infrastructure"
         backLabel="AI Infrastructure"
       />
@@ -93,13 +93,13 @@ export function WorkflowArchitecturePage() {
                   A workflow is the connective tissue between AI and the rest of your organisation. It determines how work enters the system, how it moves through processing stages, where humans need to intervene, and how the final output reaches its destination. Get the workflow wrong, and even the best AI model becomes a bottleneck instead of an accelerator.
                 </p>
                 <p>
-                  Most organisations don't design their workflows — they inherit them. Processes built for human execution get automated piece by piece, with no overall architecture holding them together. The result is a patchwork of scripts, manual steps, and brittle integrations that nobody fully understands and nobody wants to touch.
+                  Most organisations don't design their workflows - they inherit them. Processes built for human execution get automated piece by piece, with no overall architecture holding them together. The result is a patchwork of scripts, manual steps, and brittle integrations that nobody fully understands and nobody wants to touch.
                 </p>
                 <p>
-                  Workflow architecture fixes this by treating the entire process as a first-class design problem. Every state is explicit. Every transition is defined. Every failure mode has a handler. When a new requirement arrives — and it will — you add a new state and a new transition instead of rewriting the whole pipeline.
+                  Workflow architecture fixes this by treating the entire process as a first-class design problem. Every state is explicit. Every transition is defined. Every failure mode has a handler. When a new requirement arrives - and it will - you add a new state and a new transition instead of rewriting the whole pipeline.
                 </p>
                 <p>
-                  Human-in-the-loop patterns are critical here. Not every decision should be automated. Loan approvals above a certain threshold need human review. Medical diagnoses need clinician confirmation. Legal document analysis needs a lawyer's sign-off. The question isn't whether to involve humans — it's where, and how to make that involvement efficient rather than burdensome.
+                  Human-in-the-loop patterns are critical here. Not every decision should be automated. Loan approvals above a certain threshold need human review. Medical diagnoses need clinician confirmation. Legal document analysis needs a lawyer's sign-off. The question isn't whether to involve humans - it's where, and how to make that involvement efficient rather than burdensome.
                 </p>
                 <p>
                   We design workflow architectures that answer these questions for your specific context. State machines that track exactly where every piece of work stands. Escalation rules that bring humans in at the right moments. Event-driven triggers that keep work moving instead of waiting on polls. And resilient pipelines that recover from failures without losing progress or data.
@@ -191,7 +191,7 @@ export function WorkflowArchitecturePage() {
             Need workflows that don't break under pressure?
           </h2>
           <p className="font-satoshi text-fog-gray text-lg mb-10 max-w-lg mx-auto">
-            Tell us about your processes. We'll design architecture that connects AI, people, and systems — and adapts when requirements change.
+            Tell us about your processes. We'll design architecture that connects AI, people, and systems - and adapts when requirements change.
           </p>
           <Link
             href="/contact"

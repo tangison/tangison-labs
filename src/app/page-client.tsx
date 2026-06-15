@@ -175,7 +175,7 @@ function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  // GSAP word reveal — no rotation, no perspective
+  // GSAP word reveal - no rotation, no perspective
   useEffect(() => {
     if (!headingRef.current) return;
     const words = headingRef.current.querySelectorAll(".hero-word");
@@ -223,7 +223,7 @@ function HeroSection() {
         }
       `}</style>
 
-      {/* Spacer — pushes content below the fixed navbar */}
+      {/* Spacer - pushes content below the fixed navbar */}
       <div style={{ height: navHeight }} aria-hidden="true" className="shrink-0" />
 
       {/* Slider Background Images */}
@@ -279,7 +279,7 @@ function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Headline — fluid sizing, no perspective, no rotation */}
+        {/* Headline - fluid sizing, no perspective, no rotation */}
         <h1
           ref={headingRef}
           className="font-cabinet text-[clamp(2.5rem,6vw,6rem)] font-black tracking-[-0.04em] leading-[0.9] text-skeleton-bone mb-8"
@@ -295,7 +295,7 @@ function HeroSection() {
           ))}
         </h1>
 
-        {/* CTA buttons — no body paragraph */}
+        {/* CTA buttons - no body paragraph */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -318,7 +318,7 @@ function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Slider indicators — bottom-left, clean horizontal lines */}
+      {/* Slider indicators - bottom-left, clean horizontal lines */}
       <motion.div
         style={{ opacity: heroOpacity }}
         className="absolute bottom-8 left-6 md:left-12 lg:left-20 flex items-end gap-1.5 z-20"
@@ -704,7 +704,7 @@ function WhyTangisonSection() {
 }
 
 /* ──────────────────────────────────────────────
-   VISUAL BREAK — FULL-WIDTH IMAGE
+   VISUAL BREAK - FULL-WIDTH IMAGE
    ────────────────────────────────────────────── */
 
 function VisualBreak() {

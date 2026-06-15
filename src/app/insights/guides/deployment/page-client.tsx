@@ -41,7 +41,7 @@ export function DeploymentGuidePage() {
                 Deployment considerations include selecting appropriate GPU or CPU-based hardware for your workload, choosing between containerized and bare-metal deployments, configuring network security for AI inference endpoints, implementing monitoring and alerting for production models, and planning for capacity scaling as usage grows.
               </p>
               <p>
-                Full guide coming soon. This resource will cover the complete deployment lifecycle — from initial requirements gathering through production operation — with specific guidance for organizations operating in environments with limited connectivity, variable power, and constrained budgets.
+                Full guide coming soon. This resource will cover the complete deployment lifecycle - from initial requirements gathering through production operation - with specific guidance for organizations operating in environments with limited connectivity, variable power, and constrained budgets.
               </p>
             </div>
           </motion.div>

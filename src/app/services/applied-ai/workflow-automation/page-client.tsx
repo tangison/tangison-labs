@@ -106,15 +106,15 @@ export function WorkflowAutomationPage() {
                 An insurance claim after a flood follows a different path than
                 one after a burglary. A procurement request above a certain
                 threshold needs different approvals than one below it. These
-                variations are not edge cases — they are the reality of
+                variations are not edge cases - they are the reality of
                 operational work.
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-6">
                 Traditional automation handles the happy path. It processes
                 standard forms, routes routine requests, and moves data between
                 systems when everything aligns. But the moment something does
-                not fit the template — a missing field, an unusual combination,
-                a rule that does not apply — the workflow breaks. It either
+                not fit the template - a missing field, an unusual combination,
+                a rule that does not apply - the workflow breaks. It either
                 stops entirely, requiring manual intervention, or processes
                 incorrectly, creating problems downstream that someone has to
                 fix later. The automation that was supposed to save time ends up
@@ -129,13 +129,13 @@ export function WorkflowAutomationPage() {
                 standard parameters, the system routes it intelligently rather
                 than rejecting it. When a decision requires human judgement, the
                 system presents the right information to the right person with
-                a recommended action — not a blank form.
+                a recommended action - not a blank form.
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-8">
                 This is not about replacing people. It is about removing the
                 work that consumes their time without requiring their judgement.
                 Your team handles the decisions that matter. The system handles
-                everything else — and knows the difference.
+                everything else - and knows the difference.
               </p>
               <ul className="space-y-3">
                 <li className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed flex items-start gap-3">
@@ -257,7 +257,7 @@ export function WorkflowAutomationPage() {
           </h2>
           <p className="font-satoshi text-fog-gray text-lg mb-10 max-w-lg mx-auto">
             Show us the workflows that consume your team's time. We will tell
-            you which ones can be automated — and how much capacity you will
+            you which ones can be automated - and how much capacity you will
             gain.
           </p>
           <Link

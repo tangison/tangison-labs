@@ -300,7 +300,7 @@ export function TangisonAIWidget() {
   const [notification, setNotification] = useState(false);
   const notificationDismissedRef = useRef(false);
 
-  // Voice state — persist voiceMode in sessionStorage
+  // Voice state - persist voiceMode in sessionStorage
   const [voiceState, setVoiceState] = useState<VoiceState>("idle");
   const [voiceMode, setVoiceMode] = useState(() => {
     if (typeof window === "undefined") return false;

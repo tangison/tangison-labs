@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 /* ──────────────────────────────────────────────
-   RATE LIMITING — in-memory, per IP
+   RATE LIMITING - in-memory, per IP
    Max 5 submissions per IP per hour
    ────────────────────────────────────────────── */
 

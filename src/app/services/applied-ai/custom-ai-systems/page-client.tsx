@@ -101,7 +101,7 @@ export function CustomAiSystemsPage() {
             <motion.div {...fadeInUp}>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-6">
                 Most AI products on the market solve general problems. They work
-                well if your business looks like every other business — same data
+                well if your business looks like every other business - same data
                 structures, same regulatory requirements, same customer
                 expectations. But that is rarely the case. A bank in Lagos does
                 not face the same fraud patterns as a bank in London. A mining
@@ -256,7 +256,7 @@ export function CustomAiSystemsPage() {
           </h2>
           <p className="font-satoshi text-fog-gray text-lg mb-10 max-w-lg mx-auto">
             Tell us about the problem you need solved. We will tell you whether
-            custom AI is the right answer — and what it would take to build it.
+            custom AI is the right answer - and what it would take to build it.
           </p>
           <Link
             href="/contact"

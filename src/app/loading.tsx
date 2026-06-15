@@ -25,7 +25,7 @@ export default function Loading() {
           />
         </div>
 
-        {/* Loading artifact — signal line with traveling pulse */}
+        {/* Loading artifact - signal line with traveling pulse */}
         <div className="w-32 h-[1px] bg-ink/10 relative overflow-hidden">
           <div
             className="absolute inset-y-0 w-8 bg-gradient-to-r from-transparent via-rust-signal/80 to-transparent"

@@ -30,7 +30,7 @@ const faqItems = [
   {
     question: "How long does implementation take?",
     answer:
-      "Implementation timelines depend on the complexity of the problem and the readiness of your existing infrastructure. A focused first project — solving a specific, well-defined problem — can be delivered in 4 to 8 weeks. More complex deployments that involve infrastructure setup, data preparation, and organizational change management can take 3 to 6 months. We provide honest timelines based on your actual constraints, not industry averages.",
+      "Implementation timelines depend on the complexity of the problem and the readiness of your existing infrastructure. A focused first project - solving a specific, well-defined problem - can be delivered in 4 to 8 weeks. More complex deployments that involve infrastructure setup, data preparation, and organizational change management can take 3 to 6 months. We provide honest timelines based on your actual constraints, not industry averages.",
   },
   {
     question: "What is offline-first AI?",
@@ -40,7 +40,7 @@ const faqItems = [
   {
     question: "Do you work with organizations outside Namibia?",
     answer:
-      "Yes. While we are based in Namibia and have deep expertise in the Southern African market, we work with organizations across the continent and beyond. The challenges we specialize in — unreliable connectivity, data sovereignty requirements, constrained infrastructure — are common across many African and developing markets. We deliver remotely and can deploy on-site when needed.",
+      "Yes. While we are based in Namibia and have deep expertise in the Southern African market, we work with organizations across the continent and beyond. The challenges we specialize in - unreliable connectivity, data sovereignty requirements, constrained infrastructure - are common across many African and developing markets. We deliver remotely and can deploy on-site when needed.",
   },
   {
     question: "What does an AI project cost?",

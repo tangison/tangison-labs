@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/tangison/json-ld";
 import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Feorm — Agrotourism & Equipment Rental",
+  title: "Feorm - Agrotourism & Equipment Rental",
   description:
     "Namibian agrotourism and equipment rental marketplace by TANGISON. Book farm stays, rent machinery, and connect with Namibian agriculture. Built with Tuppaman Investment.",
   alternates: {

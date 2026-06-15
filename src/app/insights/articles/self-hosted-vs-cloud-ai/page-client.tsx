@@ -20,7 +20,7 @@ const sections = [
   },
   {
     heading: "When Self-Hosted Makes Sense",
-    body: "Self-hosted AI becomes the better option when three conditions align: your data is sensitive or regulated, your connectivity is unreliable, or your usage is high enough that cloud costs become unpredictable.\n\nFor organizations handling personal data, financial records, or government information, keeping AI processing on your own infrastructure simplifies compliance with Namibia's data protection framework and similar regulations across the continent. You know exactly where your data is processed and who has access to it.\n\nFor organizations operating in areas with intermittent connectivity, self-hosted systems continue to work when the internet does not. An AI system that goes offline every time the connection drops is not a reliable business tool — it is a liability.\n\nFor organizations processing large volumes of data, the per-request pricing of cloud AI can escalate quickly. A self-hosted system has higher upfront costs but more predictable long-term costs, especially at scale.",
+    body: "Self-hosted AI becomes the better option when three conditions align: your data is sensitive or regulated, your connectivity is unreliable, or your usage is high enough that cloud costs become unpredictable.\n\nFor organizations handling personal data, financial records, or government information, keeping AI processing on your own infrastructure simplifies compliance with Namibia's data protection framework and similar regulations across the continent. You know exactly where your data is processed and who has access to it.\n\nFor organizations operating in areas with intermittent connectivity, self-hosted systems continue to work when the internet does not. An AI system that goes offline every time the connection drops is not a reliable business tool - it is a liability.\n\nFor organizations processing large volumes of data, the per-request pricing of cloud AI can escalate quickly. A self-hosted system has higher upfront costs but more predictable long-term costs, especially at scale.",
   },
   {
     heading: "When Cloud AI Is the Right Choice",
@@ -86,7 +86,7 @@ export function SelfHostedVsCloudAiPage() {
           <motion.div {...fadeUp}>
             {/* Lede */}
             <p className="font-satoshi text-lg md:text-xl text-ink leading-relaxed mb-12 border-l-2 border-rust-signal/30 pl-6">
-              The choice between self-hosted and cloud AI is not a question of which technology is better. It is a question of which model fits the conditions under which your organization actually operates — and for many African organizations, those conditions favor infrastructure you control.
+              The choice between self-hosted and cloud AI is not a question of which technology is better. It is a question of which model fits the conditions under which your organization actually operates - and for many African organizations, those conditions favor infrastructure you control.
             </p>
 
             {/* Sections */}

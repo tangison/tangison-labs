@@ -38,7 +38,7 @@ export function NamibiaAiReportPage() {
                 This report examines AI adoption patterns across Namibia&apos;s mining, agriculture, financial services, and public sector industries. Full report coming soon.
               </p>
               <p>
-                Namibia presents a unique landscape for AI adoption. With a growing digital infrastructure, a resource-rich economy, and a young, tech-curious population, the conditions for meaningful AI deployment exist — but they are unevenly distributed and often poorly understood by both technology providers and the organizations that could benefit most.
+                Namibia presents a unique landscape for AI adoption. With a growing digital infrastructure, a resource-rich economy, and a young, tech-curious population, the conditions for meaningful AI deployment exist - but they are unevenly distributed and often poorly understood by both technology providers and the organizations that could benefit most.
               </p>
               <p>
                 Our research covers infrastructure readiness, data availability, regulatory considerations, skills gaps, and sector-specific opportunities for applied AI. The full report will include quantitative benchmarks, qualitative case studies, and a set of recommendations for policymakers and business leaders.

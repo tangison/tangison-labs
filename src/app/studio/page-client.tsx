@@ -51,7 +51,7 @@ export function StudioPage() {
       >
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {/* Card 1 — Laboratory */}
+            {/* Card 1 - Laboratory */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export function StudioPage() {
               </a>
             </motion.div>
 
-            {/* Card 2 — Studio */}
+            {/* Card 2 - Studio */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

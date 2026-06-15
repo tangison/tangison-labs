@@ -23,7 +23,7 @@ const capabilities = [
   {
     title: "Authentication & Authorization",
     description:
-      "Control who can call what. API keys, OAuth flows, role-based access. Audit every request. Ensure that sensitive AI endpoints aren't exposed to unauthorised consumers — internal or external.",
+      "Control who can call what. API keys, OAuth flows, role-based access. Audit every request. Ensure that sensitive AI endpoints aren't exposed to unauthorised consumers - internal or external.",
     icon: Lock,
   },
   {
@@ -45,7 +45,7 @@ const processSteps = [
     step: "02",
     title: "Design",
     description:
-      "Architect the integration layer. Choose the right patterns for each connection — sync vs. async, push vs. pull, real-time vs. batch. Define contracts between systems before building.",
+      "Architect the integration layer. Choose the right patterns for each connection - sync vs. async, push vs. pull, real-time vs. batch. Define contracts between systems before building.",
   },
   {
     step: "03",
@@ -93,7 +93,7 @@ export function IntegrationLayerPage() {
                   AI systems produce impressive results in isolation. But the moment you need to connect them to your CRM, your data warehouse, your authentication system, or your customer-facing applications, complexity multiplies. Each integration is a potential point of failure. Each data format mismatch is a bug waiting to surface. Each authentication gap is a security risk.
                 </p>
                 <p>
-                  Most organisations handle integrations ad hoc. One team connects the AI to the database with a custom script. Another team builds a different script to serve predictions to the web app. A third team manually moves data because the automated pipeline broke months ago and nobody had time to fix it. This approach works — until it doesn't. And when it fails, debugging is a nightmare because nobody has a complete picture of how data flows through the system.
+                  Most organisations handle integrations ad hoc. One team connects the AI to the database with a custom script. Another team builds a different script to serve predictions to the web app. A third team manually moves data because the automated pipeline broke months ago and nobody had time to fix it. This approach works - until it doesn't. And when it fails, debugging is a nightmare because nobody has a complete picture of how data flows through the system.
                 </p>
                 <p>
                   An integration layer solves this by providing a consistent, observable, and secure foundation for all AI connections. Instead of point-to-point integrations, every system connects through a central layer that handles routing, transformation, authentication, and monitoring. When something breaks, you know exactly where to look. When you add a new system, you follow the same pattern. When you need to replace a model, you swap it behind the gateway without touching the consumers.

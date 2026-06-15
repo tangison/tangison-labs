@@ -41,7 +41,7 @@ export default function Error({
           </Link>
         </div>
 
-        {/* Error digest — development only */}
+        {/* Error digest - development only */}
         {error.digest && process.env.NODE_ENV === "development" && (
           <div className="mt-12 font-jetbrains text-[9px] text-ink-muted/40 uppercase tracking-wider">
             Error ID: {error.digest}

@@ -111,7 +111,7 @@ export function EnterpriseDeploymentsPage() {
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-6">
                 Across African markets, data residency requirements are becoming
                 more specific. Nigeria's NDPR, Kenya's Data Protection Act,
-                South Africa's POPIA — each imposes obligations on where data
+                South Africa's POPIA - each imposes obligations on where data
                 can be stored, how it can be processed, and who can access it.
                 Deploying AI through a third-party cloud service that routes
                 data through jurisdictions you cannot control creates compliance
@@ -122,15 +122,15 @@ export function EnterpriseDeploymentsPage() {
                 It is about who can see your data, who can audit your models,
                 who can explain a decision when a regulator asks. It is about
                 having governance structures that make AI accountable within
-                your organisation — version control for models, access logs for
+                your organisation - version control for models, access logs for
                 predictions, rollback procedures for when things go wrong. These
                 are not optional features. They are the difference between an AI
                 system your compliance team approves and one they block.
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-8">
                 Then there is observability. When a model's accuracy degrades
-                over time — and it will, as the data it encounters drifts from
-                its training distribution — you need to know before your
+                over time - and it will, as the data it encounters drifts from
+                its training distribution - you need to know before your
                 customers do. Monitoring systems that track prediction
                 confidence, input distribution shifts, and downstream outcome
                 metrics give your operations team the visibility to act early.

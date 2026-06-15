@@ -17,7 +17,7 @@ const capabilities = [
   {
     title: "API Integration",
     description:
-      "Connect AI capabilities to your existing software through well-documented APIs. REST, GraphQL, webhook-driven — we work with whatever your systems expose. No vendor lock-in to proprietary integration layers.",
+      "Connect AI capabilities to your existing software through well-documented APIs. REST, GraphQL, webhook-driven - we work with whatever your systems expose. No vendor lock-in to proprietary integration layers.",
     icon: Cable,
   },
   {
@@ -121,7 +121,7 @@ export function AiIntegrationsPage() {
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-6">
                 Across African enterprises, this gap is often wider. Technology
-                landscapes tend to be more heterogeneous — a mix of modern
+                landscapes tend to be more heterogeneous - a mix of modern
                 cloud services, on-premise systems acquired at different times,
                 and custom-built tools that predate current standards. A bank
                 might run core banking on a system from 2005, use a modern CRM
@@ -129,7 +129,7 @@ export function AiIntegrationsPage() {
                 attachments. An agricultural cooperative might collect field
                 data on paper, enter it into a desktop application, and
                 generate reports in a spreadsheet. AI can help in all of these
-                scenarios — but only if it can connect to all of these systems.
+                scenarios - but only if it can connect to all of these systems.
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-8">
                 Integration work is not glamorous. It does not produce

@@ -74,7 +74,7 @@ export function DeploymentInfrastructurePage() {
       <PageHeader
         label="DEPLOYMENT INFRASTRUCTURE"
         title="From Prototype to Production"
-        subtitle="Getting an AI model working in a notebook is the easy part. Serving it reliably to thousands of users, scaling it under load, and rolling back when something breaks — that's where most teams get stuck. We build deployment infrastructure that handles all of it."
+        subtitle="Getting an AI model working in a notebook is the easy part. Serving it reliably to thousands of users, scaling it under load, and rolling back when something breaks - that's where most teams get stuck. We build deployment infrastructure that handles all of it."
         backHref="/services/infrastructure"
         backLabel="AI Infrastructure"
       />
@@ -90,7 +90,7 @@ export function DeploymentInfrastructurePage() {
               </h2>
               <div className="space-y-6 font-satoshi text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  The gap between a working prototype and a production system is wide. A model in a Jupyter notebook doesn't have to worry about latency, concurrency, or uptime. A model serving real users does. Most AI projects die in this gap — not because the model is bad, but because the infrastructure around it isn't ready for real conditions.
+                  The gap between a working prototype and a production system is wide. A model in a Jupyter notebook doesn't have to worry about latency, concurrency, or uptime. A model serving real users does. Most AI projects die in this gap - not because the model is bad, but because the infrastructure around it isn't ready for real conditions.
                 </p>
                 <p>
                   Production deployment means handling traffic that varies throughout the day. It means serving predictions in under 200 milliseconds. It means deploying a new model version without taking the service offline. It means knowing within seconds when something goes wrong, not finding out from a customer complaint hours later.
@@ -102,7 +102,7 @@ export function DeploymentInfrastructurePage() {
                   We build deployment infrastructure that accounts for these realities. Caching layers that reduce the number of model calls. Auto-scaling that respects cost budgets. Blue-green deployments that let you ship updates safely. Infrastructure as code so your team can reproduce and debug any environment.
                 </p>
                 <p>
-                  If your AI model works in development but you can't ship it to production — or if it's in production but you're afraid to update it — we can help. Deployment infrastructure is not a luxury. It's the difference between an AI demo and an AI product.
+                  If your AI model works in development but you can't ship it to production - or if it's in production but you're afraid to update it - we can help. Deployment infrastructure is not a luxury. It's the difference between an AI demo and an AI product.
                 </p>
               </div>
             </motion.div>

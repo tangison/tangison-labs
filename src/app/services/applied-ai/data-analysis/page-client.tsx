@@ -29,7 +29,7 @@ const capabilities = [
   {
     title: "Anomaly Detection",
     description:
-      "Identify unusual patterns in transactions, operations, and performance metrics before they become problems. Fraud detection, equipment failure prediction, and quality control — tailored to your baselines.",
+      "Identify unusual patterns in transactions, operations, and performance metrics before they become problems. Fraud detection, equipment failure prediction, and quality control - tailored to your baselines.",
     icon: AlertTriangle,
   },
   {
@@ -51,7 +51,7 @@ const processSteps = [
     step: "02",
     title: "Model",
     description:
-      "Build analytical models calibrated to your business context. Validate against historical outcomes. Ensure predictions are accurate enough to act on — not just directionally correct.",
+      "Build analytical models calibrated to your business context. Validate against historical outcomes. Ensure predictions are accurate enough to act on - not just directionally correct.",
   },
   {
     step: "03",
@@ -101,7 +101,7 @@ export function DataAnalysisPage() {
             <motion.div {...fadeInUp}>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-6">
                 Every organisation sits on data it never fully uses. Transaction
-                records, customer interactions, operational logs, market feeds —
+                records, customer interactions, operational logs, market feeds -
                 the information is there, but the capacity to extract meaning
                 from it at speed is not. Reports arrive too late to inform
                 decisions. Trends become visible only in retrospect. Patterns
@@ -125,7 +125,7 @@ export function DataAnalysisPage() {
                 informing curiosity. The difference between a report that tells
                 you revenue declined last quarter and one that tells you why it
                 declined, whether the pattern is likely to continue, and what
-                actions have historically reversed similar trends — that
+                actions have historically reversed similar trends - that
                 difference changes how organisations operate.
               </p>
               <p className="font-satoshi text-ink-muted text-base md:text-lg leading-relaxed mb-8">
@@ -254,7 +254,7 @@ export function DataAnalysisPage() {
           </h2>
           <p className="font-satoshi text-fog-gray text-lg mb-10 max-w-lg mx-auto">
             Tell us what decisions your team needs to make. We will show you
-            what your data can support — and what it would take to fill the
+            what your data can support - and what it would take to fill the
             gaps.
           </p>
           <Link

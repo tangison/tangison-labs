@@ -282,7 +282,7 @@ export function InsightsPage() {
         </div>
       </section>
 
-      {/* Section 4: CTA — AI Assistant */}
+      {/* Section 4: CTA - AI Assistant */}
       <section
         className="py-28 md:py-36 px-6 md:px-12 lg:px-20 bg-atlantic-black"
         aria-label="Ask our AI assistant"

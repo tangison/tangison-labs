@@ -6,7 +6,7 @@ import { generateBreadcrumb } from "@/lib/breadcrumb";
 export const metadata: Metadata = {
   title: "SkillsCamp",
   description:
-    "SkillsCamp by TANGISON — self-hosted AI agent skills built for African contexts. 531+ modular skills with zero cloud dependency. Deploy on your own infrastructure.",
+    "SkillsCamp by TANGISON - self-hosted AI agent skills built for African contexts. 531+ modular skills with zero cloud dependency. Deploy on your own infrastructure.",
   alternates: {
     canonical: "/products/skillscamp",
   },
@@ -20,7 +20,7 @@ const productSchema = {
   "@type": "Product",
   name: "SkillsCamp",
   description:
-    "SkillsCamp by TANGISON — self-hosted AI agent skills built for African contexts. 531+ modular skills with zero cloud dependency. Deploy on your own infrastructure.",
+    "SkillsCamp by TANGISON - self-hosted AI agent skills built for African contexts. 531+ modular skills with zero cloud dependency. Deploy on your own infrastructure.",
   brand: {
     "@type": "Brand",
     name: "TANGISON",

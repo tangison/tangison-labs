@@ -11,13 +11,13 @@ const capabilities = [
   {
     title: "Model Monitoring",
     description:
-      "Track prediction accuracy, latency, and throughput in real time. Know when a model's performance drops below acceptable thresholds — not when a customer complains, but within minutes of it happening.",
+      "Track prediction accuracy, latency, and throughput in real time. Know when a model's performance drops below acceptable thresholds - not when a customer complains, but within minutes of it happening.",
     icon: Activity,
   },
   {
     title: "Drift Detection",
     description:
-      "Data changes. User behaviour shifts. Market conditions evolve. Drift detection identifies when the inputs to your model no longer match the data it was trained on — the first sign that predictions are becoming unreliable.",
+      "Data changes. User behaviour shifts. Market conditions evolve. Drift detection identifies when the inputs to your model no longer match the data it was trained on - the first sign that predictions are becoming unreliable.",
     icon: TrendingUp,
   },
   {
@@ -51,7 +51,7 @@ const processSteps = [
     step: "03",
     title: "Detect",
     description:
-      "Statistical tests and heuristics that identify drift, degradation, and anomalies. Not just \"is accuracy below X%\" — but nuanced detection that accounts for natural variance and seasonal patterns.",
+      "Statistical tests and heuristics that identify drift, degradation, and anomalies. Not just \"is accuracy below X%\" - but nuanced detection that accounts for natural variance and seasonal patterns.",
   },
   {
     step: "04",
@@ -74,7 +74,7 @@ export function OperationalAiPage() {
       <PageHeader
         label="OPERATIONAL AI"
         title="Keep AI Running in Production"
-        subtitle="Deploying a model is day one. Keeping it accurate, fast, and reliable for months and years after — that's the real challenge. We build the monitoring, detection, and response systems that maintain AI quality over time."
+        subtitle="Deploying a model is day one. Keeping it accurate, fast, and reliable for months and years after - that's the real challenge. We build the monitoring, detection, and response systems that maintain AI quality over time."
         backHref="/services/infrastructure"
         backLabel="AI Infrastructure"
       />
@@ -90,7 +90,7 @@ export function OperationalAiPage() {
               </h2>
               <div className="space-y-6 font-satoshi text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  AI models don't age well on their own. The data they encounter in production slowly shifts away from the data they were trained on. Customer preferences change. Market conditions evolve. Regulatory requirements get updated. A model that was 95% accurate at launch might be 80% accurate six months later — and nobody notices until the damage is done.
+                  AI models don't age well on their own. The data they encounter in production slowly shifts away from the data they were trained on. Customer preferences change. Market conditions evolve. Regulatory requirements get updated. A model that was 95% accurate at launch might be 80% accurate six months later - and nobody notices until the damage is done.
                 </p>
                 <p>
                   This is drift, and it's the single biggest threat to AI systems in production. It doesn't announce itself with errors or crashes. The model keeps returning predictions. They just become less reliable, one subtle shift at a time. By the time someone catches the problem, the model has been making suboptimal decisions for weeks or months.
@@ -99,7 +99,7 @@ export function OperationalAiPage() {
                   Operational AI is the practice of watching for these shifts and responding before they affect business outcomes. It means monitoring prediction accuracy and latency in real time. It means statistical tests that detect when input distributions have changed. It means retraining pipelines that kick in automatically when drift is confirmed. And it means incident response protocols for when the situation requires human judgment.
                 </p>
                 <p>
-                  Without operational AI, every model you deploy is a ticking clock. It will degrade. The question is whether you'll catch it early or discover it the hard way. The cost of the hard way is not just technical — it's lost revenue, damaged trust, and decisions made on unreliable predictions.
+                  Without operational AI, every model you deploy is a ticking clock. It will degrade. The question is whether you'll catch it early or discover it the hard way. The cost of the hard way is not just technical - it's lost revenue, damaged trust, and decisions made on unreliable predictions.
                 </p>
                 <p>
                   We build operational AI systems that give you continuous visibility into model health, automatic detection of performance degradation, and clear response paths when intervention is needed. From monitoring dashboards to automated retraining pipelines, we ensure your AI stays accurate and reliable long after deployment day.

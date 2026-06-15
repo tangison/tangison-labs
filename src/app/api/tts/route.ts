@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
     }
 
-    // TTS max 1024 characters — split if needed
+    // TTS max 1024 characters - split if needed
     const chunk = text.slice(0, 1024);
 
     const ZAI = (await import("z-ai-web-dev-sdk")).default;
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     const response = await zai.audio.tts.create({
       input: chunk,
-      voice: "jam", // English gentleman — warm, natural human voice
+      voice: "jam", // English gentleman - warm, natural human voice
       speed: Math.max(0.5, Math.min(2.0, speed)),
       response_format: "wav",
       stream: false,

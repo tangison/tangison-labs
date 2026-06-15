@@ -63,7 +63,7 @@ const processSteps = [
     step: "04",
     title: "Deploy",
     description:
-      "Deploy with ongoing context monitoring. Languages evolve. Regulations change. Markets shift. The system adapts because context awareness is not a one-time configuration — it is a continuous capability.",
+      "Deploy with ongoing context monitoring. Languages evolve. Regulations change. Markets shift. The system adapts because context awareness is not a one-time configuration - it is a continuous capability.",
   },
 ];
 
@@ -80,7 +80,7 @@ export function ContextAwareAiPage() {
       <PageHeader
         label="CONTEXT-AWARE AI"
         title="AI That Understands Where It Operates"
-        subtitle="Most AI systems are built for everywhere and end up working well nowhere. We build systems that understand the local context — language, regulation, market, culture."
+        subtitle="Most AI systems are built for everywhere and end up working well nowhere. We build systems that understand the local context - language, regulation, market, culture."
         backHref="/services/applied-ai"
         backLabel="Applied AI"
       />
@@ -117,7 +117,7 @@ export function ContextAwareAiPage() {
                 misalignments between the system's understanding of the world
                 and the world it actually operates in. And they have real
                 consequences. A customer service chatbot that cannot parse
-                queries in Kiswahili does not just fail to help — it signals
+                queries in Kiswahili does not just fail to help - it signals
                 that the organisation does not value those customers. A fraud
                 detection system that flags transactions as unusual because they
                 follow local patterns it was never trained on creates false

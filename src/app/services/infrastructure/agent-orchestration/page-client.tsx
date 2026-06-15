@@ -74,7 +74,7 @@ export function AgentOrchestrationPage() {
       <PageHeader
         label="AGENT ORCHESTRATION"
         title="Coordinate AI Agents on Complex Tasks"
-        subtitle="When a single AI agent isn't enough, you need orchestration. We design systems where multiple agents work together — each handling what it does best, recovering from failures, and delivering results without constant human oversight."
+        subtitle="When a single AI agent isn't enough, you need orchestration. We design systems where multiple agents work together - each handling what it does best, recovering from failures, and delivering results without constant human oversight."
         backHref="/services/infrastructure"
         backLabel="AI Infrastructure"
       />
@@ -96,13 +96,13 @@ export function AgentOrchestrationPage() {
                   Multi-agent orchestration solves this by assigning each part of a task to a specialised agent. One agent handles data retrieval. Another processes it. A third makes decisions based on the results. A fourth formats the output for the end user. Each agent does one thing well, and the orchestration layer makes sure they work together.
                 </p>
                 <p>
-                  The hard part isn't building individual agents — it's coordinating them. What happens when an agent takes too long? What if it returns bad data? How do you retry without duplicating work? How do you track what went wrong when the output doesn't match expectations? These are the questions that determine whether a multi-agent system survives contact with real users.
+                  The hard part isn't building individual agents - it's coordinating them. What happens when an agent takes too long? What if it returns bad data? How do you retry without duplicating work? How do you track what went wrong when the output doesn't match expectations? These are the questions that determine whether a multi-agent system survives contact with real users.
                 </p>
                 <p>
                   We design orchestration systems that answer these questions upfront. Dependency graphs so agents run in the right order. Retry logic with exponential backoff. Fallback agents that take over when the primary fails. Observability so you can see every handoff, every failure, and every recovery in real time.
                 </p>
                 <p>
-                  If you're building AI systems that need to handle complex, multi-step tasks — document processing pipelines, research workflows, customer service chains, data enrichment flows — you need more than a single model call. You need agents that work together, recover from problems, and deliver consistent results even when conditions change.
+                  If you're building AI systems that need to handle complex, multi-step tasks - document processing pipelines, research workflows, customer service chains, data enrichment flows - you need more than a single model call. You need agents that work together, recover from problems, and deliver consistent results even when conditions change.
                 </p>
               </div>
             </motion.div>
@@ -191,7 +191,7 @@ export function AgentOrchestrationPage() {
             Need multiple agents working together?
           </h2>
           <p className="font-satoshi text-fog-gray text-lg mb-10 max-w-lg mx-auto">
-            Tell us about the task. We'll design the orchestration — agents, handoffs, recovery, and monitoring.
+            Tell us about the task. We'll design the orchestration - agents, handoffs, recovery, and monitoring.
           </p>
           <Link
             href="/contact"

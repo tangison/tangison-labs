@@ -11,7 +11,7 @@ const capabilities = [
   {
     title: "Event-Driven Automation",
     description:
-      "Trigger workflows from real events — a form submission, a database change, a message in a queue. No polling. No wasted compute. Actions fire when they need to, not on a schedule hoping something changed.",
+      "Trigger workflows from real events - a form submission, a database change, a message in a queue. No polling. No wasted compute. Actions fire when they need to, not on a schedule hoping something changed.",
     icon: Zap,
   },
   {
@@ -23,7 +23,7 @@ const capabilities = [
   {
     title: "Scheduled Operations",
     description:
-      "Some tasks need to run on a cadence — daily reports, weekly cleanups, monthly reconciliations. We build schedulers that handle missed runs, time zone differences, and overlapping executions without data corruption.",
+      "Some tasks need to run on a cadence - daily reports, weekly cleanups, monthly reconciliations. We build schedulers that handle missed runs, time zone differences, and overlapping executions without data corruption.",
     icon: Clock,
   },
   {
@@ -74,7 +74,7 @@ export function AutomationSystemsPage() {
       <PageHeader
         label="AUTOMATION SYSTEMS"
         title="Automation That Handles Real Complexity"
-        subtitle="Most automation breaks when it hits an edge case. We build systems that expect things to go wrong — and keep working anyway. Event-driven, exception-aware, and fully auditable."
+        subtitle="Most automation breaks when it hits an edge case. We build systems that expect things to go wrong - and keep working anyway. Event-driven, exception-aware, and fully auditable."
         backHref="/services/infrastructure"
         backLabel="AI Infrastructure"
       />
@@ -90,7 +90,7 @@ export function AutomationSystemsPage() {
               </h2>
               <div className="space-y-6 font-satoshi text-ink-muted text-base md:text-lg leading-relaxed">
                 <p>
-                  Automation sounds simple. Write a script, schedule it, and let it run. That approach works for the happy path — when the data is clean, the APIs respond, and nothing unexpected happens. But the happy path is a small fraction of real operations.
+                  Automation sounds simple. Write a script, schedule it, and let it run. That approach works for the happy path - when the data is clean, the APIs respond, and nothing unexpected happens. But the happy path is a small fraction of real operations.
                 </p>
                 <p>
                   In production, APIs timeout. Data arrives in unexpected formats. Third-party services go down. Permissions change without notice. A human knows how to handle these situations. A brittle script does not. It either crashes silently or, worse, processes bad data without flagging the problem.
@@ -99,7 +99,7 @@ export function AutomationSystemsPage() {
                   Robust automation handles exceptions the way a competent operator would. It retries when a transient failure occurs. It pauses and alerts when something truly unexpected happens. It logs every action so you can trace problems back to their source. It doesn't pretend edge cases don't exist.
                 </p>
                 <p>
-                  We build automation systems for organisations that can't afford silent failures. Financial services that need audit trails. Healthcare operations where a missed step has consequences. Logistics companies where a delayed trigger means delayed shipments. In these contexts, automation must be reliable — not most of the time, but all of the time.
+                  We build automation systems for organisations that can't afford silent failures. Financial services that need audit trails. Healthcare operations where a missed step has consequences. Logistics companies where a delayed trigger means delayed shipments. In these contexts, automation must be reliable - not most of the time, but all of the time.
                 </p>
                 <p>
                   Our approach starts with mapping the full process, including every known exception. Then we build the automation with error handling baked in, not bolted on. We test against failure scenarios before deployment. And we add observability so your team always knows what the system is doing and whether it's doing it correctly.
