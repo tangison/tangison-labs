@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/tangison/json-ld";
 import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Tangison Agent",
+  title: "Agent",
   description:
     "Self-hosted AI agent platform by TANGISON. Hermes Agent with 59 skills, OpenClaw, Graphify, PAUL, and BaseAI. Runs on your servers, not the cloud.",
   alternates: {

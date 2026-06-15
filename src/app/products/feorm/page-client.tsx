@@ -127,7 +127,7 @@ export function FeormPage() {
         </div>
       </section>
 
-      {/* Coming Soon Banner */}
+      {/* Development Status Banner */}
       <section className="px-6 md:px-12 lg:px-20 bg-warm-white">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
@@ -142,10 +142,10 @@ export function FeormPage() {
                 Status
               </span>
               <h2 className="font-cabinet text-2xl tracking-tight text-ink">
-                Coming Soon
+                In Development
               </h2>
               <p className="font-satoshi text-ink-muted text-sm mt-2">
-                Feorm is in active development. We are building something meaningful for Namibian agriculture.
+                Feorm is in active development. We are building a marketplace that serves Namibian agriculture and agrotourism.
               </p>
             </div>
             <div className="shrink-0">

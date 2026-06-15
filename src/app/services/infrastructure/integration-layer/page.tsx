@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IntegrationLayerPage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Integration Layer | AI Infrastructure",
+  title: "Integration Layer - AI Infrastructure",
   description:
     "Connect AI infrastructure to your existing tools, APIs, and data pipelines. API gateways, data pipeline management, and observability by TANGISON.",
   alternates: {

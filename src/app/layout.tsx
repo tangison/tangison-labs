@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { JsonLd } from "@/components/tangison/json-ld";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -70,6 +71,36 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-satoshi antialiased bg-warm-white text-ink" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "TANGISON",
+          url: "https://tangison.com",
+          logo: "https://tangison.com/images/logo.png",
+          description: "A Namibian applied AI laboratory that researches, builds, and deploys intelligent systems, products, and infrastructure for organizations across Africa.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Windhoek",
+            addressCountry: "NA",
+          },
+          sameAs: [
+            "https://studio.tangison.com",
+            "https://sme-academy.tangison.com",
+            "https://skills.tangison.com",
+            "https://feorm.tangison.com",
+          ],
+        }} />
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "TANGISON",
+          url: "https://tangison.com",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://tangison.com/insights/articles?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }} />
         {children}
       </body>
     </html>

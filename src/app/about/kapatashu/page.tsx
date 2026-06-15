@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/tangison/json-ld";
 import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Tate-Ati Tangi Iigonda | Principal Consultant",
+  title: "Tate-Ati Tangi Iigonda - Principal Consultant",
   description:
     "Tate-Ati Tangi Iigonda - Principal Consultant and AI Strategist at TANGISON. Director of Tangison Studio, owner of SMEfrog Academy, focused on offline-first AI systems and applied AI strategy for African organizations.",
   alternates: { canonical: "/about/kapatashu" },

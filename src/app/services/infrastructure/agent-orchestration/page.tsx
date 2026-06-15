@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AgentOrchestrationPage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Agent Orchestration | AI Infrastructure",
+  title: "Agent Orchestration - AI Infrastructure",
   description:
     "Coordinate multiple AI agents on complex tasks. Multi-agent systems with dependency management, parallelization, and error recovery by TANGISON.",
   alternates: {

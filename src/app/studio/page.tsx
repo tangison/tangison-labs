@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/tangison/json-ld";
 import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Tangison Technologies",
+  title: "Technologies",
   description:
     "One company. An applied AI laboratory and a creative studio, both built in Windhoek, Namibia.",
   alternates: {

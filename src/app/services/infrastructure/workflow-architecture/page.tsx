@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { WorkflowArchitecturePage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Workflow Architecture | AI Infrastructure",
+  title: "Workflow Architecture - AI Infrastructure",
   description:
     "Design workflows that connect AI with human operations. State machines, human-in-the-loop patterns, and resilient pipelines by TANGISON.",
   alternates: {

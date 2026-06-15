@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { OperationalAiPage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Operational AI | AI Infrastructure",
+  title: "Operational AI - AI Infrastructure",
   description:
     "Keep AI running in production. Model monitoring, drift detection, automated retraining, and incident response. Maintain AI quality over time by TANGISON.",
   alternates: {
