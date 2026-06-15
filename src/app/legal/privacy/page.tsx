@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { PrivacyPolicyPage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | TANGISON",
+  title: "Privacy Policy",
   description:
     "TANGISON privacy policy. How we collect, use, and protect your personal information when you use our services and visit tangison.com.",
   alternates: {
     canonical: "/legal/privacy",
+  },
+  openGraph: {
+    url: "https://tangison.com/legal/privacy",
   },
 };
 

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { ProductsPage } from "./page-client";
+import { JsonLd } from "@/components/tangison/json-ld";
+import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Products | TANGISON",
+  title: "Products",
   description:
     "Self-hosted AI products by TANGISON. SkillsCamp offers 531+ agent skills. Tangison Agent runs autonomous operations. Zero cloud dependency. Built for Africa.",
   alternates: {
@@ -14,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ProductsPage />;
+  return (
+    <>
+      <JsonLd data={generateBreadcrumb("/products")} />
+      <ProductsPage />
+    </>
+  );
 }

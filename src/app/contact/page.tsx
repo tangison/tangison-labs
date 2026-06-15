@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { ContactPage } from "./page-client";
+import { JsonLd } from "@/components/tangison/json-ld";
+import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Contact — Get in Touch",
@@ -14,5 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ContactPage />;
+  return (
+    <>
+      <JsonLd data={generateBreadcrumb("/contact")} />
+      <ContactPage />
+    </>
+  );
 }

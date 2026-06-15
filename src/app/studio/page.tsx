@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { StudioPage } from "./page-client";
+import { JsonLd } from "@/components/tangison/json-ld";
+import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Tangison Technologies",
@@ -8,8 +10,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/studio",
   },
+  openGraph: {
+    url: "https://tangison.com/studio",
+  },
 };
 
 export default function Page() {
-  return <StudioPage />;
+  return (
+    <>
+      <JsonLd data={generateBreadcrumb("/studio")} />
+      <StudioPage />
+    </>
+  );
 }

@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
   },
@@ -12,6 +13,12 @@ const nextConfig: NextConfig = {
   ],
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        destination: "https://tangison.com/:path*",
+        permanent: true,
+        has: [{ type: "host", value: "www.tangison.com" }],
+      },
       {
         source: "/architecture",
         destination: "/services",

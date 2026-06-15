@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Brand Guidelines | TANGISON",
+  title: "Brand Guidelines",
   description:
     "Official TANGISON brand system for partners and designers. Includes logo usage, color palette, typography guidelines, and voice and tone standards for consistent brand application.",
   alternates: {

@@ -5,61 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
-
-/* ──────────────────────────────────────────────
-   DATA
-   ────────────────────────────────────────────── */
-
-const articles = [
-  {
-    title: "What is an Applied AI Laboratory?",
-    summary:
-      "Why research, building, and deployment belong together. The laboratory model for AI companies.",
-    category: "Business",
-    readTime: "8 min",
-    comingSoon: true,
-  },
-  {
-    title: "Why AI in Africa Starts with Practical Problems",
-    summary:
-      "The case for building AI that solves real problems instead of chasing trends.",
-    category: "AI in Africa",
-    readTime: "6 min",
-    comingSoon: true,
-  },
-  {
-    title: "How We Built Our AI Assistant",
-    summary:
-      "A technical walkthrough of the Tangison AI widget and the engineering decisions behind it.",
-    category: "Technical",
-    readTime: "12 min",
-    comingSoon: true,
-  },
-  {
-    title: "Self-Hosted AI: Why Your Infrastructure Should Stay on Your Servers",
-    summary:
-      "The case against cloud dependency. Data sovereignty, cost control, and reliability for African organizations.",
-    category: "Infrastructure",
-    readTime: "7 min",
-    comingSoon: true,
-  },
-  {
-    title: "Offline-First AI: Building Systems That Work Without Internet",
-    summary:
-      "How we design AI systems that stay operational when connectivity drops. Architecture patterns and lessons learned.",
-    category: "Technical",
-    readTime: "10 min",
-    comingSoon: true,
-  },
-  {
-    title: "AI Maturity in African Organizations: Where to Start",
-    summary:
-      "A practical guide to assessing your organization's AI readiness and taking the first meaningful steps.",
-    category: "AI in Africa",
-    readTime: "9 min",
-    comingSoon: true,
-  },
-];
+import { articles } from "@/lib/articles";
 
 /* ──────────────────────────────────────────────
    ANIMATION VARIANTS
@@ -115,7 +61,7 @@ export function ArticlesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article, i) => (
               <motion.article
-                key={article.title}
+                key={article.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -124,51 +70,40 @@ export function ArticlesPage() {
                   delay: i * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group border border-black/[0.06] bg-warm-white p-6 md:p-8 flex flex-col hover:border-black/[0.1] transition-all duration-500"
               >
-                {/* Category tag */}
-                <span className="font-jetbrains text-[9px] uppercase tracking-[0.2em] text-rust-signal mb-4">
-                  {article.category}
-                </span>
-
-                {/* Title */}
-                <h2 className="font-cabinet text-xl font-bold tracking-tight text-ink mb-3 flex-1">
-                  {article.title}
-                </h2>
-
-                {/* Summary */}
-                <p className="font-satoshi text-ink-muted text-sm leading-relaxed mb-6">
-                  {article.summary}
-                </p>
-
-                {/* Footer: Read time + Coming Soon badge */}
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/[0.04]">
-                  <span className="font-jetbrains text-[10px] text-ink-muted/60 uppercase tracking-wider">
-                    {article.readTime} read
+                <Link
+                  href={`/insights/articles/${article.slug}`}
+                  className="group block border border-black/[0.06] bg-warm-white p-6 md:p-8 h-full flex flex-col hover:border-black/[0.1] transition-all duration-500"
+                >
+                  {/* Category tag */}
+                  <span className="font-jetbrains text-[9px] uppercase tracking-[0.2em] text-rust-signal mb-4">
+                    {article.pillar}
                   </span>
-                  {article.comingSoon && (
-                    <span className="font-jetbrains text-[9px] uppercase tracking-[0.2em] text-ink-muted bg-warm-gray px-3 py-1.5">
-                      Coming Soon
+
+                  {/* Title */}
+                  <h2 className="font-cabinet text-xl font-bold tracking-tight text-ink mb-3 flex-1 group-hover:text-rust-signal transition-colors duration-300">
+                    {article.title}
+                  </h2>
+
+                  {/* Summary */}
+                  <p className="font-satoshi text-ink-muted text-sm leading-relaxed mb-6">
+                    {article.lede}
+                  </p>
+
+                  {/* Footer: Read time */}
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-black/[0.04]">
+                    <span className="font-jetbrains text-[10px] text-ink-muted/60 uppercase tracking-wider">
+                      {article.readTime} read
                     </span>
-                  )}
-                </div>
+                    <span className="inline-flex items-center gap-1 font-jetbrains text-[10px] uppercase tracking-[0.15em] text-ink-muted group-hover:text-rust-signal transition-colors duration-300">
+                      Read
+                      <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
               </motion.article>
             ))}
           </div>
-
-          {/* Bottom statement */}
-          <motion.div
-            {...fadeUp}
-            className="mt-16 md:mt-20 text-center"
-          >
-            <div
-              className="w-8 h-[1px] bg-rust-signal/30 mx-auto mb-6"
-              aria-hidden="true"
-            />
-            <p className="font-satoshi text-ink-muted text-base">
-              More articles coming soon.
-            </p>
-          </motion.div>
         </div>
       </section>
 

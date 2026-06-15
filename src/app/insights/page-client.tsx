@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, BookOpen, FlaskConical, FolderOpen } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
+import { articles } from "@/lib/articles";
 
 /* ──────────────────────────────────────────────
    DATA
@@ -33,26 +34,7 @@ const routeCards = [
   },
 ];
 
-const featuredArticles = [
-  {
-    title: "What is an Applied AI Laboratory?",
-    summary:
-      "Why research, building, and deployment belong together. The laboratory model for AI companies.",
-    comingSoon: true,
-  },
-  {
-    title: "Why AI in Africa Starts with Practical Problems",
-    summary:
-      "The case for building AI that solves real problems instead of chasing trends.",
-    comingSoon: true,
-  },
-  {
-    title: "How We Built Our AI Assistant",
-    summary:
-      "A technical walkthrough of the Tangison AI widget and the engineering decisions behind it.",
-    comingSoon: true,
-  },
-];
+const featuredArticles = articles.slice(0, 3);
 
 /* ──────────────────────────────────────────────
    ANIMATION VARIANTS
@@ -170,7 +152,7 @@ export function InsightsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredArticles.map((article, i) => (
               <motion.div
-                key={article.title}
+                key={article.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -180,23 +162,31 @@ export function InsightsPage() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <div className="group border border-black/[0.06] bg-warm-gray/40 p-6 md:p-8 h-full flex flex-col hover:border-black/[0.1] transition-all duration-500">
-                  <h3 className="font-cabinet text-xl font-bold tracking-tight text-ink mb-3">
+                <Link
+                  href={`/insights/articles/${article.slug}`}
+                  className="group block border border-black/[0.06] bg-warm-gray/40 p-6 md:p-8 h-full flex flex-col hover:border-black/[0.1] transition-all duration-500"
+                >
+                  <span className="font-jetbrains text-[9px] uppercase tracking-[0.2em] text-rust-signal mb-4 block">
+                    {article.pillar}
+                  </span>
+                  <h3 className="font-cabinet text-xl font-bold tracking-tight text-ink mb-3 group-hover:text-rust-signal transition-colors duration-300">
                     {article.title}
                   </h3>
 
                   <p className="font-satoshi text-ink-muted text-sm leading-relaxed mb-6 flex-1">
-                    {article.summary}
+                    {article.lede}
                   </p>
 
-                  {article.comingSoon && (
-                    <div className="inline-flex self-start">
-                      <span className="font-jetbrains text-[9px] uppercase tracking-[0.2em] text-ink-muted bg-warm-gray px-3 py-1.5">
-                        Coming Soon
-                      </span>
-                    </div>
-                  )}
-                </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-black/[0.04]">
+                    <span className="font-jetbrains text-[10px] text-ink-muted/60 uppercase tracking-wider">
+                      {article.readTime} read
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-jetbrains text-[10px] uppercase tracking-[0.15em] text-ink-muted group-hover:text-rust-signal transition-colors duration-300">
+                      Read
+                      <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

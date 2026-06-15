@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AboutPage } from "./page-client";
-
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tangison.com";
+import { JsonLd } from "@/components/tangison/json-ld";
+import { generateBreadcrumb } from "@/lib/breadcrumb";
 
 export const metadata: Metadata = {
   title: "About — Applied AI Lab in Namibia",
@@ -11,10 +11,15 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    url: `${baseUrl}/about`,
+    url: "https://tangison.com/about",
   },
 };
 
 export default function Page() {
-  return <AboutPage />;
+  return (
+    <>
+      <JsonLd data={generateBreadcrumb("/about")} />
+      <AboutPage />
+    </>
+  );
 }
