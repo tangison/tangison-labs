@@ -253,7 +253,7 @@ export function TangisonAgentPage() {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://tangison-agent.vercel.app"
+              href="https://agent.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-ink text-skeleton-bone px-8 py-4 font-jetbrains text-xs uppercase tracking-[0.2em] hover:bg-ink-light transition-all duration-300 group"

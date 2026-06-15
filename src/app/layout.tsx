@@ -90,17 +90,6 @@ export default function RootLayout({
             "https://feorm.tangison.com",
           ],
         }} />
-        <JsonLd data={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "TANGISON",
-          url: "https://tangison.com",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://tangison.com/insights/articles?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
-        }} />
         {children}
       </body>
     </html>

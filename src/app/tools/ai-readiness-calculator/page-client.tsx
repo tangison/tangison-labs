@@ -38,7 +38,7 @@ export function AiReadinessCalculatorPage() {
                 Understanding where your organization stands on the AI maturity spectrum is the first step toward meaningful adoption. Our AI Readiness Calculator evaluates your organization across six critical dimensions: data infrastructure, technical capabilities, organizational culture, process readiness, governance frameworks, and strategic alignment.
               </p>
               <p>
-                Assessment tool coming soon. This tool will evaluate your organization across six dimensions of AI readiness and provide a personalized roadmap.
+                The calculator evaluates your organization across six dimensions of AI readiness and provides a personalized roadmap. It is currently in development. In the meantime, our team offers manual AI readiness assessments that cover the same framework with direct consultation.
               </p>
             </div>
           </motion.div>

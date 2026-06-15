@@ -162,7 +162,7 @@ export function CustomAiSystemsPage() {
                   <span className="w-1.5 h-1.5 bg-rust-signal mt-2.5 shrink-0" />
                   <span>
                     Integration with your existing infrastructure means no
-                    disruptive rip-and-replace migrations
+                    forced rip-and-replace migrations
                   </span>
                 </li>
               </ul>
