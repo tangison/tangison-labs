@@ -1,6 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /_next/
-
-Sitemap: https://tangison.com/sitemap.xml
+Disallow: /

@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { PrivacyPolicyPage } from "./page-client";
+import { LockedPage } from "@/components/tangison/locked-page";
+import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "TANGISON privacy policy. How we collect, use, and protect your personal information when you use our services and visit tangison.com.",
-  alternates: {
-    canonical: "/legal/privacy",
-  },
-  openGraph: {
-    url: "https://tangison.com/legal/privacy",
-  },
+  title: "Privacy Policy — Tangison Labs",
+  description: "How Tangison handles your data",
 };
 
-export default function Page() {
-  return <PrivacyPolicyPage />;
+export default function PrivacyPage() {
+  return (
+    <SiteShell>
+      <LockedPage
+        title="Privacy Policy"
+        description="How Tangison handles your data"
+      />
+    </SiteShell>
+  );
 }

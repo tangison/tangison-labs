@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Brand Guidelines",
+  title: "Brand Guidelines — Tangison Labs",
   description:
-    "Official TANGISON brand system for partners and designers. Includes logo usage, color palette, typography guidelines, and voice and tone standards for consistent brand application.",
+    "The visual identity, typography, colour system, and design principles of Tangison Labs.",
   alternates: {
     canonical: "/brand",
   },
   openGraph: {
-    url: "https://tangison.com/brand",
+    url: "https://labs.tangison.com/brand",
   },
 };
 

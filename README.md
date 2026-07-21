@@ -1,60 +1,104 @@
-# ⬡ TANGISON SYSTEMS
+# Tangison Labs
 
-> **Sovereign intelligence infrastructure. Operating from the Atlantic coast.**
+The research and development division of Tangison. Open-source projects, applied AI research, and experimental tools from Windhoek, Namibia.
 
----
+## Site
 
-### Total Operational Intelligence. Zero Cloud Dependency.
+**URL**: [labs.tangison.com](https://labs.tangison.com)
 
-Tangison Systems builds local-first AI infrastructure for institutions that require data sovereignty, offline resilience, and cryptographic verification. Based in **Windhoek, Namibia**, operating across the SADC region.
+## What this site contains
 
----
+- **Home page**: Showcase of what Tangison Labs builds, researches, and releases
+- **Brand guidelines** (`/brand`): Public expression of the Tangison identity system
+- **Locked pages**: Research, Projects, Publications, Experiments, Articles, Reports, and Legal pages are in demo mode and display a locked preview state
 
-### Products
+## Stack
 
-| Product | Description | Status |
-|---------|-------------|--------|
-| **[Tangison OS](https://tangison.com)** | Sovereign operating environment for AI-native enterprises | In Development |
-| **[SkillsCamp](https://skillscamp.tangison.com)** | 531+ modular agent skills. Discover, verify, deploy | Beta |
+- **Framework**: Next.js 16 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Fonts**: Satoshi, Cabinet Grotesk (Fontshare), JetBrains Mono (Google Fonts)
 
----
+## Design system
 
-### Architecture: 5 Resilient Operational Layers
+- Zero border-radius on all elements (Tangison design signature)
+- Dark background (#171412) with light text (#f5f0e8)
+- Rust-signal accent (#c4562a) for CTAs and active states
+- No purple gradients, glass panels, card grids, pills, or decorative blobs
+- Full brand guidelines at `/brand`
+
+## Demo mode
+
+This site is currently in demo mode:
+
+- Only `/` and `/brand` are unlocked
+- All other routes show a locked preview state
+- `robots.txt` disallows all crawling
+- `X-Robots-Tag: noindex` header is set
+- No analytics are active
+
+## Running locally
+
+```bash
+bun install
+bun run dev
+```
+
+The site runs on port 3000.
+
+## Project structure
 
 ```
-┌─────────────────────────────────────────┐
-│  05 │ Philosophy     │ Why we build for what remains  │
-│  04 │ Research       │ Ecosystem telemetry & scoring  │
-│  03 │ Strategic Sys  │ Deployable infrastructure nets │
-│  02 │ Architecture   │ 5 resilient operational layers │
-│  01 │ Skills         │ Modular agent capabilities     │
-└─────────────────────────────────────────┘
+src/
+├── app/
+│   ├── page.tsx              # Home page (server component)
+│   ├── page-client.tsx       # Home page (client component)
+│   ├── layout.tsx            # Root layout with metadata
+│   ├── globals.css           # Global styles and design tokens
+│   ├── brand/                # Brand guidelines (unlocked)
+│   ├── research/             # Research index (locked)
+│   │   ├── projects/         # R&D projects (locked)
+│   │   └── open-source/      # Open source (locked)
+│   ├── insights/
+│   │   ├── articles/         # Technical articles (locked)
+│   │   └── reports/          # Research reports (locked)
+│   ├── projects/             # Open-source projects (locked)
+│   ├── publications/         # Publications (locked)
+│   ├── experiments/          # Experiments (locked)
+│   ├── legal/                # Privacy, Terms, Cookies (locked)
+│   ├── not-found.tsx         # 404 page
+│   ├── error.tsx             # 500 page
+│   ├── loading.tsx           # Loading state
+│   ├── robots.ts             # Robots.txt generation
+│   └── sitemap.ts            # Sitemap generation
+├── components/
+│   └── tangison/
+│       ├── navigation.tsx    # Labs navigation
+│       ├── footer.tsx        # Labs footer
+│       ├── site-shell.tsx    # Layout shell
+│       ├── locked-page.tsx   # Locked demo state
+│       ├── page-header.tsx   # Page header component
+│       └── json-ld.tsx       # JSON-LD structured data
+└── lib/
+    └── (empty)
 ```
 
-### Operational Nodes
+## Deployment
 
-| Node ID | Function | Region |
-|---------|----------|--------|
-| `TNG-REG-01` | Registry & Identity | Windhoek |
-| `TNG-NET-01` | Mesh Networking | SADC |
-| `TNG-INT-01` | Intelligence Layer | Atlantic Coast |
+- **Platform**: Vercel
+- **Repository**: tangison/tangison-labs
+- **Domain**: labs.tangison.com (CNAME in Cloudflare)
+- **Demo**: noindex, preview branch
+- **Production**: exact audited commit, indexing enabled
 
----
+## Ecosystem
 
-### Core Principles
+- [tangison.com](https://tangison.com) — Gateway
+- [studio.tangison.com](https://studio.tangison.com) — Creative and infrastructure services
+- [agent.tangison.com](https://agent.tangison.com) — AI agent products
 
-- **Data Sovereignty** — Your data never leaves your metal
-- **Offline-First** — Skills work when cables are severed
-- **Honest Attribution** — No stolen credit, no hidden dependencies
-- **Quality Over Quantity** — Verified capabilities only
-- **SADC Resilience** — Built for the realities of African infrastructure
+## Licence
 
----
-
-### Tech Stack
-
-`Next.js` `TypeScript` `Prisma` `Tailwind CSS` `Node.js` `SQLite` `LLM` `RAG` `SADC Mesh`
-
----
-
-© 2026 TANGISON SYSTEMS. ALL RIGHTS RESERVED.
+All rights reserved. Code and content are property of Tangison.

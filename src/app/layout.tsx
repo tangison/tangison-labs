@@ -9,24 +9,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "TANGISON | Applied AI Laboratory",
-    template: "%s | TANGISON",
+    default: "Tangison Labs — Research and Development",
+    template: "%s — Tangison Labs",
   },
   description:
-    "TANGISON is a Namibian applied AI laboratory that researches, builds, and deploys intelligent systems, products, and infrastructure for organizations across Africa.",
+    "Open-source projects, applied AI research, and experimental tools from Tangison Labs in Windhoek, Namibia.",
   keywords: [
-    "Tangison",
+    "Tangison Labs",
+    "research",
+    "development",
+    "open source",
     "applied AI",
-    "AI laboratory",
-    "AI infrastructure",
-    "Africa",
     "Namibia",
     "Windhoek",
-    "AI consulting",
-    "AI products",
-    "SkillsCamp",
+    "R&D",
   ],
   authors: [{ name: "Tangison" }],
+  robots: {
+    index: false,
+    follow: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -35,27 +37,27 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "TANGISON | Applied AI Laboratory",
-    description: "Applied AI. Built in Africa. Research, build, deploy.",
-    url: "https://tangison.com",
-    siteName: "Tangison",
+    title: "Tangison Labs — Research and Development",
+    description: "Open-source projects, applied AI research, and experimental tools from Tangison Labs.",
+    url: "https://labs.tangison.com",
+    siteName: "Tangison Labs",
     type: "website",
     images: [
       {
         url: "/images/og-image.png",
         width: 1344,
         height: 768,
-        alt: "TANGISON | Applied AI Laboratory",
+        alt: "Tangison Labs — Research and Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TANGISON | Applied AI Laboratory",
-    description: "Applied AI. Built in Africa.",
+    title: "Tangison Labs — Research and Development",
+    description: "Open-source projects, applied AI research, and experimental tools.",
     images: ["/images/og-image.png"],
   },
-  metadataBase: new URL("https://tangison.com"),
+  metadataBase: new URL("https://labs.tangison.com"),
 };
 
 export default function RootLayout({
@@ -70,24 +72,24 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="font-satoshi antialiased bg-warm-white text-ink" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+      <body className="font-cabinet antialiased bg-[#171412] text-[#f5f0e8]" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "TANGISON",
-          url: "https://tangison.com",
-          logo: "https://tangison.com/images/logo.png",
-          description: "A Namibian applied AI laboratory that researches, builds, and deploys intelligent systems, products, and infrastructure for organizations across Africa.",
+          name: "Tangison Labs",
+          url: "https://labs.tangison.com",
+          logo: "https://labs.tangison.com/images/logo.png",
+          description: "Open-source projects, applied AI research, and experimental tools from Tangison Labs in Windhoek, Namibia.",
           address: {
             "@type": "PostalAddress",
             addressLocality: "Windhoek",
             addressCountry: "NA",
           },
           sameAs: [
+            "https://tangison.com",
             "https://studio.tangison.com",
-            "https://sme-academy.tangison.com",
-            "https://skills.tangison.com",
-            "https://feorm.tangison.com",
+            "https://agent.tangison.com",
+            "https://github.com/tangison",
           ],
         }} />
         {children}

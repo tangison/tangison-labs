@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { ArticlesPage } from "./page-client";
-import { JsonLd } from "@/components/tangison/json-ld";
-import { generateBreadcrumb } from "@/lib/breadcrumb";
+import { LockedPage } from "@/components/tangison/locked-page";
+import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Articles",
-  description:
-    "Perspectives and educational content on applied AI, self-hosted infrastructure, and building technology solutions for African organizations and markets.",
-  alternates: {
-    canonical: "/insights/articles",
-  },
-  openGraph: {
-    url: "https://tangison.com/insights/articles",
-  },
+  title: "Articles — Tangison Labs",
+  description: "Technical articles on AI, automation, and systems engineering",
 };
 
-export default function Page() {
+export default function ArticlesPage() {
   return (
-    <>
-      <JsonLd data={generateBreadcrumb("/insights/articles")} />
-      <ArticlesPage />
-    </>
+    <SiteShell>
+      <LockedPage
+        title="Articles"
+        description="Technical articles on AI, automation, and systems engineering"
+      />
+    </SiteShell>
   );
 }

@@ -13,26 +13,63 @@ const nextConfig: NextConfig = {
   ],
   async redirects() {
     return [
+      // Redirect old non-Labs routes to home
       {
-        source: "/architecture",
-        destination: "/services",
+        source: "/about",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/systems",
-        destination: "/services",
+        source: "/about/:path*",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/intelligence",
-        destination: "/research",
+        source: "/studio",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/manifesto",
-        destination: "/about",
+        source: "/services/:path*",
+        destination: "/",
         permanent: true,
       },
+      {
+        source: "/products/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/faq",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/tools/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/insights/case-studies",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/insights/resources",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/insights/guides/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      // Short redirects for legal
       {
         source: "/privacy",
         destination: "/legal/privacy",
@@ -80,10 +117,12 @@ const nextConfig: NextConfig = {
             value: "max-age=63072000; includeSubDomains; preload",
           },
           {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+          {
             key: "Content-Security-Policy",
-            // TODO: Tighten CSP — remove 'unsafe-inline' and 'unsafe-eval' from script-src
-            // by using nonce-based or hash-based CSP. Current config allows them for compatibility.
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://api.fontshare.com https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://openrouter.ai; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://api.fontshare.com https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
           },
         ],
       },

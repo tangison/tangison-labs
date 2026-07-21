@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { TermsOfServicePage } from "./page-client";
+import { LockedPage } from "@/components/tangison/locked-page";
+import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description:
-    "TANGISON terms of service. By using tangison.com and our services, you agree to these terms governing your relationship with TANGISON.",
-  alternates: {
-    canonical: "/legal/terms",
-  },
-  openGraph: {
-    url: "https://tangison.com/legal/terms",
-  },
+  title: "Terms of Service — Tangison Labs",
+  description: "Terms governing the use of this website",
 };
 
-export default function Page() {
-  return <TermsOfServicePage />;
+export default function TermsPage() {
+  return (
+    <SiteShell>
+      <LockedPage
+        title="Terms of Service"
+        description="Terms governing the use of this website"
+      />
+    </SiteShell>
+  );
 }

@@ -11,37 +11,37 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-display: 'Cabinet Grotesk', 'Satoshi', system-ui, sans-serif;
 
-  /* Light theme — primary surfaces */
+  /* ─── Tangison Labs Colour Tokens (BRAND.md) ─── */
+  --color-t-bg: #171412;
+  --color-t-bg-elevated: #1e1a16;
+  --color-t-fg: #f5f0e8;
+  --color-t-fg-muted: #a89f91;
+  --color-t-accent: #c4562a;
+  --color-t-accent-soft: #c4562a20;
+  --color-t-border: #2a2520;
+  --color-t-surface: #231f1b;
+
+  /* Legacy compatible tokens */
   --color-warm-white: #FAFAF8;
   --color-warm-gray: #F0EDE8;
   --color-sand-gray: #E8E5DF;
   --color-ink: #111315;
   --color-ink-light: #3D3F44;
   --color-ink-muted: #6B6860;
-
-  /* Dark surfaces — for contrast sections and AI widget */
-  --color-atlantic-black: #111315;
+  --color-atlantic-black: #171412;
   --color-terminal-black: #0A0B0C;
   --color-steel-shadow: #1C1E22;
-
-  /* Legacy light-on-dark tokens — kept for dark sections and AI widget */
   --color-skeleton-bone: #F6F4EF;
   --color-fog-gray: #D9D7D2;
   --color-deep-ocean: #16353D;
-
-  /* Accent */
-  --color-rust-signal: #C56A4A;
+  --color-rust-signal: #C4562A;
   --color-rust-light: #D4896F;
-  --color-rust-muted: rgba(197, 106, 74, 0.15);
+  --color-rust-muted: rgba(196, 86, 42, 0.15);
   --color-signal-teal: #2CB5B4;
   --color-signal-teal-light: #3DCCC8;
   --color-signal-teal-muted: rgba(44, 181, 180, 0.12);
-
-  /* Functional */
   --color-success: #3D7A5F;
   --color-error: #C54444;
-
-  /* Card surface */
   --color-card-surface: #F0EDE8;
   --color-card-border: rgba(0,0,0,0.06);
 
@@ -70,23 +70,23 @@
 
 :root {
   --radius: 0px;
-  /* Light theme — default */
-  --background: #FAFAF8;
-  --foreground: #111315;
-  --card: #F0EDE8;
-  --card-foreground: #111315;
-  --primary: #111315;
-  --primary-foreground: #FAFAF8;
-  --secondary: #E8E5DF;
-  --secondary-foreground: #111315;
-  --muted: #E8E5DF;
-  --muted-foreground: #6B6860;
-  --accent: #C56A4A;
-  --accent-foreground: #FAFAF8;
+  /* Dark theme — Labs default */
+  --background: #171412;
+  --foreground: #f5f0e8;
+  --card: #1e1a16;
+  --card-foreground: #f5f0e8;
+  --primary: #c4562a;
+  --primary-foreground: #f5f0e8;
+  --secondary: #231f1b;
+  --secondary-foreground: #f5f0e8;
+  --muted: #231f1b;
+  --muted-foreground: #a89f91;
+  --accent: #c4562a;
+  --accent-foreground: #f5f0e8;
   --destructive: #C54444;
-  --border: rgba(0,0,0,0.08);
-  --input: rgba(0,0,0,0.1);
-  --ring: #C56A4A;
+  --border: #2a2520;
+  --input: #2a2520;
+  --ring: #c4562a;
 }
 
 @layer base {
@@ -111,18 +111,18 @@
   font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* Custom Scrollbar — light theme */
+/* Custom Scrollbar — dark theme */
 ::-webkit-scrollbar {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAFAF8;
+  background: #171412;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9D7D2;
+  background: #2a2520;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B6860;
+  background: #a89f91;
 }
 
 /* Thin scrollbar for overflow containers */
@@ -130,25 +130,16 @@
   height: 3px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(197, 106, 74, 0.3);
+  background: rgba(196, 86, 42, 0.3);
 }
 .scrollbar-thin::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Cinematic image filter — editorial warm */
-.cinematic-image {
-  filter: grayscale(30%) contrast(1.05) brightness(0.95);
-  transition: filter 1.2s ease;
-}
-.cinematic-image:hover {
-  filter: grayscale(10%) contrast(1.1) brightness(1);
-}
-
 /* Selection color */
 ::selection {
-  background-color: rgba(197, 106, 74, 0.3);
-  color: #111315;
+  background-color: rgba(196, 86, 42, 0.3);
+  color: #f5f0e8;
 }
 
 /* Smooth scrolling with reduced motion support */
@@ -180,7 +171,7 @@ html {
 
 /* Focus visible styles for accessibility */
 :focus-visible {
-  outline: 2px solid #C56A4A;
+  outline: 2px solid #c4562a;
   outline-offset: 2px;
 }
 
@@ -222,13 +213,6 @@ button, a {
   -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes scroll-pulse {
-  0% { top: -24px; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { top: 64px; opacity: 0; }
-}
-
 @keyframes breathe-glow {
   0%, 100% { opacity: 0.4; filter: brightness(1); }
   50% { opacity: 0.7; filter: brightness(1.3); }
@@ -246,21 +230,6 @@ button, a {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
-@keyframes signal-ring-expand {
-  0% { transform: scale(1); opacity: 0.4; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 /* AI Widget — custom scrollbar for chat panel */
 .t-scrollbar::-webkit-scrollbar {
   width: 3px;
@@ -272,26 +241,9 @@ button, a {
   background: rgba(246, 244, 239, 0.1);
 }
 
-/* Dark section utility — for hero, CTA and other dark sections */
-.section-dark {
-  --background: #111315;
-  --foreground: #F6F4EF;
-  background-color: #111315;
-  color: #F6F4EF;
-}
-
-/* Editorial divider */
+/* Section divider */
 .editorial-divider {
   width: 40px;
   height: 1px;
-  background: var(--color-rust-signal);
-}
-
-/* Pillar card hover */
-.pillar-card {
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pillar-card:hover {
-  background-color: #F0EDE8;
-  border-color: rgba(0,0,0,0.1);
+  background: #c4562a;
 }

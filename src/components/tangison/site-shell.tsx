@@ -3,17 +3,14 @@
 import React from "react";
 import { Navigation } from "@/components/tangison/navigation";
 import { Footer } from "@/components/tangison/footer";
-import { TangisonAIWidget } from "@/components/tangison/ai-widget";
 
 export function SiteShell({
   children,
-  footerSlot,
 }: {
   children: React.ReactNode;
-  footerSlot?: React.ReactNode;
 }) {
   return (
-    <div className="site-shell relative flex flex-col bg-warm-white">
+    <div className="site-shell relative flex flex-col bg-[#171412] text-[#f5f0e8]">
       {/* dvh + vh + absolute-floor fallback */}
       <style>{`
         .site-shell {
@@ -27,15 +24,13 @@ export function SiteShell({
       `}</style>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-rust-signal focus:text-warm-white focus:px-4 focus:py-2 focus:font-jetbrains focus:text-xs focus:uppercase focus:tracking-widest"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#c4562a] focus:text-[#f5f0e8] focus:px-4 focus:py-2 focus:font-jetbrains focus:text-xs focus:uppercase focus:tracking-widest"
       >
         Skip to main content
       </a>
       <Navigation />
       <main id="main-content" className="flex-1">{children}</main>
-      {footerSlot}
       <Footer />
-      <TangisonAIWidget />
     </div>
   );
 }

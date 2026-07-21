@@ -3,16 +3,16 @@ import { LockedPage } from "@/components/tangison/locked-page";
 import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Open Source — Tangison Labs",
-  description: "Public repositories and open-source contributions",
+  title: "Publications — Tangison Labs",
+  description: "Research papers, reports, and technical publications",
 };
 
-export default function OpenSourcePage() {
+export default function PublicationsPage() {
   return (
     <SiteShell>
       <LockedPage
-        title="Open Source"
-        description="Public repositories and open-source contributions"
+        title="Publications"
+        description="Research papers, reports, and technical publications"
       />
     </SiteShell>
   );

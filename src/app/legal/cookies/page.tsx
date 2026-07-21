@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { CookiePolicyPage } from "./page-client";
+import { LockedPage } from "@/components/tangison/locked-page";
+import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy",
-  description:
-    "TANGISON cookie policy. Information about how and why we use cookies on tangison.com to improve your experience and analyze site usage.",
-  alternates: {
-    canonical: "/legal/cookies",
-  },
-  openGraph: {
-    url: "https://tangison.com/legal/cookies",
-  },
+  title: "Cookie Policy — Tangison Labs",
+  description: "How Tangison uses cookies",
 };
 
-export default function Page() {
-  return <CookiePolicyPage />;
+export default function CookiesPage() {
+  return (
+    <SiteShell>
+      <LockedPage
+        title="Cookie Policy"
+        description="How Tangison uses cookies"
+      />
+    </SiteShell>
+  );
 }

@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { ResearchPage } from "./page-client";
-import { JsonLd } from "@/components/tangison/json-ld";
-import { generateBreadcrumb } from "@/lib/breadcrumb";
+import { LockedPage } from "@/components/tangison/locked-page";
+import { SiteShell } from "@/components/tangison/site-shell";
 
 export const metadata: Metadata = {
-  title: "Research",
-  description:
-    "Research and open source projects from the TANGISON applied AI lab. Explore agent architecture, offline-first AI systems, and African language models built for organizations across Africa.",
-  alternates: {
-    canonical: "/research",
-  },
-  openGraph: {
-    url: "https://tangison.com/research",
-  },
+  title: "Research — Tangison Labs",
+  description: "Applied AI research and technical publications from Tangison Labs",
 };
 
-export default function Page() {
+export default function ResearchPage() {
   return (
-    <>
-      <JsonLd data={generateBreadcrumb("/research")} />
-      <ResearchPage />
-    </>
+    <SiteShell>
+      <LockedPage
+        title="Research"
+        description="Applied AI research and technical publications from Tangison Labs"
+      />
+    </SiteShell>
   );
 }
