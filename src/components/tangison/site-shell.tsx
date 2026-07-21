@@ -10,7 +10,7 @@ export function SiteShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="site-shell relative flex flex-col bg-[#171412] text-[#f5f0e8]">
+    <div className="site-shell relative flex flex-col bg-[#FAFAF8] text-[#1A1A1A]">
       {/* dvh + vh + absolute-floor fallback */}
       <style>{`
         .site-shell {
@@ -24,7 +24,7 @@ export function SiteShell({
       `}</style>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#c4562a] focus:text-[#f5f0e8] focus:px-4 focus:py-2 focus:font-jetbrains focus:text-xs focus:uppercase focus:tracking-widest"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:bg-[#C4562A] focus:text-[#FAFAF8] focus:px-4 focus:py-2 focus:font-jetbrains focus:text-xs focus:uppercase focus:tracking-widest"
       >
         Skip to main content
       </a>

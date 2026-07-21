@@ -12,15 +12,15 @@ import { ArrowUpRight } from "lucide-react";
 interface NavItem {
   label: string;
   href: string;
-  locked?: boolean;
 }
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Research", href: "/research", locked: true },
-  { label: "Projects", href: "/projects", locked: true },
-  { label: "Publications", href: "/publications", locked: true },
-  { label: "Experiments", href: "/experiments", locked: true },
+  { label: "Research", href: "/research" },
+  { label: "Projects", href: "/projects" },
+  { label: "Publications", href: "/publications" },
+  { label: "Experiments", href: "/experiments" },
+  { label: "Brand", href: "/brand" },
 ];
 
 const crossLinks = [
@@ -35,12 +35,12 @@ function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
   return (
     <div className="w-5 h-5 flex flex-col justify-center gap-[5px] relative">
       <span
-        className={`block w-full h-[1.5px] bg-[#f5f0e8] transition-all duration-300 origin-center ${
+        className={`block w-full h-[1.5px] bg-[#1A1A1A] transition-all duration-300 origin-center ${
           isOpen ? "rotate-45 translate-y-[3.25px]" : ""
         }`}
       />
       <span
-        className={`block w-full h-[1.5px] bg-[#f5f0e8] transition-all duration-300 origin-center ${
+        className={`block w-full h-[1.5px] bg-[#1A1A1A] transition-all duration-300 origin-center ${
           isOpen ? "-rotate-45 -translate-y-[3.25px]" : ""
         }`}
       />
@@ -97,10 +97,10 @@ export function Navigation() {
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 px-5 sm:px-6 md:px-12 py-4 md:py-5 flex justify-between items-center ${
           isScrolled
-            ? "bg-[#171412]/95 border-b border-[#2a2520] py-3 md:py-4"
+            ? "bg-[#FAFAF8]/95 border-b border-[#E0DDD8] py-3 md:py-4"
             : "bg-transparent"
         }`}
         style={{
@@ -119,14 +119,14 @@ export function Navigation() {
           aria-label="Tangison Labs home"
         >
           <Image
-            src="/images/logo-white.webp"
+            src="/images/logo.png"
             alt="TANGISON"
             width={874}
             height={286}
             className="h-8 md:h-10 w-auto object-contain"
             priority
           />
-          <span className="font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#c4562a] hidden sm:inline">
+          <span className="font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#C4562A] hidden sm:inline">
             Labs
           </span>
         </Link>
@@ -139,27 +139,24 @@ export function Navigation() {
               href={item.href}
               className={`font-jetbrains text-[10px] uppercase tracking-[0.2em] relative group inline-flex items-center transition-colors duration-300 ${
                 isActive(item.href)
-                  ? "text-[#f5f0e8]"
-                  : "text-[#a89f91] hover:text-[#f5f0e8]"
+                  ? "text-[#1A1A1A]"
+                  : "text-[#6B6860] hover:text-[#1A1A1A]"
               }`}
             >
               {item.label}
-              {item.locked && (
-                <span className="ml-1.5 w-1.5 h-1.5 bg-[#c4562a]/40 inline-block" />
-              )}
               {/* Underline indicator */}
               <span
                 className={`absolute -bottom-1 left-0 h-[1.5px] transition-all duration-300 ease-out ${
                   isActive(item.href)
-                    ? "w-full bg-[#c4562a]"
-                    : "w-0 group-hover:w-full bg-[#c4562a]/60"
+                    ? "w-full bg-[#C4562A]"
+                    : "w-0 group-hover:w-full bg-[#C4562A]/60"
                 }`}
               />
             </Link>
           ))}
 
           {/* Divider */}
-          <div className="w-[1px] h-3 bg-[#2a2520]" aria-hidden="true" />
+          <div className="w-[1px] h-3 bg-[#E0DDD8]" aria-hidden="true" />
 
           {/* Cross-links to other Tangison properties */}
           {crossLinks.map((link) => (
@@ -168,7 +165,7 @@ export function Navigation() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-jetbrains text-[10px] uppercase tracking-[0.2em] inline-flex items-center gap-1 text-[#a89f91]/40 hover:text-[#a89f91] transition-colors duration-300"
+              className="font-jetbrains text-[10px] uppercase tracking-[0.2em] inline-flex items-center gap-1 text-[#9B968E] hover:text-[#C4562A] transition-colors duration-300"
             >
               {link.label}
               <ArrowUpRight className="w-2.5 h-2.5" />
@@ -178,7 +175,7 @@ export function Navigation() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden p-2 -mr-2 text-[#f5f0e8]"
+          className="lg:hidden p-2 -mr-2 text-[#1A1A1A]"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileOpen}
@@ -194,8 +191,8 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#171412] flex flex-col"
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+            className="fixed inset-0 z-40 bg-[#FAFAF8] flex flex-col"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -215,7 +212,7 @@ export function Navigation() {
                     transition={{
                       delay: i * 0.06 + 0.1,
                       duration: 0.5,
-                      ease: [0.16, 1, 0.3, 1],
+                      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
                     }}
                     className="w-full text-center"
                   >
@@ -224,14 +221,11 @@ export function Navigation() {
                       onClick={() => setIsMobileOpen(false)}
                       className={`font-cabinet text-xl sm:text-2xl tracking-[0.15em] uppercase transition-colors duration-300 inline-flex items-center gap-3 ${
                         isActive(item.href)
-                          ? "text-[#f5f0e8]"
-                          : "text-[#a89f91] hover:text-[#f5f0e8]"
+                          ? "text-[#1A1A1A]"
+                          : "text-[#6B6860] hover:text-[#1A1A1A]"
                       }`}
                     >
                       {item.label}
-                      {item.locked && (
-                        <span className="w-1.5 h-1.5 bg-[#c4562a]/40 inline-block" />
-                      )}
                     </Link>
                   </motion.div>
                 ))}
@@ -241,7 +235,7 @@ export function Navigation() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
-                  className="w-full text-center pt-6 border-t border-[#2a2520]"
+                  className="w-full text-center pt-6 border-t border-[#E0DDD8]"
                 >
                   <div className="flex items-center justify-center gap-6">
                     {crossLinks.map((link) => (
@@ -250,7 +244,7 @@ export function Navigation() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-cabinet text-sm tracking-[0.15em] uppercase text-[#a89f91]/40 hover:text-[#a89f91] transition-colors duration-300 inline-flex items-center gap-1.5"
+                        className="font-cabinet text-sm tracking-[0.15em] uppercase text-[#9B968E] hover:text-[#C4562A] transition-colors duration-300 inline-flex items-center gap-1.5"
                       >
                         {link.label}
                         <ArrowUpRight className="w-3 h-3" />
@@ -268,7 +262,7 @@ export function Navigation() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="pb-8 text-center shrink-0"
             >
-              <span className="font-jetbrains text-[9px] text-[#a89f91]/40 uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.3em]">
                 Windhoek, Namibia
               </span>
             </motion.div>

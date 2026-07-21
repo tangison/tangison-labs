@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { LockedPage } from "@/components/tangison/locked-page";
-import { SiteShell } from "@/components/tangison/site-shell";
+import { ResearchProjectsPage } from "./page-client";
 
 export const metadata: Metadata = {
   title: "Research Projects — Tangison Labs",
   description: "R&D projects exploring applied AI, automation, and infrastructure",
+  alternates: { canonical: "/research/projects" },
 };
 
-export default function ResearchProjectsPage() {
-  return (
-    <SiteShell>
-      <LockedPage
-        title="Projects"
-        description="R&D projects exploring applied AI, automation, and infrastructure"
-      />
-    </SiteShell>
-  );
+export default function Page() {
+  return <ResearchProjectsPage />;
 }

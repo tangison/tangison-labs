@@ -12,4 +12,8 @@ export const metadata: Metadata = {
   },
 };
 
-export { default } from "./page-client";
+import { BrandPage } from "./page-client";
+
+export default function Page() {
+  return <BrandPage />;
+}

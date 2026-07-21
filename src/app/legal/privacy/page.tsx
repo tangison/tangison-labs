@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { LockedPage } from "@/components/tangison/locked-page";
-import { SiteShell } from "@/components/tangison/site-shell";
+import { PrivacyPage } from "./page-client";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Tangison Labs",
   description: "How Tangison handles your data",
+  alternates: { canonical: "/legal/privacy" },
 };
 
-export default function PrivacyPage() {
-  return (
-    <SiteShell>
-      <LockedPage
-        title="Privacy Policy"
-        description="How Tangison handles your data"
-      />
-    </SiteShell>
-  );
+export default function Page() {
+  return <PrivacyPage />;
 }

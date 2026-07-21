@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { LockedPage } from "@/components/tangison/locked-page";
-import { SiteShell } from "@/components/tangison/site-shell";
+import { TermsPage } from "./page-client";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Tangison Labs",
-  description: "Terms governing the use of this website",
+  description: "Terms for using the Tangison Labs website",
+  alternates: { canonical: "/legal/terms" },
 };
 
-export default function TermsPage() {
-  return (
-    <SiteShell>
-      <LockedPage
-        title="Terms of Service"
-        description="Terms governing the use of this website"
-      />
-    </SiteShell>
-  );
+export default function Page() {
+  return <TermsPage />;
 }

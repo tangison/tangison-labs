@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { LockedPage } from "@/components/tangison/locked-page";
-import { SiteShell } from "@/components/tangison/site-shell";
+import { OpenSourcePage } from "./page-client";
 
 export const metadata: Metadata = {
   title: "Open Source — Tangison Labs",
   description: "Public repositories and open-source contributions",
+  alternates: { canonical: "/research/open-source" },
 };
 
-export default function OpenSourcePage() {
-  return (
-    <SiteShell>
-      <LockedPage
-        title="Open Source"
-        description="Public repositories and open-source contributions"
-      />
-    </SiteShell>
-  );
+export default function Page() {
+  return <OpenSourcePage />;
 }

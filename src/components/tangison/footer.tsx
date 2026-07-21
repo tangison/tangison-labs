@@ -34,13 +34,16 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="bg-[#171412] border-t border-[#2a2520]"
+      className="bg-[#1A1A1A] text-[#F0EDE8]"
     >
+      {/* Accent gradient bar at top */}
+      <div className="h-[3px] bg-gradient-to-r from-[#C4562A] via-[#D4896F] to-[#2CB5B4]" />
+
       {/* Top section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         className="px-6 md:px-12 lg:px-20 pt-16 md:pt-24 pb-12 md:pb-16"
       >
         <div className="max-w-[1200px] mx-auto">
@@ -57,17 +60,17 @@ export function Footer() {
 
           {/* Tagline + location */}
           <div className="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-12 mb-12 md:mb-16">
-            <p className="font-satoshi text-2xl md:text-3xl font-bold text-[#f5f0e8] tracking-tight leading-tight max-w-lg">
+            <p className="font-satoshi text-2xl md:text-3xl font-bold text-[#F0EDE8] tracking-tight leading-tight max-w-lg">
               We build what we research.
             </p>
             <div className="flex flex-col gap-1 pb-1">
-              <span className="font-jetbrains text-[10px] text-[#a89f91]/40 uppercase tracking-[0.3em]">Location</span>
-              <span className="font-jetbrains text-[11px] text-[#a89f91]/60 uppercase tracking-[0.15em]">Windhoek, Namibia</span>
+              <span className="font-jetbrains text-[10px] text-[#F0EDE8]/30 uppercase tracking-[0.3em]">Location</span>
+              <span className="font-jetbrains text-[11px] text-[#F0EDE8]/50 uppercase tracking-[0.15em]">Windhoek, Namibia</span>
             </div>
           </div>
 
           {/* Divider */}
-          <div className="h-[1px] bg-[#2a2520] mb-12 md:mb-16" />
+          <div className="h-[1px] bg-[#F0EDE8]/10 mb-12 md:mb-16" />
         </div>
       </motion.div>
 
@@ -75,14 +78,14 @@ export function Footer() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         className="px-6 md:px-12 lg:px-20 pb-12 md:pb-16"
       >
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-16">
             {/* Navigation column */}
             <div>
-              <h3 className="font-jetbrains text-[9px] text-[#a89f91]/30 uppercase tracking-[0.3em] mb-5">
+              <h3 className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.3em] mb-5">
                 Navigation
               </h3>
               <div className="flex flex-col gap-3">
@@ -90,10 +93,10 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="font-jetbrains text-[10px] text-[#a89f91]/50 uppercase tracking-[0.2em] hover:text-[#f5f0e8] transition-colors duration-300 relative group/link inline-block w-fit"
+                    className="font-jetbrains text-[10px] text-[#F0EDE8]/40 uppercase tracking-[0.2em] hover:text-[#F0EDE8] transition-colors duration-300 relative group/link inline-block w-fit"
                   >
                     {link.label}
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#c4562a]/50 group-hover/link:w-full transition-all duration-500" />
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#C4562A]/50 group-hover/link:w-full transition-all duration-500" />
                   </Link>
                 ))}
               </div>
@@ -101,7 +104,7 @@ export function Footer() {
 
             {/* Ecosystem column */}
             <div>
-              <h3 className="font-jetbrains text-[9px] text-[#a89f91]/30 uppercase tracking-[0.3em] mb-5">
+              <h3 className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.3em] mb-5">
                 Ecosystem
               </h3>
               <div className="flex flex-col gap-3">
@@ -111,11 +114,11 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-jetbrains text-[10px] text-[#a89f91]/50 uppercase tracking-[0.2em] hover:text-[#f5f0e8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
+                    className="font-jetbrains text-[10px] text-[#F0EDE8]/40 uppercase tracking-[0.2em] hover:text-[#F0EDE8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
                   >
                     {link.label}
                     <ArrowUpRight className="w-2.5 h-2.5 opacity-0 group-hover/link:opacity-60 transition-opacity" />
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#c4562a]/50 group-hover/link:w-full transition-all duration-500" />
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#C4562A]/50 group-hover/link:w-full transition-all duration-500" />
                   </a>
                 ))}
               </div>
@@ -123,7 +126,7 @@ export function Footer() {
 
             {/* Legal column */}
             <div>
-              <h3 className="font-jetbrains text-[9px] text-[#a89f91]/30 uppercase tracking-[0.3em] mb-5">
+              <h3 className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.3em] mb-5">
                 Legal
               </h3>
               <div className="flex flex-col gap-3">
@@ -131,10 +134,10 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="font-jetbrains text-[10px] text-[#a89f91]/50 uppercase tracking-[0.2em] hover:text-[#f5f0e8] transition-colors duration-300 relative group/link inline-block w-fit"
+                    className="font-jetbrains text-[10px] text-[#F0EDE8]/40 uppercase tracking-[0.2em] hover:text-[#F0EDE8] transition-colors duration-300 relative group/link inline-block w-fit"
                   >
                     {link.label}
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#c4562a]/50 group-hover/link:w-full transition-all duration-500" />
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#C4562A]/50 group-hover/link:w-full transition-all duration-500" />
                   </Link>
                 ))}
               </div>
@@ -142,26 +145,26 @@ export function Footer() {
 
             {/* Contact column */}
             <div>
-              <h3 className="font-jetbrains text-[9px] text-[#a89f91]/30 uppercase tracking-[0.3em] mb-5">
+              <h3 className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.3em] mb-5">
                 Contact
               </h3>
               <div className="flex flex-col gap-3">
                 <a
                   href="mailto:contact@tangison.com"
-                  className="font-jetbrains text-[10px] text-[#a89f91]/50 uppercase tracking-[0.2em] hover:text-[#f5f0e8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
+                  className="font-jetbrains text-[10px] text-[#F0EDE8]/40 uppercase tracking-[0.2em] hover:text-[#F0EDE8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
                 >
                   contact@tangison.com
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#c4562a]/50 group-hover/link:w-full transition-all duration-500" />
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#C4562A]/50 group-hover/link:w-full transition-all duration-500" />
                 </a>
                 <a
                   href="https://github.com/tangison"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-jetbrains text-[10px] text-[#a89f91]/50 uppercase tracking-[0.2em] hover:text-[#f5f0e8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
+                  className="font-jetbrains text-[10px] text-[#F0EDE8]/40 uppercase tracking-[0.2em] hover:text-[#F0EDE8] transition-colors duration-300 relative group/link inline-flex items-center gap-1.5 w-fit"
                 >
                   GitHub
                   <ArrowUpRight className="w-2.5 h-2.5 opacity-0 group-hover/link:opacity-60 transition-opacity" />
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#c4562a]/50 group-hover/link:w-full transition-all duration-500" />
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#C4562A]/50 group-hover/link:w-full transition-all duration-500" />
                 </a>
               </div>
             </div>
@@ -173,11 +176,11 @@ export function Footer() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="border-t border-[#2a2520]"
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+        className="border-t border-[#F0EDE8]/5"
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="font-jetbrains text-[9px] text-[#a89f91]/25 uppercase tracking-[0.3em]">
+          <p className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.3em]">
             &copy; 2026 Tangison. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -185,11 +188,11 @@ export function Footer() {
               href="https://studio.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-jetbrains text-[9px] text-[#a89f91]/25 uppercase tracking-[0.2em] hover:text-[#a89f91]/60 transition-colors duration-300"
+              className="font-jetbrains text-[9px] text-[#F0EDE8]/20 uppercase tracking-[0.2em] hover:text-[#F0EDE8]/60 transition-colors duration-300"
             >
               Made by Tangison Studio
             </a>
-            <span className="font-jetbrains text-[9px] text-[#a89f91]/15 uppercase tracking-[0.2em]">
+            <span className="font-jetbrains text-[9px] text-[#F0EDE8]/10 uppercase tracking-[0.2em]">
               Windhoek, Namibia
             </span>
           </div>
