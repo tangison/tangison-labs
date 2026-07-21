@@ -45,7 +45,7 @@ function CopyButton({ value }: { value: string }) {
     setTimeout(() => setCopied(false), 2000);
   };
   return (
-    <button onClick={handleCopy} className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.15em] hover:text-[#C4562A] transition-colors duration-200" aria-label={`Copy ${value}`}>
+    <button onClick={handleCopy} className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.15em] hover:text-[#C4562A] transition-colors duration-200" aria-label={`Copy ${value}`}>
       {copied ? "Copied" : "Copy"}
     </button>
   );
@@ -60,7 +60,7 @@ function Section({ id, label, title, children, bg = "bg-transparent" }: {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}>
           <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-3">
             <div className="w-2 h-2 bg-[#C4562A]" />
-            <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">{label}</span>
+            <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">{label}</span>
           </motion.div>
           <motion.h2 variants={fadeUp} custom={0.05} className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-[#1A1A1A] mb-10">
             {title}
@@ -85,7 +85,7 @@ export function BrandPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Brand</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Brand</span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
@@ -117,7 +117,7 @@ export function BrandPage() {
       <Section id="personality" label="Personality" title="How we sound" bg="bg-[#F0EDE8]">
         <motion.div variants={fadeUp} custom={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="font-jetbrains text-[10px] text-[#3D7A5F] uppercase tracking-[0.2em] mb-4">We are</h3>
+            <h3 className="font-satoshi font-medium text-sm text-[#3D7A5F] uppercase tracking-[0.2em] mb-4">We are</h3>
             <ul className="space-y-3">
               {["Precise but not stiff", "Technical but not jargon-heavy", "Confident but not arrogant", "Open but not careless", "African but not stereotyped"].map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -128,7 +128,7 @@ export function BrandPage() {
             </ul>
           </div>
           <div>
-            <h3 className="font-jetbrains text-[10px] text-[#C54444] uppercase tracking-[0.2em] mb-4">We are not</h3>
+            <h3 className="font-satoshi font-medium text-sm text-[#C54444] uppercase tracking-[0.2em] mb-4">We are not</h3>
             <ul className="space-y-3">
               {["Hype-driven or buzzword-heavy", "Vague or non-committal", "Generic AI slop language", "Academic to the point of unusability", "Performative or trend-chasing"].map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -153,7 +153,7 @@ export function BrandPage() {
                   <code className="font-jetbrains text-[11px] text-[#6B6860]">{color.hex}</code>
                   <CopyButton value={color.hex} />
                 </div>
-                <p className="font-cabinet text-xs text-[#9B968E] mt-1">{color.usage}</p>
+                <p className="font-cabinet text-xs text-[#7A756C] mt-1">{color.usage}</p>
               </div>
             </div>
           ))}
@@ -166,21 +166,21 @@ export function BrandPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="content-card p-6">
               <p className="font-satoshi font-bold text-3xl text-[#1A1A1A] mb-2">Satoshi</p>
-              <p className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.15em] mb-3">Headings</p>
+              <p className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.15em] mb-3">Headings</p>
               <p className="font-satoshi font-bold text-lg text-[#1A1A1A]">Bold 700</p>
               <p className="font-satoshi font-medium text-lg text-[#1A1A1A]">Medium 500</p>
               <p className="font-satoshi font-light text-lg text-[#1A1A1A]">Light 300</p>
             </div>
             <div className="content-card p-6">
               <p className="font-cabinet font-bold text-3xl text-[#1A1A1A] mb-2">Cabinet Grotesk</p>
-              <p className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.15em] mb-3">Body text</p>
+              <p className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.15em] mb-3">Body text</p>
               <p className="font-cabinet text-base text-[#1A1A1A]">Regular 400</p>
               <p className="font-cabinet font-medium text-base text-[#1A1A1A]">Medium 500</p>
               <p className="font-cabinet font-bold text-base text-[#1A1A1A]">Bold 700</p>
             </div>
             <div className="content-card p-6">
               <p className="font-jetbrains text-xl text-[#1A1A1A] mb-2">JetBrains Mono</p>
-              <p className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.15em] mb-3">Code / Labels</p>
+              <p className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.15em] mb-3">Code / Labels</p>
               <p className="font-jetbrains text-xs text-[#1A1A1A]">LABEL STYLE</p>
               <p className="font-jetbrains text-sm text-[#1A1A1A]">Code style</p>
               <p className="font-jetbrains text-base text-[#1A1A1A]">Body mono</p>
@@ -191,10 +191,10 @@ export function BrandPage() {
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-[#E0DDD8]">
-                  <th className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] pb-3 pr-4">Element</th>
-                  <th className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] pb-3 pr-4">Font</th>
-                  <th className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] pb-3 pr-4">Size</th>
-                  <th className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] pb-3">Tracking</th>
+                  <th className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] pb-3 pr-4">Element</th>
+                  <th className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] pb-3 pr-4">Font</th>
+                  <th className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] pb-3 pr-4">Size</th>
+                  <th className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] pb-3">Tracking</th>
                 </tr>
               </thead>
               <tbody>
@@ -203,7 +203,7 @@ export function BrandPage() {
                     <td className="font-satoshi font-medium text-sm text-[#1A1A1A] py-3 pr-4">{row.element}</td>
                     <td className="font-cabinet text-sm text-[#6B6860] py-3 pr-4">{row.font}</td>
                     <td className="font-jetbrains text-xs text-[#6B6860] py-3 pr-4">{row.size}</td>
-                    <td className="font-jetbrains text-xs text-[#9B968E] py-3">{row.tracking}</td>
+                    <td className="font-jetbrains text-xs text-[#7A756C] py-3">{row.tracking}</td>
                   </tr>
                 ))}
               </tbody>
@@ -218,7 +218,7 @@ export function BrandPage() {
           {spacingScale.map((s) => (
             <div key={s} className="flex flex-col items-center gap-2">
               <div className="w-8 bg-[#C4562A]/20 border border-[#C4562A]/30" style={{ height: `${s}px` }} />
-              <span className="font-jetbrains text-[9px] text-[#9B968E]">{s}px</span>
+              <span className="font-jetbrains text-[9px] text-[#7A756C]">{s}px</span>
             </div>
           ))}
         </motion.div>
@@ -248,11 +248,11 @@ export function BrandPage() {
         <motion.div variants={fadeUp} custom={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="content-card p-8 flex flex-col items-center justify-center min-h-[200px] bg-[#1A1A1A]">
             <Image src="/images/logo-white.webp" alt="TANGISON logo on dark" width={874} height={286} className="h-12 w-auto object-contain" />
-            <p className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] mt-4">On dark backgrounds</p>
+            <p className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] mt-4">On dark backgrounds</p>
           </div>
           <div className="content-card p-8 flex flex-col items-center justify-center min-h-[200px]">
             <Image src="/images/logo.png" alt="TANGISON logo on light" width={874} height={286} className="h-12 w-auto object-contain" />
-            <p className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] mt-4">On light backgrounds</p>
+            <p className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.2em] mt-4">On light backgrounds</p>
           </div>
         </motion.div>
       </Section>

@@ -34,7 +34,7 @@ export function PageHeader({
         >
           <Link
             href={backHref}
-            className="inline-flex items-center gap-2 font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.25em] hover:text-[#C4562A] transition-colors duration-300 group"
+            className="inline-flex items-center gap-2 font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.25em] hover:text-[#C4562A] transition-colors duration-300 group"
           >
             <ArrowLeft className="w-3 h-3 transition-transform duration-300 group-hover:-translate-x-1" />
             {backLabel}
@@ -47,7 +47,7 @@ export function PageHeader({
           className="flex items-center gap-3 mb-6"
         >
           <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-          <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">{label}</span>
+          <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">{label}</span>
         </motion.div>
         <h1
           ref={headingRef}

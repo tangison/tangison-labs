@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Brand Guidelines — Tangison Labs",
+  title: "Brand Guidelines | Tangison Labs",
   description:
     "The visual identity, typography, colour system, and design principles of Tangison Labs.",
   alternates: {

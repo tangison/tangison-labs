@@ -56,7 +56,7 @@ export function OpenSourcePage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Research / Open Source</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Research / Open Source</span>
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
               Public <span className="text-[#C4562A]">repositories</span>
@@ -78,9 +78,9 @@ export function OpenSourcePage() {
                   <Github className="w-5 h-5 text-[#6B6860] group-hover:text-[#C4562A] transition-colors duration-300" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-jetbrains text-sm text-[#1A1A1A] mb-1 group-hover:text-[#C4562A] transition-colors duration-300">
+                  <div className="font-jetbrains text-sm text-[#1A1A1A] mb-1 group-hover:text-[#C4562A] transition-colors duration-300">
                     tangison/{repo.name}
-                  </h3>
+                  </div>
                   <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed mb-3">{repo.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {repo.tags.map((tag) => (

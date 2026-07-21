@@ -17,7 +17,7 @@
   --color-t-bg-surface: #E8E5DF;
   --color-t-fg: #1A1A1A;
   --color-t-fg-muted: #6B6860;
-  --color-t-fg-subtle: #9B968E;
+  --color-t-fg-subtle: #7A756C;
   --color-t-accent: #C4562A;
   --color-t-accent-hover: #A84420;
   --color-t-accent-soft: rgba(196, 86, 42, 0.08);
@@ -128,7 +128,7 @@
   background: #D0CDC8;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9B968E;
+  background: #7A756C;
 }
 
 /* Thin scrollbar for overflow containers */

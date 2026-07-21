@@ -27,7 +27,7 @@ export default function Loading() {
         </div>
         <div className="relative h-4 overflow-hidden">
           <span
-            className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.4em] absolute inset-0 flex items-center justify-center"
+            className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.4em] absolute inset-0 flex items-center justify-center"
             style={{ animation: "text-cycle 4.2s cubic-bezier(0.16, 1, 0.3, 1) infinite" }}
           >
             Loading

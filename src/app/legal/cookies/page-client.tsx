@@ -20,10 +20,10 @@ export function CookiesPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Legal</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Legal</span>
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4vw,3rem)] text-[#1A1A1A] mb-6">Cookie Policy</motion.h1>
-            <motion.p variants={fadeUp} custom={0.2} className="font-jetbrains text-xs text-[#9B968E] uppercase tracking-[0.15em]">Last updated: July 2026</motion.p>
+            <motion.p variants={fadeUp} custom={0.2} className="font-jetbrains text-xs text-[#7A756C] uppercase tracking-[0.15em]">Last updated: July 2026</motion.p>
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0"><div className="accent-bar" /></div>

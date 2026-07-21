@@ -62,7 +62,7 @@ export function ResearchPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Research</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Research</span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
@@ -104,7 +104,7 @@ export function ResearchPage() {
                       <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed mb-6 max-w-[65ch]">{area.desc}</p>
                     </div>
                     <div className="md:w-[280px] shrink-0">
-                      <h4 className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.2em] mb-4">Active projects</h4>
+                      <h4 className="font-satoshi font-medium text-xs text-[#7A756C] uppercase tracking-[0.2em] mb-4">Active projects</h4>
                       <ul className="space-y-2">
                         {area.projects.map((proj) => (
                           <li key={proj} className="flex items-start gap-2">
@@ -131,7 +131,7 @@ export function ResearchPage() {
             </motion.h2>
             <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Link href="/research/projects" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em] block mb-3">Research Projects</span>
+                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Research Projects</span>
                 <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">R&D Projects</h3>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed mb-4">Dive into specific projects exploring applied AI, automation, and infrastructure.</p>
                 <span className="inline-flex items-center gap-2 font-jetbrains text-[10px] uppercase tracking-[0.15em] text-[#C4562A] group-hover:gap-3 transition-all duration-300">
@@ -139,7 +139,7 @@ export function ResearchPage() {
                 </span>
               </Link>
               <Link href="/research/open-source" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em] block mb-3">Open Source</span>
+                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Open Source</span>
                 <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">Public Repositories</h3>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed mb-4">Our public code. Star, fork, or contribute to the tools we build for the community.</p>
                 <span className="inline-flex items-center gap-2 font-jetbrains text-[10px] uppercase tracking-[0.15em] text-[#C4562A] group-hover:gap-3 transition-all duration-300">

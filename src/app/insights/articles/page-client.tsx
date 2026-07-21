@@ -56,7 +56,7 @@ export function ArticlesPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Insights / Articles</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Insights / Articles</span>
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
               Technical <span className="text-[#C4562A]">articles</span>
@@ -75,11 +75,11 @@ export function ArticlesPage() {
             {articles.map((article) => (
               <motion.article key={article.title} variants={staggerItem} className="content-card p-8 group cursor-pointer">
                 <div className="flex items-center gap-3 mb-2 flex-wrap">
-                  <span className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.15em]">{article.date}</span>
+                  <span className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.15em]">{article.date}</span>
                 </div>
-                <h3 className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
+                <div className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
                   {article.title}
-                </h3>
+                </div>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed max-w-[65ch] mb-4">{article.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {article.tags.map((tag) => (

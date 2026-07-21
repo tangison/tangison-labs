@@ -76,7 +76,7 @@ export function PublicationsPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Publications</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Publications</span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
@@ -116,11 +116,11 @@ export function PublicationsPage() {
                       }`}>
                         {pub.type}
                       </span>
-                      <span className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.15em]">{pub.date}</span>
+                      <span className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.15em]">{pub.date}</span>
                     </div>
-                    <h3 className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
+                    <div className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
                       {pub.title}
-                    </h3>
+                    </div>
                     <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed max-w-[65ch] mb-4">{pub.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {pub.tags.map((tag) => (
@@ -144,12 +144,12 @@ export function PublicationsPage() {
             </motion.h2>
             <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Link href="/insights/articles" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em] block mb-3">Articles</span>
+                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Articles</span>
                 <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">Technical Articles</h3>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">Long-form writing on engineering decisions, architecture, and lessons from production.</p>
               </Link>
               <Link href="/insights/reports" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em] block mb-3">Reports</span>
+                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Reports</span>
                 <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">Research Reports</h3>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">Periodic research summaries and analysis from our active investigations.</p>
               </Link>

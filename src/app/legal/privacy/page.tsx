@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PrivacyPage } from "./page-client";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Tangison Labs",
+  title: "Privacy Policy | Tangison Labs",
   description: "How Tangison handles your data",
   alternates: { canonical: "/legal/privacy" },
 };

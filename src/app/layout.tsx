@@ -9,8 +9,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Tangison Labs — Research and Development",
-    template: "%s — Tangison Labs",
+    default: "Tangison Labs | Research and Development",
+    template: "%s | Tangison Labs",
   },
   description:
     "Open-source projects, applied AI research, and experimental tools from Tangison Labs in Windhoek, Namibia.",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Tangison Labs — Research and Development",
+    title: "Tangison Labs | Research and Development",
     description: "Open-source projects, applied AI research, and experimental tools from Tangison Labs.",
     url: "https://labs.tangison.com",
     siteName: "Tangison Labs",
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
         url: "/images/og-image.png",
         width: 1344,
         height: 768,
-        alt: "Tangison Labs — Research and Development",
+        alt: "Tangison Labs | Research and Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tangison Labs — Research and Development",
+    title: "Tangison Labs | Research and Development",
     description: "Open-source projects, applied AI research, and experimental tools.",
     images: ["/images/og-image.png"],
   },

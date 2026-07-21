@@ -62,7 +62,7 @@ export function ResearchProjectsPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Research / Projects</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Research / Projects</span>
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
               R&D <span className="text-[#C4562A]">projects</span>
@@ -81,7 +81,7 @@ export function ResearchProjectsPage() {
             {researchProjects.map((project) => (
               <motion.div key={project.title} variants={staggerItem} className="content-card p-8 md:p-10 group">
                 <div className="flex items-center gap-3 mb-3 flex-wrap">
-                  <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300">{project.title}</h3>
+                  <div className="font-satoshi font-medium text-xl text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300">{project.title}</div>
                   <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${
                     project.status === "Active" ? "text-[#2CB5B4] bg-[#2CB5B4]/10" : "text-[#D4896F] bg-[#D4896F]/10"
                   }`}>{project.status}</span>

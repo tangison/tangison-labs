@@ -3,7 +3,7 @@ import { HomePage } from "./page-client";
 import { JsonLd } from "@/components/tangison/json-ld";
 
 export const metadata: Metadata = {
-  title: { absolute: "Tangison Labs — Research and Development" },
+  title: { absolute: "Tangison Labs | Research and Development" },
   description:
     "Open-source projects, applied AI research, and experimental tools from Tangison Labs in Windhoek, Namibia.",
   alternates: {

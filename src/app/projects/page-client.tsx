@@ -91,7 +91,7 @@ export function ProjectsPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Projects</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Projects</span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
@@ -115,9 +115,9 @@ export function ProjectsPage() {
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3 flex-wrap">
-                      <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300">
+                      <div className="font-satoshi font-medium text-xl text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300">
                         {project.name}
-                      </h3>
+                      </div>
                       <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${
                         project.status === "Live" ? "text-[#2CB5B4] bg-[#2CB5B4]/10" :
                         project.status === "Active" ? "text-[#C4562A] bg-[#C4562A]/10" :

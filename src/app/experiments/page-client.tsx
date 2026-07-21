@@ -76,7 +76,7 @@ export function ExperimentsPage() {
           <motion.div initial="hidden" animate="visible">
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Experiments</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Experiments</span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
             </motion.div>
             <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
@@ -120,9 +120,9 @@ export function ExperimentsPage() {
                     {exp.stage}
                   </span>
                 </div>
-                <h3 className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
+                <div className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
                   {exp.title}
-                </h3>
+                </div>
                 <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed mb-4">{exp.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.tags.map((tag) => (
@@ -141,7 +141,7 @@ export function ExperimentsPage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}>
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">Method</span>
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Method</span>
             </motion.div>
             <motion.h2 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-[#F0EDE8] mb-12">
               How we experiment
@@ -158,7 +158,7 @@ export function ExperimentsPage() {
                     Step {item.step}
                   </span>
                   <h3 className="font-satoshi font-medium text-lg text-[#F0EDE8] mb-2">{item.title}</h3>
-                  <p className="font-cabinet text-sm text-[#9B968E] leading-relaxed">{item.desc}</p>
+                  <p className="font-cabinet text-sm text-[#7A756C] leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.div>

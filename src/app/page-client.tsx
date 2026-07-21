@@ -60,7 +60,7 @@ export function HomePage() {
               className="flex items-center gap-3 mb-6"
             >
               <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Tangison Labs
               </span>
               <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
@@ -127,7 +127,7 @@ export function HomePage() {
               className="flex items-center gap-3 mb-4"
             >
               <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Focus
               </span>
             </motion.div>
@@ -211,7 +211,7 @@ export function HomePage() {
               className="flex items-center gap-3 mb-4"
             >
               <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Ecosystem
               </span>
             </motion.div>
@@ -236,7 +236,7 @@ export function HomePage() {
                 className="group content-card p-8 hover:border-[#C4562A]/30"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em]">
+                  <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em]">
                     studio.tangison.com
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-[#D0CDC8] group-hover:text-[#C4562A] transition-colors duration-300" />
@@ -259,7 +259,7 @@ export function HomePage() {
                 className="group content-card p-8 hover:border-[#2CB5B4]/30"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em]">
+                  <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em]">
                     agent.tangison.com
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-[#D0CDC8] group-hover:text-[#2CB5B4] transition-colors duration-300" />
@@ -321,7 +321,7 @@ export function HomePage() {
               className="flex items-center gap-3 mb-4"
             >
               <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Research
               </span>
             </motion.div>
@@ -337,7 +337,7 @@ export function HomePage() {
             <motion.p
               variants={fadeUp}
               custom={0.2}
-              className="font-cabinet text-base text-[#9B968E] leading-relaxed max-w-[65ch] mb-10"
+              className="font-cabinet text-base text-[#7A756C] leading-relaxed max-w-[65ch] mb-10"
             >
               Our research spans applied AI, workflow automation, and
               infrastructure systems. Every project starts with a real problem
@@ -381,7 +381,7 @@ export function HomePage() {
                   <h3 className="font-satoshi font-medium text-lg text-[#F0EDE8] mb-2">
                     {item.title}
                   </h3>
-                  <p className="font-cabinet text-sm text-[#9B968E] leading-relaxed">
+                  <p className="font-cabinet text-sm text-[#7A756C] leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -418,7 +418,7 @@ export function HomePage() {
               className="flex items-center gap-3 mb-4"
             >
               <div className="w-2 h-2 bg-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Open Source
               </span>
             </motion.div>
@@ -468,7 +468,7 @@ export function HomePage() {
                     <Github className="w-5 h-5 text-[#6B6860] group-hover:text-[#C4562A] transition-colors duration-300" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-jetbrains text-sm text-[#1A1A1A] mb-1 group-hover:text-[#C4562A] transition-colors duration-300">
+                    <h3 className="font-satoshi font-medium text-sm text-[#1A1A1A] mb-1 group-hover:text-[#C4562A] transition-colors duration-300">
                       tangison/{repo.name}
                     </h3>
                     <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">

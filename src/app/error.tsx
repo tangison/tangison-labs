@@ -38,12 +38,12 @@ export default function Error({
           </Link>
         </div>
         {error.digest && process.env.NODE_ENV === "development" && (
-          <div className="mt-12 font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-wider">
+          <div className="mt-12 font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-wider">
             Error ID: {error.digest}
           </div>
         )}
         <div className="mt-8">
-          <a href="mailto:contact@tangison.com" className="font-jetbrains text-[10px] text-[#9B968E] uppercase tracking-[0.2em] hover:text-[#C4562A] transition-colors duration-300">
+          <a href="mailto:contact@tangison.com" className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] hover:text-[#C4562A] transition-colors duration-300">
             contact@tangison.com
           </a>
         </div>

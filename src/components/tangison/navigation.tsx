@@ -165,7 +165,7 @@ export function Navigation() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-jetbrains text-[10px] uppercase tracking-[0.2em] inline-flex items-center gap-1 text-[#9B968E] hover:text-[#C4562A] transition-colors duration-300"
+              className="font-jetbrains text-[10px] uppercase tracking-[0.2em] inline-flex items-center gap-1 text-[#7A756C] hover:text-[#C4562A] transition-colors duration-300"
             >
               {link.label}
               <ArrowUpRight className="w-2.5 h-2.5" />
@@ -244,7 +244,7 @@ export function Navigation() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-cabinet text-sm tracking-[0.15em] uppercase text-[#9B968E] hover:text-[#C4562A] transition-colors duration-300 inline-flex items-center gap-1.5"
+                        className="font-cabinet text-sm tracking-[0.15em] uppercase text-[#7A756C] hover:text-[#C4562A] transition-colors duration-300 inline-flex items-center gap-1.5"
                       >
                         {link.label}
                         <ArrowUpRight className="w-3 h-3" />
@@ -262,7 +262,7 @@ export function Navigation() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="pb-8 text-center shrink-0"
             >
-              <span className="font-jetbrains text-[9px] text-[#9B968E] uppercase tracking-[0.3em]">
+              <span className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.3em]">
                 Windhoek, Namibia
               </span>
             </motion.div>
