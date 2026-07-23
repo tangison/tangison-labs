@@ -18,14 +18,20 @@
   --color-t-fg: #1A1A1A;
   --color-t-fg-muted: #6B6860;
   --color-t-fg-subtle: #7A756C;
+  --color-t-fg-inverse: #F0EDE8;
   --color-t-accent: #C4562A;
   --color-t-accent-hover: #A84420;
   --color-t-accent-soft: rgba(196, 86, 42, 0.08);
   --color-t-accent-mid: rgba(196, 86, 42, 0.15);
   --color-t-teal: #2CB5B4;
-  --color-t-teal-soft: rgba(44, 181, 180, 0.08);
+  --color-t-teal-soft: rgba(44, 181, 180, 0.10);
   --color-t-border: #E0DDD8;
   --color-t-border-strong: #D0CDC8;
+  --color-t-rust-light: #D4896F;
+  --color-t-success: #3D7A5F;
+  --color-t-error: #C54444;
+  --color-t-card-surface: #FFFFFF;
+  --color-t-video-frame: rgba(26, 26, 26, 0.8);
 
   /* Legacy compatible tokens */
   --color-warm-white: #FAFAF8;
@@ -122,13 +128,13 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F0EDE8;
+  background: var(--color-t-bg-elevated);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D0CDC8;
+  background: var(--color-t-border-strong);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A756C;
+  background: var(--color-t-fg-subtle);
 }
 
 /* Thin scrollbar for overflow containers */
@@ -177,7 +183,7 @@ html {
 
 /* Focus visible styles for accessibility */
 :focus-visible {
-  outline: 2px solid #C4562A;
+  outline: 2px solid var(--color-t-accent);
   outline-offset: 2px;
 }
 
@@ -207,11 +213,6 @@ html {
   to { stroke-dashoffset: 0; }
 }
 
-@keyframes breathe-glow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
 @keyframes breathe-glow-bg {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
@@ -229,13 +230,18 @@ html {
   100% { left: calc(100% + 2rem); }
 }
 
+@keyframes loading-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
 /* ─── Typing cursor ─── */
 
 .typing-cursor {
   display: inline-block;
   width: 2px;
   height: 1em;
-  background-color: #C4562A;
+  background-color: var(--color-t-accent);
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink-cursor 0.8s step-end infinite;
@@ -289,13 +295,13 @@ button, a {
 .editorial-divider {
   width: 40px;
   height: 2px;
-  background: #C4562A;
+  background: var(--color-t-accent);
 }
 
-/* Accent gradient bar */
+/* Accent bar — single color, not gradient */
 .accent-bar {
   height: 3px;
-  background: linear-gradient(90deg, #C4562A, #2CB5B4);
+  background: var(--color-t-accent);
 }
 
 /* Decorative corner marks */
@@ -308,7 +314,7 @@ button, a {
   position: absolute;
   width: 16px;
   height: 16px;
-  border-color: #C4562A;
+  border-color: var(--color-t-accent);
   border-style: solid;
   pointer-events: none;
 }

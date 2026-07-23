@@ -72,7 +72,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="font-cabinet antialiased bg-[#FAFAF8] text-[#1A1A1A]" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+      <body className="font-cabinet antialiased bg-t-bg text-t-fg" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "Organization",

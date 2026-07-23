@@ -1,62 +1,11 @@
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 */
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight, Github, ArrowUpRight } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
 import { TypeWriter } from "@/components/tangison/type-writer";
-
-/* ─── Animation Variants ──────────────────────────────────────── */
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -40 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
-
-const revealWidth = {
-  hidden: { width: 0 },
-  visible: (delay: number = 0) => ({
-    width: "100%",
-    transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
-
-const staggerList = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-  },
-};
-
-const staggerItemSlide = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 40 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
 
 /* ─── Focus Area Data ──────────────────────────────────────────── */
 
@@ -67,87 +16,205 @@ const focusAreas = [
   { title: "Publications", desc: "Technical writing and shared learnings from our engineering work." },
 ];
 
+/* ─── Reduced motion subscription ─── */
+
+function subscribeToReducedMotion(callback: () => void) {
+  const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 /* ─── Home Page ───────────────────────────────────────────────── */
 
 export function HomePage() {
+  /* ─── Anime.js Hero Choreography ─── */
+  const heroBgRef = useRef<HTMLDivElement>(null);
+  const videoAccentRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const supportRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      // Static render — set all elements visible
+      [heroBgRef, videoAccentRef, headingRef, supportRef, ctaRef].forEach((ref) => {
+        if (ref.current) {
+          ref.current.style.opacity = "1";
+          ref.current.style.transform = "none";
+        }
+      });
+      return;
+    }
+
+    // Dynamic import of anime.js to avoid SSR issues
+    let timeline: { pause: () => void } | null = null;
+
+    import("animejs").then(({ createTimeline, utils }) => {
+      const tl = createTimeline({
+        defaults: { ease: "outQuart" },
+      });
+
+      // 1. Background image: fade in over 1.2s
+      if (heroBgRef.current) {
+        tl.add(heroBgRef.current, {
+          opacity: [0, 1],
+          duration: 1200,
+        }, 0);
+      }
+
+      // 2. Video accent: slide in from right over 0.8s, delay 0.4s
+      if (videoAccentRef.current) {
+        tl.add(videoAccentRef.current, {
+          translateX: [40, 0],
+          opacity: [0, 1],
+          duration: 800,
+        }, 400);
+      }
+
+      // 3. Heading container: fade in
+      if (headingRef.current) {
+        tl.add(headingRef.current, {
+          opacity: [0, 1],
+          duration: 600,
+        }, 600);
+      }
+
+      // 4. Support text: fade in, delay 0.8s
+      if (supportRef.current) {
+        tl.add(supportRef.current, {
+          opacity: [0, 1],
+          translateY: [10, 0],
+          duration: 600,
+        }, 800);
+      }
+
+      // 5. CTA buttons: fade in with stagger, delay 1.2s
+      if (ctaRef.current) {
+        tl.add(Array.from(ctaRef.current.children) as HTMLElement[], {
+        opacity: [0, 1],
+        translateY: [10, 0],
+        duration: 500,
+        delay: utils.stagger(100),
+      }, 1200);
+      }
+
+      timeline = tl;
+    });
+
+    return () => {
+      if (timeline) {
+        timeline.pause();
+      }
+    };
+  }, [prefersReducedMotion]);
+
   return (
     <SiteShell>
-      {/* ─── Hero: Full-width desert landscape with typing animation ─── */}
+      {/* ─── Hero: 60vh with desert landscape + video accent ─── */}
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
-        <Image
-          src="/images/gallery/desert-road-landscape.webp"
-          alt="Desert road stretching into the Namibian landscape"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        {/* Background image — animated via Anime.js */}
+        <div ref={heroBgRef} style={prefersReducedMotion ? {} : { opacity: 0 }}>
+          <Image
+            src="/images/gallery/desert-road-landscape.webp"
+            alt="Desert road stretching into the Namibian landscape"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-[#1A1A1A]/50" />
+        <div className="absolute inset-0 bg-t-fg/50" />
 
+        {/* Video accent element — desktop only, right side */}
+        <div
+          ref={videoAccentRef}
+          className="hidden lg:block absolute right-6 md:right-12 lg:right-20 top-0 bottom-0 w-[300px] max-w-[300px] overflow-hidden"
+          style={prefersReducedMotion ? {} : { opacity: 0, transform: "translateX(40px)" }}
+        >
+          <div className="relative w-full h-full border-2 border-t-video-frame">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/video/labs-hero-poster.jpg"
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+            >
+              <source src="/video/labs-hero.mp4" type="video/mp4" />
+              <source src="/video/labs-hero.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+
+        {/* Hero content */}
         <div className="absolute inset-0 flex items-end pb-16 md:pb-24 px-6 md:px-12 lg:px-20">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-[1200px] mx-auto w-full"
-          >
-            {/* Typing animation on the left */}
-            <motion.div variants={slideInLeft} custom={0.3}>
-              <h1 className="font-satoshi font-bold text-[clamp(2rem,5vw,4rem)] tracking-[-0.02em] leading-[1.05] text-[#F0EDE8] mb-4">
+          <div className="max-w-[1200px] mx-auto w-full">
+            {/* Heading with TypeWriter */}
+            <div ref={headingRef} style={prefersReducedMotion ? {} : { opacity: 0 }}>
+              <h1 className="font-satoshi font-bold text-[clamp(2rem,5vw,4rem)] tracking-[-0.02em] leading-[1.05] text-t-fg-inverse mb-4">
                 <TypeWriter
                   text="We build what we research"
                   speed={45}
                   delay={0.8}
                 />
               </h1>
-            </motion.div>
+            </div>
 
-            <motion.p
-              variants={slideInLeft}
-              custom={0.5}
-              className="font-cabinet text-base md:text-lg text-[#F0EDE8]/70 leading-relaxed max-w-[55ch] mb-8"
-            >
-              Tangison Labs is the research and development division of Tangison.
-              Open-source projects, applied AI research, and experimental tools
-              from Windhoek, Namibia.
-            </motion.p>
+            {/* Support text */}
+            <div ref={supportRef} style={prefersReducedMotion ? {} : { opacity: 0, transform: "translateY(10px)" }}>
+              <p className="font-cabinet text-base md:text-lg text-t-fg-inverse/70 leading-relaxed max-w-[55ch] mb-8">
+                Tangison Labs is the research and development division of Tangison.
+                Open-source projects, applied AI research, and experimental tools
+                from Windhoek, Namibia.
+              </p>
+            </div>
 
-            <motion.div variants={slideInLeft} custom={0.7} className="flex flex-wrap gap-4">
+            {/* CTA buttons */}
+            <div ref={ctaRef} className="flex flex-wrap gap-4" style={prefersReducedMotion ? {} : { opacity: 0 }}>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-3 bg-[#C4562A] text-[#FAFAF8] px-6 py-3.5 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#A84420] transition-colors duration-300 group"
+                className="inline-flex items-center gap-3 bg-t-accent text-t-bg px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-accent-hover transition-colors duration-300 group"
               >
                 View projects
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
               <Link
                 href="/research"
-                className="inline-flex items-center gap-3 border border-[#F0EDE8]/40 text-[#F0EDE8] px-6 py-3.5 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#F0EDE8]/10 transition-colors duration-300 group"
+                className="inline-flex items-center gap-3 border border-t-fg-inverse/40 text-t-fg-inverse px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-fg-inverse/10 transition-colors duration-300 group"
               >
                 Explore research
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />
       </section>
 
-      {/* ─── Focus Areas: Split layout (photo left, list right) ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
+      {/* ─── Focus Areas: Split layout (photo + list) — STATIC ─── */}
+      <section className="py-24 md:py-28 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Left: half-width architecture photo */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={slideInLeft}
-              custom={0}
-              className="relative overflow-hidden"
-            >
+            {/* Left: architecture photo */}
+            <div className="relative overflow-hidden">
               <Image
                 src="/images/gallery/concrete-glass-architecture.webp"
                 alt="Concrete and glass architecture in Namibia"
@@ -156,169 +223,123 @@ export function HomePage() {
                 className="w-full h-auto object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-            </motion.div>
+            </div>
 
             {/* Right: stacked typographic list */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={staggerList}
-            >
-              <motion.h2
-                variants={slideInRight}
-                custom={0}
-                className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-[#1A1A1A] mb-10"
-              >
+            <div>
+              <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-t-fg mb-10">
                 What we work on
-              </motion.h2>
+              </h2>
 
               {focusAreas.map((area, i) => (
-                <motion.div
+                <div
                   key={area.title}
-                  variants={staggerItemSlide}
-                  className="group py-6 border-b border-[#E0DDD8] last:border-b-0"
+                  className="group py-6 border-b border-t-border last:border-b-0"
                 >
                   <div className="flex items-baseline gap-4 mb-2">
-                    <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em]">
+                    <span className="font-jetbrains text-[10px] text-t-fg-subtle uppercase tracking-[0.2em]">
                       0{i + 1}
                     </span>
-                    <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] relative inline-block">
+                    <h3 className="font-satoshi font-medium text-xl text-t-fg relative inline-block">
                       {area.title}
-                      <span className="absolute bottom-0 left-0 h-[2px] bg-[#C4562A] w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                      <span className="absolute bottom-0 left-0 h-[2px] bg-t-accent w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
                     </h3>
                   </div>
-                  <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed ml-[calc(10px+0.2em+16px)]">
+                  <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed ml-[calc(10px+0.2em+16px)]">
                     {area.desc}
                   </p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Ecosystem: Horizontal band with 3 text blocks ─── */}
-      <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#F0EDE8]">
+      {/* ─── Ecosystem: Horizontal band — STATIC ─── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-20 bg-t-bg-elevated">
         <div className="max-w-[1200px] mx-auto">
-          <motion.h2
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeIn}
-            custom={0}
-            className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-[#1A1A1A] mb-12"
-          >
+          <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-t-fg mb-12">
             Part of the Tangison ecosystem
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={staggerList}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Studio */}
-            <motion.a
+            <a
               href="https://studio.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
-              variants={staggerItemSlide}
               className="group block"
             >
-              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-2">
+              <span className="font-jetbrains text-[10px] text-t-fg-subtle uppercase tracking-[0.2em] block mb-2">
                 studio.tangison.com
               </span>
-              <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 inline-block relative">
+              <h3 className="font-satoshi font-medium text-xl text-t-fg mb-2 inline-block relative">
                 Studio
-                <span className="absolute -bottom-1 left-0 h-[2px] bg-[#C4562A]/40 w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                <span className="absolute -bottom-1 left-0 h-[2px] bg-t-accent/40 w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
               </h3>
-              <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">
+              <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
                 Creative and infrastructure services. Design, build, and ship digital products.
               </p>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#C4562A] mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.a>
+              <ArrowUpRight className="w-3.5 h-3.5 text-t-accent mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
 
             {/* Agent */}
-            <motion.a
+            <a
               href="https://agent.tangison.com"
               target="_blank"
               rel="noopener noreferrer"
-              variants={staggerItemSlide}
               className="group block"
             >
-              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-2">
+              <span className="font-jetbrains text-[10px] text-t-fg-subtle uppercase tracking-[0.2em] block mb-2">
                 agent.tangison.com
               </span>
-              <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 inline-block relative">
+              <h3 className="font-satoshi font-medium text-xl text-t-fg mb-2 inline-block relative">
                 Agent
-                <span className="absolute -bottom-1 left-0 h-[2px] bg-[#2CB5B4]/40 w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                <span className="absolute -bottom-1 left-0 h-[2px] bg-t-teal/40 w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
               </h3>
-              <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">
+              <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
                 AI agent products. Intelligent automation tools that learn, adapt, and execute workflows.
               </p>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#2CB5B4] mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.a>
+              <ArrowUpRight className="w-3.5 h-3.5 text-t-teal mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
 
-            {/* Labs (current) — highlighted with accent border */}
-            <motion.div
-              variants={staggerItemSlide}
-              className="border-2 border-[#C4562A] p-6 relative"
-            >
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#C4562A]" aria-hidden="true" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#C4562A]" aria-hidden="true" />
-              <span className="font-jetbrains text-[10px] text-[#C4562A] uppercase tracking-[0.2em] block mb-2">
+            {/* Labs (current) — highlighted */}
+            <div className="border-2 border-t-accent p-6 relative">
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-t-accent" aria-hidden="true" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-t-accent" aria-hidden="true" />
+              <span className="font-jetbrains text-[10px] text-t-accent uppercase tracking-[0.2em] block mb-2">
                 labs.tangison.com
               </span>
-              <span className="font-jetbrains text-[9px] text-[#C4562A]/70 uppercase tracking-[0.15em] bg-[#C4562A]/10 px-2 py-1">
+              <span className="font-jetbrains text-[9px] text-t-accent/70 uppercase tracking-[0.15em] bg-t-accent/10 px-2 py-1">
                 Current
               </span>
-              <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mt-2 mb-2">
+              <h3 className="font-satoshi font-medium text-xl text-t-fg mt-2 mb-2">
                 Labs
               </h3>
-              <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">
+              <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
                 Research and development. This is where the thinking happens before the building starts.
               </p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ─── Research Highlights: Dark background, magazine-style ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[#1A1A1A] text-[#F0EDE8]">
+      {/* ─── Research Highlights: Dark background — STATIC ─── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-20 bg-t-fg text-t-fg-inverse">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
-            {/* Left: large heading */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-            >
-              <motion.h2
-                variants={slideInLeft}
-                custom={0}
-                className="font-satoshi font-bold text-[clamp(1.5rem,3.5vw,3rem)] tracking-[-0.02em] text-[#F0EDE8] mb-4"
-              >
+            {/* Left: heading */}
+            <div>
+              <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3.5vw,3rem)] tracking-[-0.02em] text-t-fg-inverse mb-4">
                 Current research
-              </motion.h2>
-              <motion.p
-                variants={slideInLeft}
-                custom={0.1}
-                className="font-cabinet text-sm text-[#7A756C] leading-relaxed max-w-[40ch]"
-              >
+              </h2>
+              <p className="font-cabinet text-sm text-t-fg-subtle leading-relaxed max-w-[40ch]">
                 Every project starts with a real problem and ends with working code.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             {/* Right: numbered list */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={staggerList}
-              className="space-y-8"
-            >
+            <div className="space-y-8">
               {[
                 {
                   num: "01",
@@ -339,60 +360,50 @@ export function HomePage() {
                   status: "Exploring",
                 },
               ].map((item) => (
-                <motion.div
-                  key={item.num}
-                  variants={staggerItemSlide}
-                  className="group"
-                >
+                <div key={item.num} className="group">
                   <div className="flex items-baseline gap-4 mb-2">
-                    <span className="font-jetbrains text-[10px] text-[#C4562A] tracking-[0.2em]">
+                    <span className="font-jetbrains text-[10px] text-t-accent tracking-[0.2em]">
                       {item.num}
                     </span>
-                    <h3 className="font-satoshi font-medium text-lg text-[#F0EDE8] inline-block relative">
+                    <h3 className="font-satoshi font-medium text-lg text-t-fg-inverse inline-block relative">
                       {item.title}
-                      <span className="absolute -bottom-1 left-0 h-[2px] bg-[#C4562A] w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                      <span className="absolute -bottom-1 left-0 h-[2px] bg-t-accent w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
                     </h3>
                     <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${
-                      item.status === "Active" ? "text-[#2CB5B4] bg-[#2CB5B4]/10" : "text-[#D4896F] bg-[#D4896F]/10"
+                      item.status === "Active" ? "text-t-teal bg-t-teal/10" : "text-t-rust-light bg-t-rust-light/10"
                     }`}>
                       {item.status}
                     </span>
                   </div>
-                  <p className="font-cabinet text-sm text-[#7A756C] leading-relaxed ml-[calc(10px+0.2em+16px)]">
+                  <p className="font-cabinet text-sm text-t-fg-subtle leading-relaxed ml-[calc(10px+0.2em+16px)]">
                     {item.desc}
                   </p>
-                </motion.div>
+                </div>
               ))}
 
-              <motion.div variants={staggerItemSlide}>
+              <div>
                 <Link
                   href="/research"
-                  className="inline-flex items-center gap-3 border border-[#C4562A] text-[#C4562A] px-5 py-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#C4562A]/10 transition-colors duration-300 group mt-4"
+                  className="inline-flex items-center gap-3 border border-t-accent text-t-accent px-5 py-3 font-cabinet text-sm tracking-[0.02em] hover:bg-t-accent/10 transition-colors duration-300 group mt-4"
                 >
                   Explore research
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Open Source: Split layout ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
+      {/* ─── Open Source: Split layout — STATIC ─── */}
+      <section className="py-24 md:py-28 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16">
-            {/* Left: GitHub icon + repo names */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={slideInLeft}
-              custom={0}
-            >
+            {/* Left: GitHub icon + heading */}
+            <div>
               <div className="flex items-center gap-3 mb-8">
-                <Github className="w-5 h-5 text-[#C4562A]" />
-                <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-[#1A1A1A]">
+                <Github className="w-5 h-5 text-t-accent" />
+                <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-t-fg">
                   Open source
                 </h2>
               </div>
@@ -407,41 +418,35 @@ export function HomePage() {
                     href={repo.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-jetbrains text-sm text-[#1A1A1A] hover:text-[#C4562A] transition-colors duration-300 inline-flex items-center gap-2 group"
+                    className="font-jetbrains text-sm text-t-fg hover:text-t-accent transition-colors duration-300 inline-flex items-center gap-2 group"
                   >
                     tangison/{repo.name}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Right: descriptions */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={slideInRight}
-              custom={0.2}
-            >
-              <p className="font-cabinet text-base text-[#6B6860] leading-relaxed max-w-[65ch] mb-6">
+            <div>
+              <p className="font-cabinet text-base text-t-fg-muted leading-relaxed max-w-[65ch] mb-6">
                 Our repositories are public. Star them, fork them, use them. Every tool we build for ourselves gets shared.
               </p>
 
               <div className="space-y-6">
-                <div className="border-b border-[#E0DDD8] pb-6">
-                  <h3 className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2">
+                <div className="border-b border-t-border pb-6">
+                  <h3 className="font-satoshi font-medium text-lg text-t-fg mb-2">
                     Webman
                   </h3>
-                  <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">
+                  <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
                     Skills-based website creation workflow. Plan, build, audit, deploy. A structured system for building consistent, production-ready websites. Used internally to build all Tangison properties.
                   </p>
                 </div>
                 <div className="pb-6">
-                  <h3 className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2">
+                  <h3 className="font-satoshi font-medium text-lg text-t-fg mb-2">
                     Tangison Labs
                   </h3>
-                  <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">
+                  <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
                     This site. Built with Next.js, Tailwind CSS, and Framer Motion. Serves as a live example of our design system and brand language.
                   </p>
                 </div>
@@ -451,61 +456,43 @@ export function HomePage() {
                 href="https://github.com/tangison"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#1A1A1A] text-[#FAFAF8] px-5 py-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#333] transition-colors duration-300 group mt-4"
+                className="inline-flex items-center gap-3 bg-t-fg text-t-bg px-5 py-3 font-cabinet text-sm tracking-[0.02em] hover:bg-t-fg/80 transition-colors duration-300 group mt-4"
               >
                 <Github className="w-4 h-4" />
                 View all on GitHub
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── CTA: Left-aligned text on rust background ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[#C4562A]">
+      {/* ─── CTA: Left-aligned on accent background — expansive ─── */}
+      <section className="py-28 md:py-36 px-6 md:px-12 lg:px-20 bg-t-accent">
         <div className="max-w-[1200px] mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <motion.h2
-              variants={slideInLeft}
-              custom={0}
-              className="font-satoshi font-bold text-[clamp(1.8rem,4vw,3rem)] tracking-[-0.02em] text-[#FAFAF8] mb-6 max-w-[50ch]"
+          <h2 className="font-satoshi font-bold text-[clamp(1.8rem,4vw,3rem)] tracking-[-0.02em] text-t-bg mb-6 max-w-[50ch]">
+            Research meets production
+          </h2>
+          <p className="font-cabinet text-base md:text-lg text-t-bg/70 leading-relaxed max-w-[55ch] mb-10">
+            Every experiment in Labs is a candidate for the next Tangison product.
+            Follow the work, or bring a problem and let us solve it together.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="mailto:contact@tangison.com"
+              className="inline-flex items-center gap-3 bg-t-card-surface text-t-fg px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-bg-elevated transition-colors duration-300 group"
             >
-              Research meets production
-            </motion.h2>
-            <motion.p
-              variants={slideInLeft}
-              custom={0.1}
-              className="font-cabinet text-base md:text-lg text-[#FAFAF8]/70 leading-relaxed max-w-[55ch] mb-10"
+              Get in touch
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </a>
+            <Link
+              href="/experiments"
+              className="inline-flex items-center gap-3 border border-t-bg/30 text-t-bg px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-bg/10 transition-colors duration-300 group"
             >
-              Every experiment in Labs is a candidate for the next Tangison product.
-              Follow the work, or bring a problem and let us solve it together.
-            </motion.p>
-            <motion.div
-              variants={slideInLeft}
-              custom={0.2}
-              className="flex flex-wrap gap-4"
-            >
-              <a
-                href="mailto:contact@tangison.com"
-                className="inline-flex items-center gap-3 bg-[#FAFAF8] text-[#1A1A1A] px-6 py-3.5 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#F0EDE8] transition-colors duration-300 group"
-              >
-                Get in touch
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </a>
-              <Link
-                href="/experiments"
-                className="inline-flex items-center gap-3 border border-[#FAFAF8]/30 text-[#FAFAF8] px-6 py-3.5 font-jetbrains text-[10px] uppercase tracking-[0.2em] hover:bg-[#FAFAF8]/10 transition-colors duration-300 group"
-              >
-                View experiments
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            </motion.div>
-          </motion.div>
+              View experiments
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </section>
     </SiteShell>

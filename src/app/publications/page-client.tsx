@@ -1,44 +1,12 @@
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 */
 "use client";
 
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
-
-/* ─── Animation Variants ──────────────────────────────────────── */
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -40 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
-
-const staggerList = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const staggerItemSlide = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: (delay: number = 0) => ({
-    opacity: 1,
-    transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  }),
-};
+import { heroSlideIn } from "@/lib/animation-variants";
+import { motion } from "framer-motion";
 
 /* ─── Publication Data ────────────────────────────────────────── */
 
@@ -81,9 +49,9 @@ const publications = [
 ];
 
 const typeColors: Record<string, string> = {
-  "Technical Note": "text-[#C4562A] bg-[#C4562A]/10",
-  "Research Note": "text-[#2CB5B4] bg-[#2CB5B4]/10",
-  "Field Report": "text-[#D4896F] bg-[#D4896F]/10",
+  "Technical Note": "text-t-accent bg-t-accent/10",
+  "Research Note": "text-t-teal bg-t-teal/10",
+  "Field Report": "text-t-rust-light bg-t-rust-light/10",
 };
 
 /* ─── Publications Page ───────────────────────────────────────── */
@@ -91,8 +59,8 @@ const typeColors: Record<string, string> = {
 export function PublicationsPage() {
   return (
     <SiteShell>
-      {/* ─── Hero with desk-books-lamp-sunlight image ─── */}
-      <section className="relative h-[45vh] min-h-[300px] overflow-hidden">
+      {/* ─── Hero ─── */}
+      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <Image
           src="/images/gallery/desk-books-lamp-sunlight.webp"
           alt="Desk with books, lamp, and sunlight"
@@ -101,7 +69,7 @@ export function PublicationsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#1A1A1A]/50" />
+        <div className="absolute inset-0 bg-t-fg/50" />
 
         <div className="absolute inset-0 flex items-end pb-12 md:pb-16 px-6 md:px-12 lg:px-20">
           <motion.div
@@ -110,16 +78,16 @@ export function PublicationsPage() {
             className="max-w-[1200px] mx-auto w-full"
           >
             <motion.h1
-              variants={slideInLeft}
+              variants={heroSlideIn}
               custom={0.3}
-              className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#F0EDE8] mb-3"
+              className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-t-fg-inverse mb-3"
             >
               What we have learned
             </motion.h1>
             <motion.p
-              variants={slideInLeft}
+              variants={heroSlideIn}
               custom={0.5}
-              className="font-cabinet text-base text-[#F0EDE8]/70 leading-relaxed max-w-[55ch]"
+              className="font-cabinet text-base text-t-fg-inverse/70 leading-relaxed max-w-[55ch]"
             >
               Technical notes, research findings, and field reports. We write about what we build, what breaks, and what we discover.
             </motion.p>
@@ -129,32 +97,30 @@ export function PublicationsPage() {
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />
       </section>
 
-      {/* ─── Timeline-style layout ─── */}
-      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
+      {/* ─── Vertical timeline with year markers ─── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
-          <motion.div
-            variants={staggerList}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="relative"
-          >
+          <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-[calc(10px+0.15em*5+16px+8px)] md:left-[calc(9px*5+0.15em*5+4px+2px+16px)] top-0 bottom-0 w-[1px] bg-[#E0DDD8]" aria-hidden="true" />
+            <div className="absolute left-0 md:left-4 top-0 bottom-0 w-[1px] bg-t-border" aria-hidden="true" />
 
-            {publications.map((pub, i) => (
-              <motion.article
+            {/* Year marker — all publications are 2026 */}
+            <div className="relative pl-8 md:pl-12 py-2">
+              <div className="absolute left-0 md:left-4 top-2 w-3 h-3 bg-t-accent -translate-x-1/2" aria-hidden="true" />
+              <span className="font-satoshi font-bold text-lg text-t-fg">
+                2026
+              </span>
+            </div>
+
+            {publications.map((pub) => (
+              <article
                 key={pub.title}
-                variants={staggerItemSlide}
-                className="group relative pl-8 md:pl-12 py-10"
+                className="group relative pl-8 md:pl-12 py-8"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-4 top-10 w-3 h-3 bg-[#C4562A] -translate-x-1/2" aria-hidden="true" />
+                <div className="absolute left-0 md:left-4 top-8 w-2 h-2 bg-t-border-strong -translate-x-1/2" aria-hidden="true" />
 
                 <div className="flex items-baseline gap-4 mb-2 flex-wrap">
-                  <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.15em]">
-                    {pub.year}
-                  </span>
                   <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${typeColors[pub.type]}`}>
                     {pub.type}
                   </span>
@@ -162,50 +128,40 @@ export function PublicationsPage() {
 
                 <Link
                   href={pub.href}
-                  className="font-satoshi font-medium text-lg text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300 inline-block mb-2 relative"
+                  className="font-satoshi font-medium text-lg text-t-fg group-hover:text-t-accent transition-colors duration-300 inline-block mb-2 relative"
                 >
                   {pub.title}
-                  <span className="absolute -bottom-1 left-0 h-[2px] bg-[#C4562A] w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                  <span className="absolute -bottom-1 left-0 h-[1px] bg-t-accent w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
                 </Link>
 
-                <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed max-w-[65ch]">
+                <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed max-w-[65ch]">
                   {pub.desc}
                 </p>
-              </motion.article>
+              </article>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ─── Sub-section links ─── */}
-      <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#F0EDE8]">
+      <section className="py-24 md:py-28 px-6 md:px-12 lg:px-20 bg-t-bg-elevated">
         <div className="max-w-[1200px] mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={staggerList}
-            className="flex flex-col md:flex-row gap-8 md:gap-16"
-          >
-            <motion.div variants={staggerItemSlide}>
-              <Link
-                href="/insights/articles"
-                className="group inline-flex items-center gap-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A] hover:text-[#C4562A] transition-colors duration-300"
-              >
-                Technical Articles
-                <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            </motion.div>
-            <motion.div variants={staggerItemSlide}>
-              <Link
-                href="/insights/reports"
-                className="group inline-flex items-center gap-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A] hover:text-[#C4562A] transition-colors duration-300"
-              >
-                Research Reports
-                <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            </motion.div>
-          </motion.div>
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+            <Link
+              href="/insights/articles"
+              className="font-cabinet text-[13px] tracking-[0.05em] text-t-fg-muted hover:text-t-accent transition-colors duration-300 inline-flex items-center gap-2 group"
+            >
+              Technical Articles
+              <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              href="/insights/reports"
+              className="font-cabinet text-[13px] tracking-[0.05em] text-t-fg-muted hover:text-t-accent transition-colors duration-300 inline-flex items-center gap-2 group"
+            >
+              Research Reports
+              <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </section>
     </SiteShell>

@@ -15,35 +15,35 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen bg-t-bg flex flex-col items-center justify-center px-6">
       <div className="text-center max-w-lg">
-        <h1 className="font-satoshi font-bold text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] tracking-tight mb-4">
+        <h1 className="font-satoshi font-bold text-3xl sm:text-4xl md:text-5xl text-t-fg tracking-tight mb-4">
           Something went wrong
         </h1>
-        <p className="font-cabinet text-[#6B6860] text-base sm:text-lg leading-relaxed mb-10">
+        <p className="font-cabinet text-t-fg-muted text-base sm:text-lg leading-relaxed mb-10">
           Something went wrong on our end. Your information was not affected.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={reset}
-            className="bg-[#C4562A] text-[#FAFAF8] px-8 py-4 font-jetbrains text-xs uppercase tracking-[0.2em] hover:bg-[#A84420] transition-colors duration-300"
+            className="bg-t-accent text-t-bg px-8 py-4 font-cabinet text-sm tracking-[0.02em] hover:bg-t-accent-hover transition-colors duration-300"
           >
             Try again
           </button>
           <Link
             href="/"
-            className="border border-[#E0DDD8] text-[#6B6860] px-8 py-4 font-jetbrains text-xs uppercase tracking-[0.2em] hover:text-[#1A1A1A] hover:border-[#1A1A1A]/20 transition-colors duration-300"
+            className="border border-t-border text-t-fg-muted px-8 py-4 font-cabinet text-sm tracking-[0.02em] hover:text-t-fg hover:border-t-fg/20 transition-colors duration-300"
           >
             Return home
           </Link>
         </div>
         {error.digest && process.env.NODE_ENV === "development" && (
-          <div className="mt-12 font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-wider">
+          <div className="mt-12 font-jetbrains text-[9px] text-t-fg-subtle uppercase tracking-wider">
             Error ID: {error.digest}
           </div>
         )}
         <div className="mt-8">
-          <a href="mailto:contact@tangison.com" className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] hover:text-[#C4562A] transition-colors duration-300">
+          <a href="mailto:contact@tangison.com" className="font-cabinet text-[13px] text-t-fg-subtle hover:text-t-accent transition-colors duration-300">
             contact@tangison.com
           </a>
         </div>

@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "animejs": "^4.5.0",
     "framer-motion": "^12.23.2",
     "gsap": "^3.15.0",
     "lucide-react": "^0.525.0",

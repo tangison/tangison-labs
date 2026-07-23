@@ -1,7 +1,6 @@
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 */
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore } from "react";
 
 interface TypeWriterProps {
   text: string;
@@ -10,32 +9,43 @@ interface TypeWriterProps {
   delay?: number;
 }
 
+function subscribeToReducedMotion(callback: () => void) {
+  const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 export function TypeWriter({
   text,
   speed = 50,
   className = "",
   delay = 0,
 }: TypeWriterProps) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [isComplete, setIsComplete] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
+
+  // When reduced motion is preferred, display the full text immediately
+  const displayedText = prefersReducedMotion ? text : undefined;
+  const isComplete = prefersReducedMotion ? true : undefined;
+
+  // Typing animation state — only used when motion is not reduced
+  const [typedText, setTypedText] = useState("");
+  const [typedComplete, setTypedComplete] = useState(false);
   const hasStarted = useRef(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setDisplayedText(text);
-      setIsComplete(true);
-      return;
-    }
+    if (prefersReducedMotion) return;
 
     if (hasStarted.current) return;
     hasStarted.current = true;
@@ -46,11 +56,11 @@ export function TypeWriter({
     const startTyping = () => {
       const typeNext = () => {
         if (currentIndex <= text.length) {
-          setDisplayedText(text.slice(0, currentIndex));
+          setTypedText(text.slice(0, currentIndex));
           currentIndex++;
           timeoutId = setTimeout(typeNext, speed);
         } else {
-          setIsComplete(true);
+          setTypedComplete(true);
         }
       };
 
@@ -66,13 +76,16 @@ export function TypeWriter({
     return () => clearTimeout(timeoutId);
   }, [text, speed, delay, prefersReducedMotion]);
 
+  const finalText = displayedText ?? typedText;
+  const finalComplete = isComplete ?? typedComplete;
+
   return (
     <span className={className}>
-      {displayedText}
-      {!isComplete && !prefersReducedMotion && (
+      {finalText}
+      {!finalComplete && !prefersReducedMotion && (
         <span className="typing-cursor" aria-hidden="true" />
       )}
-      {isComplete && !prefersReducedMotion && (
+      {finalComplete && !prefersReducedMotion && (
         <span className="typing-cursor typing-cursor-done" aria-hidden="true" />
       )}
     </span>
