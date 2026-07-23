@@ -37,7 +37,7 @@ export function Footer() {
               className="h-10 md:h-14 w-auto object-contain mb-4"
             />
             <p className="font-cabinet text-base text-t-fg-inverse/60 max-w-[40ch]">
-              Research and development. Open source, applied AI, and experimental tools from Windhoek, Namibia.
+              R&D division. Open-source tools, applied AI, and prototypes. Windhoek, Namibia.
             </p>
           </div>
 

@@ -45,7 +45,7 @@ export function OpenSourcePage() {
             Public repositories
           </h1>
           <p className="font-cabinet text-base md:text-lg text-t-fg-muted leading-relaxed max-w-[65ch]">
-            Our code is public. Use it, learn from it, contribute back if it helps you. Every tool we build for our own workflow gets shared.
+            Our code is public. Star it, fork it, use it. If a tool helps you, contribute back. Every tool we build for ourselves goes open source.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />

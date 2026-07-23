@@ -11,21 +11,21 @@ const researchProjects = [
   {
     num: "01",
     title: "Webman System",
-    desc: "Skills-based website creation workflow. Plan, content, brand, create, audit, deploy. A structured system for building consistent, production-ready websites. Used internally to build all Tangison properties.",
+    desc: "Skills-based website creation workflow. Plan, content, brand, create, audit, deploy. Used to build every Tangison property. Each phase has a checklist and an audit gate.",
     status: "Active" as const,
     github: "https://github.com/tangison/webman",
   },
   {
     num: "02",
     title: "Agent Orchestration Framework",
-    desc: "Multi-agent coordination protocols for complex task decomposition and execution. Defines handoff interfaces, checkpoint mechanisms, and validation strategies that ensure quality at each stage.",
+    desc: "Multi-agent coordination protocols. Handoff interfaces, checkpoint triggers, and validation rules that catch errors before they propagate downstream.",
     status: "Active" as const,
     github: "https://github.com/tangison",
   },
   {
     num: "03",
     title: "Local-First AI Patterns",
-    desc: "Patterns for running capable AI models on-device without relying on cloud backends. Quantisation, model selection, caching, and graceful fallback when local resources are insufficient.",
+    desc: "Running models on-device instead of routing every request to a cloud API. Quantisation, model selection, caching, and fallback to server only when local compute runs out.",
     status: "Exploring" as const,
     github: "https://github.com/tangison",
   },
@@ -59,7 +59,7 @@ export function ResearchProjectsPage() {
             R&D projects
           </h1>
           <p className="font-cabinet text-base md:text-lg text-t-fg-muted leading-relaxed max-w-[65ch]">
-            Active and exploratory research projects. Each targets a specific problem at the intersection of AI, automation, and infrastructure.
+            Active and exploratory research projects. Each one started from a problem we ran into in production.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />

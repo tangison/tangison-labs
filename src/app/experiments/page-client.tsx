@@ -12,7 +12,7 @@ const experiments = [
   {
     title: "Context-Aware Routing",
     desc: "Can a lightweight classifier determine which AI agent should handle a given task?",
-    detail: "Testing routing accuracy with measured latency targets. Results will be published with methodology documentation.",
+    detail: "Testing routing accuracy and latency on a classification model. Results will be published with test methodology.",
     stage: "Prototype" as const,
   },
   {
@@ -30,7 +30,7 @@ const experiments = [
   {
     title: "Edge Function Auth Gateway",
     desc: "Moving preview authentication from API routes to edge functions for lower latency.",
-    detail: "Testing cookie handling, secret rotation, and session management across Vercel edge runtime. Targeting significant response time reduction.",
+    detail: "Targeting measurable response time reduction. Latency numbers will be published once testing completes.",
     stage: "Prototype" as const,
   },
 ];
@@ -86,7 +86,7 @@ export function ExperimentsPage() {
               custom={0.5}
               className="font-cabinet text-base text-t-fg-inverse/70 leading-relaxed max-w-[55ch]"
             >
-              Experiments are prototypes, proof-of-concepts, and half-built ideas. Some will ship as products. Others teach us what not to do. All of them move us forward.
+              Experiments are prototypes and half-built ideas. Some ship as products. Others fail and teach us what to skip next time.
             </motion.p>
           </motion.div>
         </div>

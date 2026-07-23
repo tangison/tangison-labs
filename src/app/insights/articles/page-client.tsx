@@ -10,21 +10,21 @@ import { SiteShell } from "@/components/tangison/site-shell";
 const articles = [
   {
     title: "Why We Chose Zero Border-Radius",
-    desc: "How a single CSS constraint unified our visual identity across four properties and eliminated design decision fatigue entirely. The design reasoning, implementation details, and the brand consistency it enforces.",
+    desc: "How a single CSS rule forced a consistent visual identity across four properties and removed the need to debate rounded corners in every design review. The reasoning and the result.",
     date: "July 2026",
     category: "Design",
     comingSoon: true,
   },
   {
     title: "Building Multi-Agent Pipelines That Actually Work",
-    desc: "The practical challenges of coordinating specialised AI agents. What we learned about handoffs, validation, and the cost of autonomy. Agent orchestration in practice, not theory.",
+    desc: "The concrete problems we hit coordinating multiple AI agents. Handoff timing, validation frequency, and where giving agents more freedom slowed the whole pipeline down.",
     date: "July 2026",
     category: "AI",
     comingSoon: true,
   },
   {
     title: "Four Layers of Noindex: Keeping Staging Invisible",
-    desc: "Why one robots.txt is not enough. The defence-in-depth approach we use to keep pre-production content out of search indexes. Meta tags, headers, server controls working together.",
+    desc: "Why one robots.txt is not enough. The four enforcement layers we use to prevent staging URLs from appearing in search indexes. Meta tags, response headers, server controls, and canonical URLs.",
     date: "June 2026",
     category: "DevOps",
     comingSoon: true,

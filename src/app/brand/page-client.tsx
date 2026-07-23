@@ -72,7 +72,7 @@ export function BrandPage() {
               Tangison Labs brand
             </motion.h1>
             <motion.p variants={heroSlideIn} custom={0.1} className="font-cabinet text-base md:text-lg text-t-fg-muted leading-relaxed max-w-[65ch]">
-              The visual and verbal identity of our research division. This page documents every design decision so we stay consistent across every surface.
+              The visual and verbal identity of our research division. Every design decision is documented here so we stay consistent.
             </motion.p>
           </motion.div>
         </div>
@@ -83,12 +83,12 @@ export function BrandPage() {
       <Section id="purpose" title="Why we exist">
         <div className="max-w-[65ch]">
           <p className="font-cabinet text-base text-t-fg-muted leading-relaxed mb-4">
-            Tangison Labs exists to research, prototype, and validate new technology before it becomes a product.
-            We are the experimental wing of Tangison: the place where ideas are tested rigorously before they reach users.
+            Tangison Labs researches, prototypes, and validates technology before it ships.
+            We are the division that tests ideas against real constraints before they reach users.
           </p>
           <p className="font-cabinet text-base text-t-fg-muted leading-relaxed">
             Our audience is researchers and engineers first, business leaders second. Everything we publish must be
-            technically sound and honestly presented. We never inflate results or claim capabilities we have not verified.
+            technically sound and honestly described. We never inflate results or claim capabilities we have not measured.
           </p>
         </div>
       </Section>

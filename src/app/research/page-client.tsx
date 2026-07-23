@@ -15,19 +15,19 @@ const researchAreas = [
   {
     num: "01",
     title: "Applied AI",
-    desc: "Building practical AI systems that work in production. From workflow automation to natural language understanding, every model we train solves a specific problem.",
+    desc: "AI systems built for specific tasks. Routing queries to the right model, processing text at volume, automating decisions that follow rules. Not general-purpose demos that break in production.",
     href: "/research/projects",
   },
   {
     num: "02",
     title: "Workflow Automation",
-    desc: "Designing systems that eliminate repetitive work without eliminating human judgement. Every automation preserves override control and maintains audit trails.",
+    desc: "Systems that remove repetitive steps without removing human control. Override buttons on every automation. Audit trails on every decision. The operator can always intervene.",
     href: "/research/projects",
   },
   {
     num: "03",
     title: "Infrastructure Systems",
-    desc: "Researching the foundational layers that make AI products viable at scale. Deployment pipelines, observability stacks, and cost-aware scaling.",
+    desc: "Deployment pipelines, observability stacks, cost-aware scaling. The infrastructure that lets AI products run reliably without burning budget on idle compute.",
     href: "/research/projects",
   },
 ];
@@ -62,8 +62,8 @@ export function ResearchPage() {
               custom={0.3}
               className="font-cabinet text-base md:text-lg text-t-fg-muted leading-relaxed max-w-[65ch]"
             >
-              Every research line at Tangison Labs starts with a problem we have encountered in production.
-              We study, prototype, validate, and then ship. Nothing stays in the lab unless it works in the field.
+              Every research line starts with a problem we ran into building real products.
+              We prototype, measure, and decide. Ship it, iterate it, or kill it. Nothing survives just because it sounds good on paper.
             </motion.p>
           </motion.div>
         </div>

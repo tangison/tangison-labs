@@ -20,7 +20,7 @@ const projects = [
   },
   {
     name: "Tangison Labs",
-    desc: "This website. The public face of our R&D division.",
+    desc: "The website you are reading now. Built, hosted, and maintained by Tangison Studio.",
     status: "Live" as const,
     url: "https://github.com/tangison/tangison-labs",
     hasSite: true,
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     name: "Tangison Gateway",
-    desc: "The front door to the Tangison ecosystem.",
+    desc: "The hub page for all Tangison properties. One URL, four destinations.",
     status: "Live" as const,
     url: "https://github.com/tangison/tangison",
     hasSite: true,
@@ -99,7 +99,7 @@ export function ProjectsPage() {
               custom={0.5}
               className="font-cabinet text-base text-t-fg-inverse/70 leading-relaxed max-w-[55ch]"
             >
-              Every project started as a research question or a production need. Some are live products, others are open-source tools or active research threads.
+              Projects that started as research questions or production needs. Some are running right now. Others are tools we maintain. A few are open questions we are still working on.
             </motion.p>
           </motion.div>
         </div>
@@ -206,7 +206,7 @@ export function ProjectsPage() {
             Have a problem worth researching?
           </h2>
           <p className="font-cabinet text-base text-t-fg-muted leading-relaxed max-w-[55ch] mb-8">
-            We take on research projects that sit at the intersection of real need and technical challenge. If your problem fits, reach out.
+            We take on problems that have both a real need and a hard technical constraint. If your problem has both, tell us about it.
           </p>
           <a
             href="mailto:contact@tangison.com"

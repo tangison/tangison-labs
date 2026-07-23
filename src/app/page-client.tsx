@@ -10,10 +10,10 @@ import { TypeWriter } from "@/components/tangison/type-writer";
 /* ─── Focus Area Data ──────────────────────────────────────────── */
 
 const focusAreas = [
-  { title: "Applied AI", desc: "Practical AI systems for automation, language, and decision-making." },
-  { title: "Open Source", desc: "Public repositories and tooling for the developer community." },
-  { title: "Experiments", desc: "Rapid prototypes that test assumptions before they become products." },
-  { title: "Publications", desc: "Technical writing and shared learnings from our engineering work." },
+  { title: "Applied AI", desc: "AI systems built for real tasks: classification, routing, text processing. Not research papers that never run." },
+  { title: "Open Source", desc: "Public repositories. Every tool we build for our own workflow gets published." },
+  { title: "Experiments", desc: "Short-lived prototypes that test one assumption at a time. Ship, iterate, or kill." },
+  { title: "Publications", desc: "Technical writing about what we built, what broke, and what the data showed." },
 ];
 
 /* ─── Reduced motion subscription ─── */
@@ -179,9 +179,8 @@ export function HomePage() {
             {/* Support text */}
             <div ref={supportRef} style={prefersReducedMotion ? {} : { opacity: 0, transform: "translateY(10px)" }}>
               <p className="font-cabinet text-base md:text-lg text-t-fg-inverse/70 leading-relaxed max-w-[55ch] mb-8">
-                Tangison Labs is the research and development division of Tangison.
-                Open-source projects, applied AI research, and experimental tools
-                from Windhoek, Namibia.
+                The R&D division of Tangison. We write code, not press releases.
+                Open-source tools, applied AI, and prototypes from Windhoek, Namibia.
               </p>
             </div>
 
@@ -278,7 +277,7 @@ export function HomePage() {
                 <span className="absolute -bottom-1 left-0 h-[2px] bg-t-accent/40 w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
               </h3>
               <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
-                Creative and infrastructure services. Design, build, and ship digital products.
+                Design, development, and hosting. The team that builds and runs every Tangison property.
               </p>
               <ArrowUpRight className="w-3.5 h-3.5 text-t-accent mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
@@ -298,7 +297,7 @@ export function HomePage() {
                 <span className="absolute -bottom-1 left-0 h-[2px] bg-t-teal/40 w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
               </h3>
               <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
-                AI agent products. Intelligent automation tools that learn, adapt, and execute workflows.
+                AI agent products. Task-specific automation that routes work to the right model and runs it.
               </p>
               <ArrowUpRight className="w-3.5 h-3.5 text-t-teal mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
@@ -317,7 +316,7 @@ export function HomePage() {
                 Labs
               </h3>
               <p className="font-cabinet text-sm text-t-fg-muted leading-relaxed">
-                Research and development. This is where the thinking happens before the building starts.
+                Research and development. The division that tests ideas against real constraints before they become products.
               </p>
             </div>
           </div>
@@ -334,7 +333,7 @@ export function HomePage() {
                 Current research
               </h2>
               <p className="font-cabinet text-sm text-t-fg-subtle leading-relaxed max-w-[40ch]">
-                Every project starts with a real problem and ends with working code.
+                We start with a concrete problem. We end with working code. Nothing in between is decoration.
               </p>
             </div>
 
@@ -356,7 +355,7 @@ export function HomePage() {
                 {
                   num: "03",
                   title: "Local-First AI",
-                  desc: "On-device inference patterns that reduce cloud dependency while maintaining capability. Quantisation, caching, fallback.",
+                  desc: "On-device inference patterns that cut cloud calls. Quantisation, caching, fallback to server only when local resources run out.",
                   status: "Exploring",
                 },
               ].map((item) => (
@@ -471,11 +470,10 @@ export function HomePage() {
       <section className="py-28 md:py-36 px-6 md:px-12 lg:px-20 bg-t-accent">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="font-satoshi font-bold text-[clamp(1.8rem,4vw,3rem)] tracking-[-0.02em] text-t-bg mb-6 max-w-[50ch]">
-            Research meets production
+            From prototype to product
           </h2>
           <p className="font-cabinet text-base md:text-lg text-t-bg/70 leading-relaxed max-w-[55ch] mb-10">
-            Every experiment in Labs is a candidate for the next Tangison product.
-            Follow the work, or bring a problem and let us solve it together.
+            Experiments that pass validation become Tangison products. The ones that fail teach us what to avoid next time. Both are useful.
           </p>
           <div className="flex flex-wrap gap-4">
             <a

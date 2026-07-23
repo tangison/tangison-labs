@@ -39,7 +39,7 @@ export function ReportsPage() {
             Research reports
           </h1>
           <p className="font-cabinet text-base md:text-lg text-t-fg-muted leading-relaxed max-w-[65ch]">
-            Periodic research summaries and analysis from our active investigations. Reports are published when a research line reaches a meaningful milestone.
+            Research summaries published when a project produces verifiable results. No fixed schedule. No filler. Reports appear when there is data worth reading.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />
@@ -58,7 +58,7 @@ export function ReportsPage() {
             </h2>
 
             <p className="font-cabinet text-base text-t-fg-muted leading-relaxed mb-8">
-              Our first research report will be published when the Agent Orchestration Protocol reaches its validation phase. We publish reports when a research line produces findings worth sharing, not on a fixed schedule. Sign up to be notified when the first report drops.
+              Our first research report will be published when the Agent Orchestration Protocol completes its validation phase. We publish reports when a line produces findings with data attached, not on a calendar. Leave your email to hear when the first one goes live.
             </p>
 
             {submitted ? (

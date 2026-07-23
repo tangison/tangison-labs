@@ -15,28 +15,28 @@ const publications = [
     year: "2026",
     title: "Why We Built Webman: Structured Site Creation at Scale",
     type: "Technical Note",
-    desc: "A detailed walkthrough of the Webman system design. How we define phases, enforce brand consistency, and ship auditable websites.",
+    desc: "A walkthrough of the Webman system design. How we define phases, what each phase produces, and why we audit before we deploy.",
     href: "/insights/articles",
   },
   {
     year: "2026",
     title: "Agent Orchestration: Decomposing Complex Tasks Across Specialised Models",
     type: "Research Note",
-    desc: "Our early findings on multi-agent coordination. Task decomposition, validation, and the trade-offs between autonomy and control.",
+    desc: "What we found coordinating multiple AI agents on real tasks. Handoff timing, validation frequency, and where giving agents more freedom actually slows things down.",
     href: "/insights/articles",
   },
   {
     year: "2026",
     title: "Local-First AI: Running Inference at the Edge Without Losing Capability",
     type: "Field Report",
-    desc: "Practical patterns for on-device model deployment. Quantisation results, latency benchmarks, and caching strategies.",
+    desc: "Patterns for running models on-device. Quantisation results, latency numbers from our test hardware, and caching strategies that reduce server calls.",
     href: "/insights/reports",
   },
   {
     year: "2026",
     title: "Zero Border-Radius: A Design Constraint That Shipped a Visual Identity",
     type: "Technical Note",
-    desc: "How one CSS rule became the defining visual characteristic of Tangison. Design reasoning and implementation details.",
+    desc: "How one CSS rule forced a consistent visual identity across four properties. The reasoning, the resistance, and the result.",
     href: "/insights/articles",
   },
   {
@@ -89,7 +89,7 @@ export function PublicationsPage() {
               custom={0.5}
               className="font-cabinet text-base text-t-fg-inverse/70 leading-relaxed max-w-[55ch]"
             >
-              Technical notes, research findings, and field reports. We write about what we build, what breaks, and what we discover.
+              Technical notes, research findings, and field reports. We write about what works, what fails, and what the numbers say.
             </motion.p>
           </motion.div>
         </div>
