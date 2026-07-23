@@ -183,9 +183,28 @@ html {
 
 /* ─── Keyframes ─── */
 
-@keyframes signal-travel {
-  0% { left: -2rem; }
-  100% { left: calc(100% + 2rem); }
+@keyframes line-expand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dash-draw {
+  to { stroke-dashoffset: 0; }
 }
 
 @keyframes breathe-glow {
@@ -205,33 +224,26 @@ html {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float-subtle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+@keyframes signal-travel {
+  0% { left: -2rem; }
+  100% { left: calc(100% + 2rem); }
 }
 
-@keyframes pulse-accent {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+/* ─── Typing cursor ─── */
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #C4562A;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 0.8s step-end infinite;
 }
 
-@keyframes line-expand {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes dash-draw {
-  to { stroke-dashoffset: 0; }
+.typing-cursor-done {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 /* Smooth image loading */
@@ -280,30 +292,6 @@ button, a {
   background: #C4562A;
 }
 
-/* ─── Visual Pattern Backgrounds ─── */
-
-/* Dot grid pattern */
-.pattern-dots {
-  background-image: radial-gradient(circle, #C4562A 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
-}
-
-/* Fine grid pattern */
-.pattern-grid {
-  background-image:
-    linear-gradient(rgba(196, 86, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 86, 42, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
-/* Cross pattern */
-.pattern-cross {
-  background-image:
-    linear-gradient(45deg, rgba(196, 86, 42, 0.03) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(196, 86, 42, 0.03) 25%, transparent 25%);
-  background-size: 20px 20px;
-}
-
 /* Accent gradient bar */
 .accent-bar {
   height: 3px;
@@ -335,82 +323,8 @@ button, a {
   border-width: 0 2px 2px 0;
 }
 
-/* Signal line animation */
+/* Signal line — used by loading state */
 .signal-line {
   position: relative;
   overflow: hidden;
-}
-.signal-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -2rem;
-  width: 2rem;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, #C4562A, transparent);
-  animation: signal-travel 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-/* Floating accent orbs */
-.accent-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  opacity: 0.15;
-}
-.accent-orb-rust {
-  background: #C4562A;
-}
-.accent-orb-teal {
-  background: #2CB5B4;
-}
-
-/* Content card with hover lift */
-.content-card {
-  background: #FFFFFF;
-  border: 1px solid #E0DDD8;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-.content-card:hover {
-  border-color: rgba(196, 86, 42, 0.3);
-  box-shadow: 0 8px 32px rgba(196, 86, 42, 0.08);
-  transform: translateY(-2px);
-}
-
-/* Tag chip style */
-.tag-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  border: 1px solid #E0DDD8;
-  color: #6B6860;
-  transition: all 0.3s ease;
-}
-.tag-chip:hover {
-  border-color: #C4562A;
-  color: #C4562A;
-}
-
-/* Accent underline animation */
-.accent-underline {
-  position: relative;
-  display: inline-block;
-}
-.accent-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #C4562A;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.accent-underline:hover::after {
-  width: 100%;
 }

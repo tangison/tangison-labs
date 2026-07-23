@@ -1,157 +1,208 @@
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 */
 "use client";
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/tangison/site-shell";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+/* ─── Animation Variants ──────────────────────────────────────── */
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -40 },
   visible: (delay: number = 0) => ({
     opacity: 1,
-    y: 0,
+    x: 0,
+    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+  }),
+};
+
+const staggerList = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const staggerItemSlide = {
+  hidden: { opacity: 0, x: -24 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: (delay: number = 0) => ({
+    opacity: 1,
     transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
+/* ─── Publication Data ────────────────────────────────────────── */
 
 const publications = [
   {
-    type: "Technical Note",
+    year: "2026",
     title: "Why We Built Webman: Structured Site Creation at Scale",
-    desc: "A detailed walkthrough of the Webman system design. How we define phases, enforce brand consistency, and ship auditable websites without sacrificing speed.",
-    date: "2026",
-    tags: ["Webman", "Workflow", "Design Systems"],
-  },
-  {
-    type: "Research Note",
-    title: "Agent Orchestration: Decomposing Complex Tasks Across Specialised Models",
-    desc: "Our early findings on multi-agent coordination. Task decomposition strategies, validation checkpoints, and the trade-offs between autonomy and control in agent systems.",
-    date: "2026",
-    tags: ["AI", "Agents", "Orchestration"],
-  },
-  {
-    type: "Field Report",
-    title: "Local-First AI: Running Inference at the Edge Without Losing Capability",
-    desc: "Practical patterns for on-device model deployment. Quantisation results, latency benchmarks, and the caching strategies that make local inference viable for production workloads.",
-    date: "2026",
-    tags: ["Edge AI", "Performance", "On-Device"],
-  },
-  {
     type: "Technical Note",
-    title: "Zero Border-Radius: A Design Constraint That Shipped a Visual Identity",
-    desc: "How one CSS rule became the defining visual characteristic of Tangison. The design reasoning, implementation details, and the brand consistency it enforces across all properties.",
-    date: "2026",
-    tags: ["Design", "CSS", "Brand"],
+    desc: "A detailed walkthrough of the Webman system design. How we define phases, enforce brand consistency, and ship auditable websites.",
+    href: "/insights/articles",
   },
   {
+    year: "2026",
+    title: "Agent Orchestration: Decomposing Complex Tasks Across Specialised Models",
     type: "Research Note",
+    desc: "Our early findings on multi-agent coordination. Task decomposition, validation, and the trade-offs between autonomy and control.",
+    href: "/insights/articles",
+  },
+  {
+    year: "2026",
+    title: "Local-First AI: Running Inference at the Edge Without Losing Capability",
+    type: "Field Report",
+    desc: "Practical patterns for on-device model deployment. Quantisation results, latency benchmarks, and caching strategies.",
+    href: "/insights/reports",
+  },
+  {
+    year: "2026",
+    title: "Zero Border-Radius: A Design Constraint That Shipped a Visual Identity",
+    type: "Technical Note",
+    desc: "How one CSS rule became the defining visual characteristic of Tangison. Design reasoning and implementation details.",
+    href: "/insights/articles",
+  },
+  {
+    year: "2026",
     title: "Four-Layer Noindex: Keeping Staging Sites Out of Search Engines",
-    desc: "The multiple enforcement layers we use to prevent pre-production content from appearing in search results. Meta tags, headers, robots.txt, and server-level controls working together.",
-    date: "2026",
-    tags: ["SEO", "Security", "DevOps"],
+    type: "Research Note",
+    desc: "The multiple enforcement layers we use to prevent pre-production content from appearing in search results.",
+    href: "/insights/articles",
   },
 ];
+
+const typeColors: Record<string, string> = {
+  "Technical Note": "text-[#C4562A] bg-[#C4562A]/10",
+  "Research Note": "text-[#2CB5B4] bg-[#2CB5B4]/10",
+  "Field Report": "text-[#D4896F] bg-[#D4896F]/10",
+};
+
+/* ─── Publications Page ───────────────────────────────────────── */
 
 export function PublicationsPage() {
   return (
     <SiteShell>
-      {/* Hero */}
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 px-6 md:px-12 lg:px-20 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="accent-orb accent-orb-rust w-[300px] h-[300px] top-20 right-10 opacity-[0.04]" />
-          <div className="absolute inset-0 pattern-grid opacity-30" />
-        </div>
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <motion.div initial="hidden" animate="visible">
-            <motion.div variants={fadeUp} custom={0} className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 bg-[#C4562A]" />
-              <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.3em]">Publications</span>
-              <div className="flex-1 h-[1px] bg-[#E0DDD8] max-w-[80px]" />
-            </motion.div>
-            <motion.h1 variants={fadeUp} custom={0.1} className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#1A1A1A] mb-6">
-              What we have <span className="text-[#C4562A]">learned</span>
+      {/* ─── Hero with desk-books-lamp-sunlight image ─── */}
+      <section className="relative h-[45vh] min-h-[300px] overflow-hidden">
+        <Image
+          src="/images/gallery/desk-books-lamp-sunlight.webp"
+          alt="Desk with books, lamp, and sunlight"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#1A1A1A]/50" />
+
+        <div className="absolute inset-0 flex items-end pb-12 md:pb-16 px-6 md:px-12 lg:px-20">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            className="max-w-[1200px] mx-auto w-full"
+          >
+            <motion.h1
+              variants={slideInLeft}
+              custom={0.3}
+              className="font-satoshi font-bold text-[clamp(2rem,4.5vw,3.5rem)] tracking-[-0.02em] text-[#F0EDE8] mb-3"
+            >
+              What we have learned
             </motion.h1>
-            <motion.p variants={fadeUp} custom={0.2} className="font-cabinet text-base md:text-lg text-[#6B6860] leading-relaxed max-w-[65ch]">
-              Technical notes, research findings, and field reports from our engineering work.
-              We write about what we build, what breaks, and what we discover along the way.
+            <motion.p
+              variants={slideInLeft}
+              custom={0.5}
+              className="font-cabinet text-base text-[#F0EDE8]/70 leading-relaxed max-w-[55ch]"
+            >
+              Technical notes, research findings, and field reports. We write about what we build, what breaks, and what we discover.
             </motion.p>
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0"><div className="accent-bar" /></div>
+
+        <div className="absolute bottom-0 left-0 right-0 accent-bar" />
       </section>
 
-      {/* Publications List */}
-      <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20">
+      {/* ─── Timeline-style layout ─── */}
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="space-y-5">
-            {publications.map((pub) => (
-              <motion.article key={pub.title} variants={staggerItem} className="content-card p-8 md:p-10 group cursor-pointer">
-                <div className="flex flex-col md:flex-row md:items-start gap-6">
-                  <div className="w-10 h-10 bg-[#C4562A]/8 flex items-center justify-center shrink-0 group-hover:bg-[#C4562A]/15 transition-colors duration-300">
-                    {pub.type === "Technical Note" ? (
-                      <FileText className="w-5 h-5 text-[#C4562A]" />
-                    ) : pub.type === "Research Note" ? (
-                      <BookOpen className="w-5 h-5 text-[#2CB5B4]" />
-                    ) : (
-                      <FileText className="w-5 h-5 text-[#D4896F]" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${
-                        pub.type === "Technical Note" ? "text-[#C4562A] bg-[#C4562A]/10" :
-                        pub.type === "Research Note" ? "text-[#2CB5B4] bg-[#2CB5B4]/10" :
-                        "text-[#D4896F] bg-[#D4896F]/10"
-                      }`}>
-                        {pub.type}
-                      </span>
-                      <span className="font-jetbrains text-[9px] text-[#7A756C] uppercase tracking-[0.15em]">{pub.date}</span>
-                    </div>
-                    <div className="font-satoshi font-medium text-lg text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">
-                      {pub.title}
-                    </div>
-                    <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed max-w-[65ch] mb-4">{pub.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {pub.tags.map((tag) => (
-                        <span key={tag} className="tag-chip">{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+          <motion.div
+            variants={staggerList}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="relative"
+          >
+            {/* Timeline line */}
+            <div className="absolute left-[calc(10px+0.15em*5+16px+8px)] md:left-[calc(9px*5+0.15em*5+4px+2px+16px)] top-0 bottom-0 w-[1px] bg-[#E0DDD8]" aria-hidden="true" />
+
+            {publications.map((pub, i) => (
+              <motion.article
+                key={pub.title}
+                variants={staggerItemSlide}
+                className="group relative pl-8 md:pl-12 py-10"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-0 md:left-4 top-10 w-3 h-3 bg-[#C4562A] -translate-x-1/2" aria-hidden="true" />
+
+                <div className="flex items-baseline gap-4 mb-2 flex-wrap">
+                  <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.15em]">
+                    {pub.year}
+                  </span>
+                  <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${typeColors[pub.type]}`}>
+                    {pub.type}
+                  </span>
                 </div>
+
+                <Link
+                  href={pub.href}
+                  className="font-satoshi font-medium text-lg text-[#1A1A1A] group-hover:text-[#C4562A] transition-colors duration-300 inline-block mb-2 relative"
+                >
+                  {pub.title}
+                  <span className="absolute -bottom-1 left-0 h-[2px] bg-[#C4562A] w-0 group-hover:w-full transition-width duration-500 ease-out" />
+                </Link>
+
+                <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed max-w-[65ch]">
+                  {pub.desc}
+                </p>
               </motion.article>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Sub-sections */}
+      {/* ─── Sub-section links ─── */}
       <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#F0EDE8]">
         <div className="max-w-[1200px] mx-auto">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}>
-            <motion.h2 variants={fadeUp} custom={0} className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-[#1A1A1A] mb-12">
-              More from the archive
-            </motion.h2>
-            <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <Link href="/insights/articles" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Articles</span>
-                <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">Technical Articles</h3>
-                <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">Long-form writing on engineering decisions, architecture, and lessons from production.</p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerList}
+            className="flex flex-col md:flex-row gap-8 md:gap-16"
+          >
+            <motion.div variants={staggerItemSlide}>
+              <Link
+                href="/insights/articles"
+                className="group inline-flex items-center gap-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A] hover:text-[#C4562A] transition-colors duration-300"
+              >
+                Technical Articles
+                <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
-              <Link href="/insights/reports" className="content-card p-8 group">
-                <span className="font-jetbrains text-[10px] text-[#7A756C] uppercase tracking-[0.2em] block mb-3">Reports</span>
-                <h3 className="font-satoshi font-medium text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C4562A] transition-colors duration-300">Research Reports</h3>
-                <p className="font-cabinet text-sm text-[#6B6860] leading-relaxed">Periodic research summaries and analysis from our active investigations.</p>
+            </motion.div>
+            <motion.div variants={staggerItemSlide}>
+              <Link
+                href="/insights/reports"
+                className="group inline-flex items-center gap-3 font-jetbrains text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A] hover:text-[#C4562A] transition-colors duration-300"
+              >
+                Research Reports
+                <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </motion.div>
           </motion.div>
