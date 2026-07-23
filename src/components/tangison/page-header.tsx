@@ -24,7 +24,7 @@ export function PageHeader({
 
   return (
     <section className="relative pt-36 md:pt-44 pb-20 md:pb-28 px-6 md:px-12 lg:px-20 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none pattern-grid opacity-30" />
+      <div className="absolute inset-0 pointer-events-none bg-[#F0EDE8]/30" />
       <div className="max-w-[1200px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
