@@ -208,6 +208,64 @@ export function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 accent-bar" />
       </section>
 
+      {/* ─── Tangison Sentry announcement ──────────────────────── */}
+      <section className="py-20 md:py-24 px-6 md:px-12 lg:px-20 bg-t-bg-elevated">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Left: the watchtower image */}
+            <div className="relative overflow-hidden">
+              <Image
+                src="/images/sentry.webp"
+                alt="A minimal signal watchtower with one teal light over a foggy desert horizon"
+                width={1200}
+                height={675}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
+
+            {/* Right: the announcement */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-jetbrains text-[10px] text-t-fg-subtle uppercase tracking-[0.2em]">
+                  Coming from the Labs
+                </span>
+                <span className="font-jetbrains text-[9px] uppercase tracking-[0.15em] text-t-teal bg-t-teal/10 px-2 py-0.5">
+                  In development
+                </span>
+              </div>
+              <h2 className="font-satoshi font-bold text-[clamp(1.5rem,3vw,2.5rem)] tracking-[-0.01em] text-t-fg mb-4">
+                Tangison Sentry
+              </h2>
+              <p className="font-cabinet text-base text-t-fg-muted leading-relaxed max-w-[55ch] mb-6">
+                Monitoring for the systems institutions run on. Sentry watches
+                uptime, performance, SSL certificates and content changes
+                across every site you operate, and tells you before your users
+                do, with alerts on WhatsApp first, because that is where
+                Namibian teams actually are. It started the way our products
+                do: as the internal tool that keeps our own properties honest.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-3 bg-t-accent text-t-bg px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-accent-hover transition-colors duration-300 group"
+                >
+                  Read about it
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </Link>
+                <a
+                  href="mailto:contact@tangison.com"
+                  className="inline-flex items-center gap-3 border border-t-fg/20 text-t-fg px-6 py-3.5 font-cabinet text-sm tracking-[0.02em] hover:bg-t-fg/5 transition-colors duration-300 group"
+                >
+                  Get in touch
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Focus Areas: Split layout (photo + list) — STATIC ─── */}
       <section className="py-24 md:py-28 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
@@ -358,6 +416,12 @@ export function HomePage() {
                   desc: "On-device inference patterns that cut cloud calls. Quantisation, caching, fallback to server only when local resources run out.",
                   status: "Exploring",
                 },
+                {
+                  num: "04",
+                  title: "Tangison Sentry",
+                  desc: "Monitoring for the systems institutions run on: uptime, performance, SSL and content checks, with alerts on WhatsApp first. Now in development as a product.",
+                  status: "In development",
+                },
               ].map((item) => (
                 <div key={item.num} className="group">
                   <div className="flex items-baseline gap-4 mb-2">
@@ -369,7 +433,7 @@ export function HomePage() {
                       <span className="absolute -bottom-1 left-0 h-[2px] bg-t-accent w-0 group-hover:w-full transition-[width] duration-500 ease-out" />
                     </h3>
                     <span className={`font-jetbrains text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 ${
-                      item.status === "Active" ? "text-t-teal bg-t-teal/10" : "text-t-rust-light bg-t-rust-light/10"
+                      item.status === "Active" || item.status === "In development" ? "text-t-teal bg-t-teal/10" : "text-t-rust-light bg-t-rust-light/10"
                     }`}>
                       {item.status}
                     </span>

@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-image.png",
-        width: 1344,
-        height: 768,
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Tangison Labs | Research and Development",
       },
     ],
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tangison Labs | Research and Development",
     description: "Open-source projects, applied AI research, and experimental tools.",
-    images: ["/images/og-image.png"],
+    images: ["/images/og-image.jpg"],
   },
   metadataBase: new URL("https://labs.tangison.com"),
 };

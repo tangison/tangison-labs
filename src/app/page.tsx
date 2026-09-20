@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  openGraph: {
-    url: "https://labs.tangison.com",
-  },
 };
 
 const organizationSchema = {

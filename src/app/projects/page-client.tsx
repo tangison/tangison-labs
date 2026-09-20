@@ -12,11 +12,17 @@ import { heroSlideDown } from "@/lib/animation-variants";
 
 const projects = [
   {
+    name: "Tangison Sentry",
+    desc: "Monitoring for the systems institutions run on: uptime, performance, SSL and content checks, with alerts on WhatsApp first. In development in the Labs.",
+    status: "In development" as const,
+  },
+  {
     name: "Webman",
     desc: "Skills-based website creation workflow. Plan, content, brand, create, audit, deploy.",
     status: "Active" as const,
     url: "https://github.com/tangison/webman",
-    hasSite: false,
+    hasSite: true,
+    siteUrl: "https://skills.tangison.com",
   },
   {
     name: "Tangison Labs",
@@ -62,6 +68,7 @@ const statusColors: Record<string, string> = {
   Active: "text-t-accent bg-t-accent/10",
   Research: "text-t-fg-muted bg-t-fg-muted/10",
   Exploring: "text-t-rust-light bg-t-rust-light/10",
+  "In development": "text-t-teal bg-t-teal/10",
 };
 
 /* ─── Projects Page ───────────────────────────────────────────── */
@@ -148,15 +155,17 @@ export function ProjectsPage() {
                       <Globe className="w-3.5 h-3.5 text-t-fg-muted" />
                     </a>
                   )}
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 border border-t-border flex items-center justify-center hover:border-t-accent/40 transition-colors duration-300"
-                    aria-label={`${project.name} on GitHub`}
-                  >
-                    <Github className="w-3.5 h-3.5 text-t-fg-muted" />
-                  </a>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 border border-t-border flex items-center justify-center hover:border-t-accent/40 transition-colors duration-300"
+                      aria-label={`${project.name} on GitHub`}
+                    >
+                      <Github className="w-3.5 h-3.5 text-t-fg-muted" />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -183,15 +192,17 @@ export function ProjectsPage() {
                       <Globe className="w-3 h-3 text-t-fg-muted" />
                     </a>
                   )}
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 border border-t-border flex items-center justify-center hover:border-t-accent/40 transition-colors duration-300"
-                    aria-label={`${project.name} on GitHub`}
-                  >
-                    <Github className="w-3 h-3 text-t-fg-muted" />
-                  </a>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 border border-t-border flex items-center justify-center hover:border-t-accent/40 transition-colors duration-300"
+                      aria-label={`${project.name} on GitHub`}
+                    >
+                      <Github className="w-3 h-3 text-t-fg-muted" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

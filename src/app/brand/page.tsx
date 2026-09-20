@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/brand",
   },
-  openGraph: {
-    url: "https://labs.tangison.com/brand",
-  },
 };
 
 import { BrandPage } from "./page-client";
